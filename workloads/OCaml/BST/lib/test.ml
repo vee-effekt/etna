@@ -10,7 +10,6 @@ let ( << ) f g x = f (g x)
 let qi = small_int
 let ci = int8
 
-
 let test_prop_InsertValid : tree property =
   {
     name = "test_prop_InsertValid";

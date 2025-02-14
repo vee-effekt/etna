@@ -7,6 +7,7 @@ import re
 import subprocess
 import ctypes
 import platform
+import random
 
 STRATEGIES_DIR = 'lib/Strategies'
 IMPL_PATH = 'lib/'
@@ -45,7 +46,8 @@ class OCaml(BenchTool):
         with self._change_dir(workload_path):
             for _ in range(params.trials):
                 # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
-                self._shell_command(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])
+                seed = random.randint(0, 1_000_000)
+                self._shell_command(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file, seed])
         reformat(params.file)
 
 
