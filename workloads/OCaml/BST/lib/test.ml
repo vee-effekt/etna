@@ -18,11 +18,17 @@ let test_prop_InsertValid : tree property =
     c =
       (fun g ->
         cbuild [ g; ci; ci ] (fun t k v -> prop_InsertValid (t, k, v) |> cmake));
-    b =
+    b = (fun m seed ->
+      bbuild
+        (Core_plus.triple m (module Nat) (module Nat))
+        (bmake << prop_InsertValid)                 
+        ~seed:(Some seed));
+    (*
       (fun m ->
         bbuild
           (Core_plus.triple m (module Nat) (module Nat))
           (bmake << prop_InsertValid));
+    *)
   }
 
 (*! QCheck test_prop_InsertValid. *)
@@ -34,8 +40,8 @@ let test_prop_DeleteValid : tree property =
     c =
       (fun g -> cbuild [ g; ci ] (fun t k -> prop_DeleteValid (t, k) |> cmake));
     b =
-      (fun m ->
-        bbuild (Core_plus.double m (module Nat)) (bmake << prop_DeleteValid));
+      (fun m seed ->
+        bbuild (Core_plus.double m (module Nat)) (bmake << prop_DeleteValid) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeleteValid. *)
@@ -46,7 +52,7 @@ let test_prop_UnionValid : tree property =
     q = (fun a -> qbuild (QCheck.pair a a) (qmake << prop_UnionValid));
     c =
       (fun g -> cbuild [ g; g ] (fun t t' -> prop_UnionValid (t, t') |> cmake));
-    b = (fun m -> bbuild (Core_plus.double m m) (bmake << prop_UnionValid));
+    b = (fun m seed -> bbuild (Core_plus.double m m) (bmake << prop_UnionValid) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_UnionValid. *)
@@ -60,13 +66,13 @@ let test_prop_InsertPost : tree property =
         cbuild [ g; ci; ci; ci ] (fun t k k' v ->
             prop_InsertPost (t, k, k', v) |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quad m
              (module Nat)
              (module Nat)
              (module Nat))
-          (bmake << prop_InsertPost));
+          (bmake << prop_InsertPost) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_InsertPost. *)
@@ -79,10 +85,11 @@ let test_prop_DeletePost : tree property =
       (fun g ->
         cbuild [ g; ci; ci ] (fun t i i' -> prop_DeletePost (t, i, i') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.triple m (module Nat) (module Nat))
-          (bmake << prop_DeletePost));
+          (bmake << prop_DeletePost)
+          ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeletePost. *)
@@ -95,8 +102,8 @@ let test_prop_UnionPost : tree property =
       (fun g ->
         cbuild [ g; g; ci ] (fun t t' i -> prop_UnionPost (t, t', i) |> cmake));
     b =
-      (fun m ->
-        bbuild (Core_plus.triple m m (module Nat)) (bmake << prop_UnionPost));
+      (fun m seed ->
+        bbuild (Core_plus.triple m m (module Nat)) (bmake << prop_UnionPost) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_UnionPost. *)
@@ -110,10 +117,10 @@ let test_prop_InsertModel : tree property =
         cbuild [ g; ci; ci ] (fun t i i' ->
             prop_InsertModel (t, i, i') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.triple m (module Nat) (module Nat))
-          (bmake << prop_InsertModel));
+          (bmake << prop_InsertModel) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_InsertModel. *)
@@ -125,8 +132,8 @@ let test_prop_DeleteModel : tree property =
     c =
       (fun g -> cbuild [ g; ci ] (fun t i -> prop_DeleteModel (t, i) |> cmake));
     b =
-      (fun m ->
-        bbuild (Core_plus.double m (module Nat)) (bmake << prop_DeleteModel));
+      (fun m seed ->
+        bbuild (Core_plus.double m (module Nat)) (bmake << prop_DeleteModel) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeleteModel. *)
@@ -137,7 +144,7 @@ let test_prop_UnionModel : tree property =
     q = (fun a -> qbuild (QCheck.pair a a) (qmake << prop_UnionModel));
     c =
       (fun g -> cbuild [ g; g ] (fun t t' -> prop_UnionModel (t, t') |> cmake));
-    b = (fun m -> bbuild (Core_plus.double m m) (bmake << prop_UnionModel));
+    b = (fun m seed -> bbuild (Core_plus.double m m) (bmake << prop_UnionModel) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_UnionModel. *)
@@ -156,14 +163,14 @@ let test_prop_InsertInsert : tree property =
         cbuild [ g; ci; ci; ci; ci ] (fun t k k' v v' ->
             prop_InsertInsert (t, k, k', v, v') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quinta m
              (module Nat)
              (module Nat)
              (module Nat)
              (module Nat))
-          (bmake << prop_InsertInsert));
+          (bmake << prop_InsertInsert) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_InsertInsert. *)
@@ -177,13 +184,13 @@ let test_prop_InsertDelete : tree property =
         cbuild [ g; ci; ci; ci ] (fun t k k' v ->
             prop_InsertDelete (t, k, k', v) |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quad m
              (module Nat)
              (module Nat)
              (module Nat))
-          (bmake << prop_InsertDelete));
+          (bmake << prop_InsertDelete) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_InsertDelete. *)
@@ -197,10 +204,10 @@ let test_prop_InsertUnion : tree property =
         cbuild [ g; g; ci; ci ] (fun t t' i i' ->
             prop_InsertUnion (t, t', i, i') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quad m m (module Nat) (module Nat))
-          (bmake << prop_InsertUnion));
+          (bmake << prop_InsertUnion) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_InsertUnion. *)
@@ -214,13 +221,13 @@ let test_prop_DeleteInsert : tree property =
         cbuild [ g; ci; ci; ci ] (fun t k k' v ->
             prop_DeleteInsert (t, k, k', v) |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quad m
              (module Nat)
              (module Nat)
              (module Nat))
-          (bmake << prop_DeleteInsert));
+          (bmake << prop_DeleteInsert) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeleteInsert. *)
@@ -234,10 +241,10 @@ let test_prop_DeleteDelete : tree property =
         cbuild [ g; ci; ci ] (fun t i i' ->
             prop_DeleteDelete (t, i, i') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.triple m (module Nat) (module Nat))
-          (bmake << prop_DeleteDelete));
+          (bmake << prop_DeleteDelete) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeleteDelete. *)
@@ -250,10 +257,10 @@ let test_prop_DeleteUnion : tree property =
       (fun g ->
         cbuild [ g; g; ci ] (fun t t' i -> prop_DeleteUnion (t, t', i) |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.triple m m (module Nat))
-          (bmake << prop_DeleteUnion));
+          (bmake << prop_DeleteUnion) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_DeleteUnion. *)
@@ -267,10 +274,10 @@ let test_prop_UnionDeleteInsert : tree property =
         cbuild [ g; g; ci; ci ] (fun t t' i i' ->
             prop_UnionDeleteInsert (t, t', i, i') |> cmake));
     b =
-      (fun m ->
+      (fun m seed ->
         bbuild
           (Core_plus.quad m m (module Nat) (module Nat))
-          (bmake << prop_UnionDeleteInsert));
+          (bmake << prop_UnionDeleteInsert) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_UnionDeleteInsert. *)
@@ -280,7 +287,7 @@ let test_prop_UnionUnionIdem : tree property =
     name = "test_prop_UnionUnionIdem";
     q = (fun a -> qbuild a (qmake << prop_UnionUnionIdem));
     c = (fun g -> cbuild [ g ] (cmake << prop_UnionUnionIdem));
-    b = (fun m -> bbuild m (bmake << prop_UnionUnionIdem));
+    b = (fun m seed -> bbuild m (bmake << prop_UnionUnionIdem) ~seed:(Some seed));
   }
 (*! QCheck test_prop_UnionUnionIdem. *)
 
@@ -293,7 +300,7 @@ let test_prop_UnionUnionAssoc : tree property =
         cbuild [ g; g; g ] (fun t t' t'' ->
             prop_UnionUnionAssoc (t, t', t'') |> cmake));
     b =
-      (fun m -> bbuild (Core_plus.triple m m m) (bmake << prop_UnionUnionAssoc));
+      (fun m seed -> bbuild (Core_plus.triple m m m) (bmake << prop_UnionUnionAssoc) ~seed:(Some seed));
   }
 
 (*! QCheck test_prop_UnionUnionAssoc. *)
