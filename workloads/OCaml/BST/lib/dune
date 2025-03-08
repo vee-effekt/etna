@@ -14,6 +14,6 @@
   baseBespoke
   nat
   display)
- (libraries qcheck crowbar util core)
+ (libraries qcheck base_quickcheck crowbar util core)
  (preprocess
   (pps ppx_jane)))

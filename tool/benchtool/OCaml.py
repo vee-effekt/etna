@@ -45,9 +45,9 @@ class OCaml(BenchTool):
                 os.rename(filename, new_filename)
         with self._change_dir(workload_path):
             for _ in range(params.trials):
-                # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
-                # seed = random.randint(0, 1_000_000)
                 seed = 0
+                print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file, str(seed)])}")
+                # seed = random.randint(0, 1_000_000)
                 self._shell_command(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file, str(seed)])
         reformat(params.file)
 
