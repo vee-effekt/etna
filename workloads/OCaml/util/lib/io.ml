@@ -4,7 +4,7 @@ open Crowbar
 open Parse
 
 (* global timeout in seconds for test threads *)
-let timeout = ref 1000
+let timeout = ref 20
 
 (* super simple running of the tests *)
 let qrun (p : 'a property) (g : 'a QCheck.arbitrary) (oc : out_channel) : unit =
@@ -88,7 +88,7 @@ let crowbar_fork framework test strat filename =
   let od = Unix.descr_of_out_channel oc in
   let cur = Sys.executable_name in
   Random.self_init ();
-  let seed = string_of_int (Random.bits ()) in
+  let seed = string_of_int (0) in
   match
     Unix.create_process_env cur
       [| cur; "--repeat=461168601842738"; "--seed=" ^ seed |]

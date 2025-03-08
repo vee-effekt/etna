@@ -6,16 +6,9 @@ from functools import partial
 # use this to adjust which plots are generated
 WORKLOADS = ['BST', 'RBT', 'STLC']
 STRATEGIES = [
-    'qcheckBespoke',
-    'qcheckType',
-    'crowbarBespoke',
-    'crowbarType',
-    'aflBespoke',
-    'aflType',
     'baseBespoke',
     'baseType',
 ]
-
 
 def analyze(json_dir: str, image_dir: str, strategies=STRATEGIES, workloads=WORKLOADS):
     df = parse_results(json_dir)

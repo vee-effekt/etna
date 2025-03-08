@@ -9,8 +9,10 @@ REPLACE = False
 
 WORKLOADS = ['BST']
 STRATEGIES : list[PBTGenerator] = [
+    # PBTGenerator('base', 'bespoke'),
+    PBTGenerator('base', 'type'),
     # PBTGenerator('qcheck', 'bespoke'),
-    PBTGenerator('qcheck', 'type'),
+    # PBTGenerator('qcheck', 'type'),
     # PBTGenerator('crowbar', 'bespoke'),
     # PBTGenerator('crowbar', 'type'),
     # PBTGenerator('afl', 'bespoke'),
@@ -19,7 +21,6 @@ STRATEGIES : list[PBTGenerator] = [
 
 TRIALS = 10
 TIMEOUT = 65
-
 
 def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
     tool = OCaml(directory, replace_level=ReplaceLevel.REPLACE if REPLACE else ReplaceLevel.SKIP)

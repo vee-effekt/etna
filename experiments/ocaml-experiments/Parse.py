@@ -5,43 +5,39 @@ import json
 DATA_PATH = './oc3/'
 OUTPUT_FILE = './experiments/ocaml-experiments/stlc.json'
 APPEND = False # if false, will override the contents in OUTPUT_FILE
-
 def parse(filename):
-    print(f"parsing {os.path.basename(filename)}")
+    print(f"Parsing {os.path.basename(filename)}")
+
     workload, strategy, mutant, prop = os.path.splitext(os.path.basename(filename))[0].split(',')
 
-    file = ""
     with open(filename) as f:
-        file = "".join(f.readlines())
+        file = f.read()
 
-    pattern_chunk = r'(?s)\[([.0-9]+) start\].*?\[([.0-9]+) exit (.*?)\]'
+    pattern_chunk = r'\[(\d+\.\d+) start \d+\]\s*\[(\d+\.\d+) exit (\d+|timeout|unexpectedly)\]'
     matches = re.findall(pattern_chunk, file)
-    data = []
+    print(f"Matches found in {filename}: {matches}")  # Debugging line
 
+    data = []
     for start, end, code in matches:
         s = float(end) - float(start)
-        passed = -1 # TODO: can we get this from crowbar?
-        discards = -1
-        # `code` can either be 1
-        #                      0
-        #                      "timeout"
-        #                      "unexpectedly"
         foundbug = code != "timeout"
-        if code == "unexpectedly": raise ValueError
+        if code == "unexpectedly":
+            raise ValueError(f"Unexpected failure in {filename}")
 
         run = {
             "workload": workload,
-            "discards": discards,
+            "discards": -1,
             "foundbug": foundbug,
             "strategy": strategy,
             "mutant": mutant,
-            "passed": passed,
+            "passed": -1,
             "property": prop,
-            "time": s, # NOTE: this time is in seconds.
+            "time": s,
         }
         data.append(run)
 
     return data
+
 
 def parse_dir(input_directory, output_file):
     fs = os.listdir(input_directory)
