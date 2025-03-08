@@ -12,8 +12,14 @@
   crowbarBespoke
   baseType
   baseBespoke
+  baseStagedType
   nat
   display)
- (libraries qcheck base_quickcheck crowbar util core)
+ (libraries qcheck base_quickcheck crowbar util core ppx_deriving stdio ppx_let ppxlib ppx_sexp_conv fast_gen ppx_staged)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane ppx_show ppx_staged)))
+
+(env
+ (dev
+  (flags
+   (:standard -g -w "-26-27-32-33-34-37-39"))))
