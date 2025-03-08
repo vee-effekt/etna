@@ -9,8 +9,7 @@ REPLACE = False
 
 WORKLOADS = ['BST']
 STRATEGIES : list[PBTGenerator] = [
-    # PBTGenerator('base', 'bespoke'),
-    PBTGenerator('base', 'type'),
+    PBTGenerator('base', 'bespoke'),
     # PBTGenerator('qcheck', 'bespoke'),
     # PBTGenerator('qcheck', 'type'),
     # PBTGenerator('crowbar', 'bespoke'),

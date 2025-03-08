@@ -4,7 +4,7 @@ from benchtool.Plot import *
 from functools import partial
 
 # use this to adjust which plots are generated
-WORKLOADS = ['BST', 'RBT', 'STLC']
+WORKLOADS = ['BST']
 STRATEGIES = [
     'baseBespoke',
     'baseType',
@@ -34,6 +34,7 @@ def analyze(json_dir: str, image_dir: str, strategies=STRATEGIES, workloads=WORK
     dfa = dfa.groupby('strategy').sum(numeric_only=True)
     dfa['percent'] = dfa['solved'] / dfa['total']
     print(dfa)
+
 
 
 if __name__ == "__main__":
