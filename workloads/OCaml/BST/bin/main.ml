@@ -10,6 +10,7 @@ open BST.CrowbarType
 open BST.CrowbarBespoke
 open BST.BaseType
 open BST.BaseBespoke
+open BST.BaseStagedType
 
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
@@ -51,6 +52,6 @@ let cstrategies : (string * tree gen) list =
   [ ("type", crowbar_type); ("bespoke", crowbar_bespoke) ]
 
 let bstrategies : (string * tree basegen) list =
-  [ ("type", (module BaseType)); ("bespoke", (module BaseBespoke)) ]
+  [ ("type", (module BaseType)); (* ("bespoke", (module BaseBespoke)) *) ("staged", (module BaseStagedType)) ]
 
 let () = main properties qstrategies cstrategies bstrategies

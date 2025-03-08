@@ -2,3 +2,8 @@
  (public_name BST)
  (name main)
  (libraries BST))
+
+(env
+ (dev
+  (flags
+   (:standard -g -w "-26-27-32-33-34-37-39"))))
