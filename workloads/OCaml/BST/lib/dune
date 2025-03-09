@@ -12,7 +12,7 @@
   crowbarBespoke
   baseType
   baseBespoke
-  baseStagedType
+  baseStagedtype
   nat
   display)
  (libraries qcheck base_quickcheck crowbar util core ppx_deriving stdio ppx_let ppxlib ppx_sexp_conv fast_gen ppx_staged)

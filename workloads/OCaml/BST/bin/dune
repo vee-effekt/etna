@@ -1,7 +1,9 @@
 (executable
  (public_name BST)
  (name main)
+ (flags (:standard -w -A))
  (libraries BST))
+
 
 (env
  (dev

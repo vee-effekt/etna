@@ -1,11 +1,12 @@
-type tree =
-| E
-| T of tree * Nat.Nat.t * Nat.Nat.t * tree
-[@@deriving sexp, quickcheck]
+open Core;;
 
+let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 100
+
+type tree =
+| E [@quickcheck.weight 1.]
+| T of tree * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * tree [@quickcheck.weight 2.] [@@deriving quickcheck, sexp]
 
 let fuel : int = 10000
-
 
 let rec insert (k: int) (v: int) (t: tree) =
   match t with
@@ -43,9 +44,11 @@ let rec delete (k: int) (t: tree) =
   | E -> E
   | T (l, k', v', r) ->
   (*! *)
+  (*
   if k < k' then T ((delete k l), k', v', r)
   else if k' < k then T (l, k', v', (delete k r))
   else join l r
+  *)
   (*!! delete_4 *)
   (*!
   let _ = ignore v' in
@@ -54,11 +57,10 @@ let rec delete (k: int) (t: tree) =
   else join l r
   *)
   (*!! delete_5 *)
-  (*!
   if k' < k then T ((delete k l), k', v', r)
   else if k < k' then T (l, k', v', (delete k r))
   else join l r
-  *)
+
 
 
 let rec below (k: int) (t: tree) =
@@ -93,14 +95,14 @@ let rec union_ (l: tree) (r: tree) (f: int) =
     (*!! union_7 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-      if k == k' then T (union_ l l' f', k, v, union_ r r' f')
+      if Base.(=) k k' then T (union_ l l' f', k, v, union_ r r' f')
       else if k < k' then T (l, k, v, T (union_ r l' f', k', v', r'))
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
     *)
     (*!! union_8 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-    if k == k'  then T (union_ l l' f', k, v, union_ r r' f')
+    if Base.(=) k k'  then T (union_ l l' f', k, v, union_ r r' f')
     else if k < k'   then T (union_ l (below k l') f', k, v,
                             union_ r (T (above k l', k', v', r')) f')
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
