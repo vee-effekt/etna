@@ -281,21 +281,39 @@ class BenchTool(ABC):
 
     def _log(self, msg: str, level: LogLevel):
         self._logger.log(level, msg)
-
+        
     def _shell_command(self, cmd: list[str]) -> None:
         """
         Helper for running a subprocess with `subprocess`.
+        Captures and reports command output, especially on errors.
         """
         try:
-            result = subprocess.call(
+            # Use subprocess.run with captured output
+            process = subprocess.run(
                 cmd,
-                stdout=sys.stdout
-                if self._log_level == LogLevel.DEBUG
-                else subprocess.DEVNULL,
-                stderr=sys.stderr
-                if self._log_level == LogLevel.DEBUG
-                else subprocess.DEVNULL,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                check=False  # Don't raise exception on non-zero exit code
             )
+            
+            # Debug logging always shows full output
+            if self._log_level == LogLevel.DEBUG:
+                if process.stdout:
+                    self._log(f"Command output: {process.stdout}", LogLevel.DEBUG)
+                if process.stderr:
+                    self._log(f"Command error output: {process.stderr}", LogLevel.DEBUG)
+            
+            # Always report errors regardless of log level
+            if process.returncode != 0:
+                error_msg = f"Command failed with exit code {process.returncode}"
+                if process.stderr:
+                    error_msg += f": {process.stderr}"
+                self._log(error_msg, LogLevel.ERROR)
+                return False
+            
+            return True
+            
         except Exception as e:
             self._log(f"Error running {cmd}: {e}", LogLevel.ERROR)
             sys.exit(1)

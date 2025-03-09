@@ -5,46 +5,57 @@ module G_SR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
 module BaseStagedType : Base_quickcheck.Test.S with type t = tree = struct
   type t = tree [@@deriving sexp, quickcheck]
 
-  let staged_quickcheck_generator =
-    G_SR.recursive (G_SR.C.lift ())
-      (fun go ->
-        fun _ ->
-          let _pair__004_ =
-            ((.< 1.  >.), (G_SR.return (.< E  >.)))
-          and _pair__005_ =
-            ((.< 1.  >.),
-              (G_SR.bind G_SR.size
-                  ~f:(fun _size__001_ ->
-                        G_SR.with_size
-                          ~size_c:(G_SR.C.pred _size__001_)
-                          (G_SR.bind
-                            (G_SR.recurse go (G_SR.C.lift ()))
-                            ~f:(fun _x__006_ ->
-                                  G_SR.bind G_SR.int
-                                    ~f:(fun _x__007_ ->
-                                          G_SR.bind G_SR.int
-                                            ~f:(fun _x__008_ ->
-                                                  G_SR.bind
-                                                    (G_SR.recurse
-                                                        go
-                                                        (G_SR.C.lift
-                                                          ()))
-                                                    ~f:(fun
-                                                          _x__009_
-                                                          ->
-                                                          G_SR.return
-                                                          (.<
-                                                          T
-                                                          ((.~_x__009_),
-                                                          (.~_x__008_),
-                                                          (.~_x__007_),
-                                                          (.~_x__006_)) 
-                                                          >.))))))))) in
-          let _gen__002_ = G_SR.weighted_union [_pair__004_]
-          and _gen__003_ =
-            G_SR.weighted_union [_pair__004_; _pair__005_] in
-          G_SR.bind G_SR.size
-            ~f:(fun x -> G_SR.if_z x _gen__002_ _gen__003_))
-
-  let quickcheck_generator = G_SR.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/BST/_build/default/lib/.BST.objs/byte"] staged_quickcheck_generator
+  let quickcheck_generator =
+      Base_quickcheck.Generator.create
+        (fun ~size:size_28 ->
+          fun ~random:random_29 ->
+            let t_30 = Obj.magic 0 in
+            let t_54 =
+              let rec go_31 x_32 ~size:size_33  ~random:random_34  =
+                if size_33 = 0
+                then
+                  let t_48 = 0. +. 1. in
+                  let t_49 = Base.Float.one_ulp `Up 0. in
+                  let t_50 = Base.Float.one_ulp `Down t_48 in
+                  let t_51 = Splittable_random.float random_34 ~lo:t_49 ~hi:t_50 in
+                  let t_52 = (Stdlib.Float.compare t_51 1.) <= 0 in
+                  (if t_52
+                    then E
+                    else
+                      (let t_53 = t_51 -. 1. in
+                      Stdlib.failwith "Fell of the end of pick list"))
+                else
+                  (let t_35 = 0. +. 1. in
+                    let t_36 = t_35 +. 2. in
+                    let t_37 = Base.Float.one_ulp `Up 0. in
+                    let t_38 = Base.Float.one_ulp `Down t_36 in
+                    let t_39 = Splittable_random.float random_34 ~lo:t_37 ~hi:t_38 in
+                    let t_40 = (Stdlib.Float.compare t_39 1.) <= 0 in
+                    if t_40
+                    then E
+                    else
+                      (let t_41 = t_39 -. 1. in
+                      let t_42 = (Stdlib.Float.compare t_41 2.) <= 0 in
+                      if t_42
+                      then
+                        let t_44 =
+                          go_31 (Obj.magic 0) ~size:(size_33 - 1)
+                            ~random:random_34 in
+                        let t_45 =
+                          Splittable_random.int random_34
+                            ~lo:(Obj.magic (-4611686018427387904))
+                            ~hi:(Obj.magic 4611686018427387903) in
+                        let t_46 =
+                          Splittable_random.int random_34
+                            ~lo:(Obj.magic (-4611686018427387904))
+                            ~hi:(Obj.magic 4611686018427387903) in
+                        let t_47 =
+                          go_31 (Obj.magic 0) ~size:(size_33 - 1)
+                            ~random:random_34 in
+                        T (t_47, t_46, t_45, t_44)
+                      else
+                        (let t_43 = t_41 -. 2. in
+                          Stdlib.failwith "Fell of the end of pick list"))) in
+              go_31 t_30 ~size:size_28 ~random:random_29 in
+            t_54)
 end
