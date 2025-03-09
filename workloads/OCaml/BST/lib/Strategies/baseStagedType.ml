@@ -43,12 +43,12 @@ module BaseStagedType : Base_quickcheck.Test.S with type t = tree = struct
                             ~random:random_34 in
                         let t_45 =
                           Splittable_random.int random_34
-                            ~lo:(Obj.magic (-4611686018427387904))
-                            ~hi:(Obj.magic 4611686018427387903) in
+                            ~lo:(Obj.magic (0))
+                            ~hi:(Obj.magic 128) in
                         let t_46 =
                           Splittable_random.int random_34
-                            ~lo:(Obj.magic (-4611686018427387904))
-                            ~hi:(Obj.magic 4611686018427387903) in
+                            ~lo:(Obj.magic (0))
+                            ~hi:(Obj.magic 128) in
                         let t_47 =
                           go_31 (Obj.magic 0) ~size:(size_33 - 1)
                             ~random:random_34 in
