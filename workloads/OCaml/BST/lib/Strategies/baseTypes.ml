@@ -1,6 +1,5 @@
 open Stdio
 open Fast_gen;;
-open Ppx_staged_expander;;
 open Impl;;
 open Sexplib;;
 open Sexplib0.Sexp_conv;;

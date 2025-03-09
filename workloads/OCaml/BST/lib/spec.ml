@@ -131,8 +131,8 @@ let ( =|= ) = treeEq
 let prop_InsertInsert : tree * key * key * value * value -> test =
  fun (t, k, k', v, v') ->
   isBST t
-  ->> (insert k v (insert k' v' t)
-      =|= if k = k' then insert k v t else insert k' v' (insert k v t))
+  ->> ((insert2 k v (insert2 k' v' t 1) 1)
+      =|= if k = k' then (insert2 k v t 1) else (insert2 k' v' (insert2 k v t 1)) 1)
 
 let prop_InsertDelete : tree * key * key * value -> test =
  fun (t, k, k', v) ->

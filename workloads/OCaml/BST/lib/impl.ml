@@ -9,29 +9,29 @@ type tree =
 let fuel : int = 10000
 
 
-let rec insert (k: int) (v: int) (t: tree) =
+let rec insert2 (k: int) (v: int) (t: tree) (b: int) =
   match t with
   | E -> T (E, k, v, E)
   | T (l, k', v', r) ->
-    (*! *)
-      if k < k' then T ((insert k v l), k', v', r)
-      else if k' < k then T (l, k', v', (insert k v r))
+    match b with
+    | 0 -> if k < k' then T ((insert2 k v l b), k', v', r)
+      else if k' < k then T (l, k', v', (insert2 k v r b))
       else T (l, k', v, r)
-    (*!! insert_1 *)
-      (*!
-      let _ = ignore (l, k', v', r, insert) in T (E, k, v, E)
-      *)
-    (*!! insert_2 *)
-      (*!
-      if k < k' then T ((insert k v l), k', v', r)
+    (*!! insert2_1 *)
+    | 1 ->
+      let _ = ignore (l, k', v', r, insert2) in T (E, k, v, E)
+    (*!! insert2_2 *)
+    | 2 -> 
+      if k < k' then T ((insert2 k v l b), k', v', r)
       else T (l, k', v, r)
-      *)
-    (*!! insert_3 *)
-      (*!
-      if k < k' then T ((insert k v l), k', v', r)
-      else if k' < k then T (l, k', v', (insert k v r))
+    (*!! insert2_3 *)
+    | _ ->
+      if k < k' then T ((insert2 k v l b), k', v', r)
+      else if k' < k then T (l, k', v', (insert2 k v r b))
       else T (l, k', v', r)
-      *)
+
+let insert (k: int) (v: int) (t: tree) =
+  insert2 k v t 0
 
 let rec join (l: tree) (r: tree) =
   match l, r with
