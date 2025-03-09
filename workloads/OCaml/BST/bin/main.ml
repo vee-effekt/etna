@@ -11,6 +11,11 @@ open BST.CrowbarBespoke
 open BST.BaseType
 open BST.BaseBespoke
 open BST.BaseStagedType
+open Sexplib0.Sexp_conv;;
+open Sexplib;;
+open Stdio
+open Fast_gen;;
+open Ppx_staged;;
 
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
@@ -22,7 +27,7 @@ open BST.BaseStagedType
   dune exec BST -- base prop_InsertInsert bespoke out
   dune exec BST -- base prop_InsertInsert type out
   *)
-
+(*
 let properties : (string * tree property) list =
   [
     ("prop_InsertValid", test_prop_InsertValid);
@@ -55,3 +60,19 @@ let bstrategies : (string * tree basegen) list =
   [ ("type", (module BaseType)); ("bespoke", (module BaseBespoke)); ("stagedType", (module BaseStagedType)) ]
 
 let () = main properties qstrategies cstrategies bstrategies
+*)
+
+let () =
+  let random_a = Splittable_random.State.of_int 0 in
+  let random_b = Splittable_random.State.of_int 0 in
+  let size = 10 in
+  for _ = 1 to 3 do
+    printf "\n";
+    printf "\n";
+    let quickc_values = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
+    let staged_values = Base_quickcheck.Generator.generate BaseStagedType.quickcheck_generator ~size ~random:random_b in
+    printf "========== quickcheck_generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseStagedType.sexp_of_t quickc_values));
+    printf "========= Staged generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType.sexp_of_t staged_values))
+  done

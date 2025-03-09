@@ -1,11 +1,13 @@
+
+open Core;;
+
+let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 128
+
 type tree =
 | E
-| T of tree * Nat.Nat.t * Nat.Nat.t * tree
-[@@deriving sexp, quickcheck]
-
+| T of tree * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * tree [@@deriving quickcheck, sexp]
 
 let fuel : int = 10000
-
 
 let rec insert (k: int) (v: int) (t: tree) =
   match t with
