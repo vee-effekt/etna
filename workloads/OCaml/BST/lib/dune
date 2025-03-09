@@ -11,9 +11,10 @@
   crowbarType
   crowbarBespoke
   baseType
+  baseStagedType
   baseBespoke
   nat
   display)
- (libraries qcheck crowbar util core)
+ (libraries qcheck crowbar fast_gen util core)
  (preprocess
   (pps ppx_jane)))
