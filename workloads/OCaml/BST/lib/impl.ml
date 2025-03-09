@@ -1,8 +1,10 @@
-type tree =
-| E
-| T of tree * Nat.Nat.t * Nat.Nat.t * tree
-[@@deriving sexp, quickcheck]
+open Core;;
 
+let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 100
+
+type tree =
+| E [@quickcheck.weight 1.]
+| T of tree * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * tree [@quickcheck.weight 2.] [@@deriving quickcheck, sexp]
 
 let fuel : int = 10000
 
@@ -12,9 +14,11 @@ let rec insert (k: int) (v: int) (t: tree) =
   | E -> T (E, k, v, E)
   | T (l, k', v', r) ->
     (*! *)
+    (*
       if k < k' then T ((insert k v l), k', v', r)
       else if k' < k then T (l, k', v', (insert k v r))
       else T (l, k', v, r)
+    *)
     (*!! insert_1 *)
       (*!
       let _ = ignore (l, k', v', r, insert) in T (E, k, v, E)
@@ -25,11 +29,10 @@ let rec insert (k: int) (v: int) (t: tree) =
       else T (l, k', v, r)
       *)
     (*!! insert_3 *)
-      (*!
       if k < k' then T ((insert k v l), k', v', r)
       else if k' < k then T (l, k', v', (insert k v r))
       else T (l, k', v', r)
-      *)
+
 
 let rec join (l: tree) (r: tree) =
   match l, r with
