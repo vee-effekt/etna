@@ -21,7 +21,7 @@ open BST.BaseTypes
   dune exec BST -- afl prop_InsertInsert type out
   dune exec BST -- base prop_InsertInsert bespoke out
   dune exec BST -- base prop_InsertInsert type out
-  *)
+*)
 
 let properties : (string * tree property) list =
   [

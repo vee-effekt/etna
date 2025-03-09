@@ -14,11 +14,9 @@ let rec insert (k: int) (v: int) (t: tree) =
   | E -> T (E, k, v, E)
   | T (l, k', v', r) ->
     (*! *)
-    (*
       if k < k' then T ((insert k v l), k', v', r)
       else if k' < k then T (l, k', v', (insert k v r))
       else T (l, k', v, r)
-    *)
     (*!! insert_1 *)
       (*!
       let _ = ignore (l, k', v', r, insert) in T (E, k, v, E)
@@ -29,10 +27,11 @@ let rec insert (k: int) (v: int) (t: tree) =
       else T (l, k', v, r)
       *)
     (*!! insert_3 *)
+      (*!
       if k < k' then T ((insert k v l), k', v', r)
       else if k' < k then T (l, k', v', (insert k v r))
       else T (l, k', v', r)
-
+      *)
 
 let rec join (l: tree) (r: tree) =
   match l, r with
