@@ -1,10 +1,10 @@
 open Impl
 
-let blacken_correct (t : ('a, 'b) tree) : ('a, 'b) tree =
+let blacken_correct (t : rbt) : rbt =
   match t with E -> E | T (_, a, k, v, b) -> T (B, a, k, v, b)
 
-let balance_correct (col : color) (tl : ('a, 'b) tree) (k : 'a) (v : 'b)
-    (tr : ('a, 'b) tree) : ('a, 'b) tree =
+let balance_correct (col : color) (tl : rbt) (k : 'a) (v : 'b)
+    (tr : rbt) : rbt =
   match (col, tl, k, v, tr) with
   | B, T (R, T (R, a, x, vx, b), y, vy, c), z, vz, d ->
       T (R, T (B, a, x, vx, b), y, vy, T (B, c, z, vz, d))
@@ -16,7 +16,7 @@ let balance_correct (col : color) (tl : ('a, 'b) tree) (k : 'a) (v : 'b)
       T (R, T (B, a, x, vx, b), y, vy, T (B, c, z, vz, d))
   | rb, a, x, vx, b -> T (rb, a, x, vx, b)
 
-let insert_correct s (k, vk) : ('a, 'b) tree =
+let insert_correct s (k, vk) : rbt =
   let rec ins x vx t =
     match t with
     | E -> T (R, E, x, vx, E)

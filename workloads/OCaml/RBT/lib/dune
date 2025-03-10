@@ -6,14 +6,16 @@
   impl
   spec
   test
-  qcheckType
-  qcheckBespoke
-  crowbarType
-  crowbarBespoke
   baseType
+  baseTypCsr
   baseBespoke
   nat
   display)
- (libraries qcheck crowbar util core)
+ (libraries qcheck crowbar util core fast_gen)
  (preprocess
   (pps ppx_jane)))
+
+(env
+ (dev
+  (flags
+   (:standard -g -w "-26-27-32-33-34-37-39"))))

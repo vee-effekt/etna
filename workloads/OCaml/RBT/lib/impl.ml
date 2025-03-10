@@ -1,4 +1,7 @@
 open Option
+open Core;;
+
+let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 1000
 
 let ( >>= ) = bind
 let ( <$> ) f x = match x with None -> None | Some v -> Some (f v)
@@ -6,12 +9,11 @@ let return x = Some x
 
 type color = R | B [@@deriving sexp, quickcheck]
 
-type ('a, 'b) tree = E | T of color * ('a, 'b) tree * 'a * 'b * ('a, 'b) tree
+type rbt = E | T of color * rbt * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * rbt
 [@@deriving sexp, quickcheck]
 
 type key = int
 type value = int
-type rbt = (Nat.Nat.t, Nat.Nat.t) tree [@@deriving sexp, quickcheck]
 
 let t c l k v r = T (c, l, k, v, r)
 
