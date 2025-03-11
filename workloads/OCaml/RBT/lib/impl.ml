@@ -1,18 +1,11 @@
 open Option
 open Core;;
 open Ppx_staged;;
+open Type;;
 
 let ( >>= ) = bind
 let ( <$> ) f x = match x with None -> None | Some v -> Some (f v)
 let return x = Some x
-
-let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
-  bind int ~f:(fun i -> return (i % 1000))
-
-type color = R | B [@@deriving sexp, quickcheck]
-
-type rbt = E | T of color * rbt * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * rbt
-[@@deriving sexp, quickcheck]
 
 type key = int
 type value = int

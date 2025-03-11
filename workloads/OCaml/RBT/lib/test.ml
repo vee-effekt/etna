@@ -1,10 +1,10 @@
-open Impl
 open Spec
 open Util
 open Runner
 open QCheck
 open Crowbar
 open Nat
+open Type;;
 
 let ( << ) f g x = f (g x)
 let qi = small_int

@@ -1,4 +1,4 @@
-open Impl
+open Type
 
 let blacken_correct (t : rbt) : rbt =
   match t with E -> E | T (_, a, k, v, b) -> T (B, a, k, v, b)

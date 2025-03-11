@@ -1,1 +1,1 @@
-module BaseTypCsr : Base_quickcheck.Test.S with type t = Impl.rbt
+module BaseTypCsr : Base_quickcheck.Test.S with type t = Type.rbt

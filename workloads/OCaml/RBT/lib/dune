@@ -6,10 +6,10 @@
   impl
   spec
   test
+  type
   baseType
   baseTypCsr
   baseBespoke
-  baseSingleBespoke
   nat
   display)
  (libraries qcheck crowbar util core fast_gen ppx_staged)

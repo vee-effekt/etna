@@ -1,4 +1,4 @@
-open Impl;;
+open Type;;
 open Fast_gen;;
 open Core;;
 

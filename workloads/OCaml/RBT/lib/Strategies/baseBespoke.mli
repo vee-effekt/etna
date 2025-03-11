@@ -1,1 +1,1 @@
-module BaseBespoke : Base_quickcheck.Test.S with type t = Impl.rbt
+module BaseBespoke : Base_quickcheck.Test.S with type t = Type.rbt

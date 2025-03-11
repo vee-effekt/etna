@@ -1,4 +1,4 @@
-open Impl
+open Type
 
 let format_color fmt c =
   match c with R -> Format.fprintf fmt "R" | B -> Format.fprintf fmt "B"

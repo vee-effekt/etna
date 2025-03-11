@@ -1,25 +1,14 @@
-open QCheck
-open Crowbar
 open Util.Runner
 open Util.Io
+open RBT.Type
 open RBT.Test
 open RBT.BaseType
 open RBT.BaseBespoke
 open RBT.BaseTypCsr
-open Ppx_staged;;
-open Core;;
-open Sexplib0.Sexp_conv;;
-open Sexplib;;
-open Ppx_staged;;
-open RBT.Impl;;
-open RBT.BaseSingleBespoke;;
 open Core
-open Base_quickcheck
-open Fast_gen
-open Fast_gen.Bq_generator
 open RBT.Spec
-module BQ = Fast_gen.Bq_generator
 
+(*
 let test_isBST () =
   Quickcheck.test
     ~sexp_of:BaseSingleBespoke.sexp_of_t
@@ -38,7 +27,7 @@ let () =
   print_endline "Running RBT property test...";
   test_isBST ();
   print_endline "✅ All generated trees satisfy the RBT property!"
-
+*)
 (* RUNNER COMMAND:
    dune exec RBT -- qcheck prop_DeleteValid bespoke out.txt
    dune exec RBT -- qcheck prop_DeleteValid type out.txt
@@ -48,7 +37,7 @@ let () =
    dune exec RBT -- afl prop_DeleteValid type out.txt
    dune exec RBT -- base prop_DeleteValid type out
 *)
-(*
+
 let properties : (string * rbt property) list =
   [
     ("prop_InsertValid", test_prop_InsertValid);
@@ -63,14 +52,7 @@ let properties : (string * rbt property) list =
     ("prop_DeleteDelete", test_prop_DeleteDelete);
   ]
 
-let qstrategies : (string * rbt arbitrary) list =
-  []
-
-let cstrategies : (string * rbt gen) list =
-  []
-
 let bstrategies : (string * rbt basegen) list =
   [ ("type", (module BaseType)); ("bespoke", (module BaseBespoke)); ("typCsr", (module BaseTypCsr)) ]
 
-let () = main properties qstrategies cstrategies bstrategies
-*)
+let () = main properties [] [] bstrategies
