@@ -64,7 +64,7 @@ let rec verify_rb_tree ?(min_key = Int.min_value) ?(max_key = Int.max_value) tre
     Quickcheck.test
       ~sexp_of:[%sexp_of: BaseSingleBespoke.t]  (* Use the `sexp_of` function derived for `rbt` *)
       ~shrinker:BaseSingleBespoke.quickcheck_shrinker (* No shrinking for now *)
-      ~trials:1000  (* Number of tests *)
+      ~trials:10000  (* Number of tests *)
       BaseSingleBespoke.quickcheck_generator  (* Use our RBT generator *)
       ~f:(fun tree ->
         try
