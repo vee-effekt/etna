@@ -26,14 +26,18 @@ let test_isBST () =
     ~shrinker:BaseSingleBespoke.quickcheck_shrinker
     BaseSingleBespoke.quickcheck_generator
     ~f:(fun tree ->
+      (* Print the generated tree *)
+      Printf.printf "Generated tree:\n%s\n\n" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t tree));
+      
+      (* Check if it satisfies the RBT property *)
       if not (isRBT tree) then
-        failwith (Printf.sprintf "RBT property violated! %s" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t tree))))
+        failwith (Printf.sprintf "❌ RBT property violated!\n%s" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t tree))))
   
 (* Run the test harness *)
 let () =
   print_endline "Running RBT property test...";
   test_isBST ();
-  print_endline "All generated trees satisfy the RBT property! ✅"
+  print_endline "✅ All generated trees satisfy the RBT property!"
 
 (* RUNNER COMMAND:
    dune exec RBT -- qcheck prop_DeleteValid bespoke out.txt

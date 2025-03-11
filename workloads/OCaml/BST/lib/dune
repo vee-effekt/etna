@@ -6,18 +6,16 @@
   impl
   spec
   test
-  qcheckType
-  qcheckBespoke
-  crowbarType
-  crowbarBespoke
   baseType
-  baseStagedType
+  baseTypCsr
+  baseTypGsr
   baseBespoke
+  baseSingleBespoke
   nat
   display)
- (libraries qcheck crowbar fast_gen util core)
+ (libraries qcheck crowbar fast_gen util core ppx_staged)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane ppx_staged)))
 
 (env
  (dev

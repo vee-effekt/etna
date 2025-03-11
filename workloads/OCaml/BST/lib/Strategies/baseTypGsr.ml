@@ -2,7 +2,7 @@ open Impl;;
 
 module G_SR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
 
-module BaseStagedType : Base_quickcheck.Test.S with type t = tree = struct
+module BaseTypGsr : Base_quickcheck.Test.S with type t = tree = struct
   type t = tree [@@deriving sexp, quickcheck]
   let quickcheck_generator =
     Base_quickcheck.Generator.create
@@ -42,10 +42,10 @@ module BaseStagedType : Base_quickcheck.Test.S with type t = tree = struct
                            ~random:random_34 in
                        let t_45 =
                          Splittable_random.int random_34 ~lo:(Obj.magic 0)
-                           ~hi:(Obj.magic 128) in
+                           ~hi:(Obj.magic 1000) in
                        let t_46 =
                          Splittable_random.int random_34 ~lo:(Obj.magic 0)
-                           ~hi:(Obj.magic 128) in
+                           ~hi:(Obj.magic 1000) in
                        let t_47 =
                          go_31 (Obj.magic 0) ~size:(size_33 - 1)
                            ~random:random_34 in

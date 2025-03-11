@@ -1,7 +1,11 @@
 
 open Core;;
+open Ppx_staged;;
 
-let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 128
+module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
+
+let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
+  bind int ~f:(fun i -> return (i % 1000))
 
 type tree =
 | E
@@ -95,14 +99,14 @@ let rec union_ (l: tree) (r: tree) (f: int) =
     (*!! union_7 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-      if k == k' then T (union_ l l' f', k, v, union_ r r' f')
+      if Base.(=) k k' then T (union_ l l' f', k, v, union_ r r' f')
       else if k < k' then T (l, k, v, T (union_ r l' f', k', v', r'))
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
     *)
     (*!! union_8 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-    if k == k'  then T (union_ l l' f', k, v, union_ r r' f')
+    if Base.(=) k k'  then T (union_ l l' f', k, v, union_ r r' f')
     else if k < k'   then T (union_ l (below k l') f', k, v,
                             union_ r (T (above k l', k', v', r')) f')
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
