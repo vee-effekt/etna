@@ -17,67 +17,23 @@ open Core
 open Base_quickcheck
 open Fast_gen
 open Fast_gen.Bq_generator
-
+open RBT.Spec
 module BQ = Fast_gen.Bq_generator
-let rec verify_rb_tree ?(min_key = Int.min_value) ?(max_key = Int.max_value) tree =
-  let rec black_height = function
-    | E -> 0
-    | T (color, left, key, _, right) ->
-        (* Ensure BST property *)
-        if key <= min_key || key >= max_key then
-          failwith "BST property violated";
 
-        let left_bh = black_height left in
-        let right_bh = black_height right in
-        
-        if left_bh <> right_bh then
-          failwith "Black height mismatch";
-
-        (* Check red-black properties *)
-        (match color with
-          | R ->
-              (* Red nodes cannot have red children *)
-              (match left with T (R, _, _, _, _) -> failwith "Red node has red child" | _ -> ());
-              (match right with T (R, _, _, _, _) -> failwith "Red node has red child" | _ -> ());
-              left_bh
-          | B -> 1 + left_bh)
-  in
-  (* Root must be black *)
-  match tree with
-  | E -> ()  (* Empty tree is valid *)
-  | T (R, _, _, _, _) -> failwith "Root must be black"
-  | T (B, _, _, _, _) -> ignore (black_height tree);
-
-  (* Ensure BST property throughout the tree *)
-  let rec check_bst min_k max_k = function
-    | E -> ()
-    | T (_, left, key, _, right) ->
-        if key <= min_k || key >= max_k then
-          failwith "BST property violated";
-        check_bst min_k key left;
-        check_bst key max_k right
-  in
-  check_bst min_key max_key tree
+let test_isBST () =
+  Quickcheck.test
+    ~sexp_of:BaseSingleBespoke.sexp_of_t
+    ~shrinker:BaseSingleBespoke.quickcheck_shrinker
+    BaseSingleBespoke.quickcheck_generator
+    ~f:(fun tree ->
+      if not (isRBT tree) then
+        failwith (Printf.sprintf "RBT property violated! %s" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t tree))))
   
-  (* Test function to generate and verify red-black trees *)
-  let test_red_black_tree_generator () =
-    Quickcheck.test
-      ~sexp_of:[%sexp_of: BaseSingleBespoke.t]  (* Use the `sexp_of` function derived for `rbt` *)
-      ~shrinker:BaseSingleBespoke.quickcheck_shrinker (* No shrinking for now *)
-      ~trials:10000  (* Number of tests *)
-      BaseSingleBespoke.quickcheck_generator  (* Use our RBT generator *)
-      ~f:(fun tree ->
-        try
-          verify_rb_tree tree; (* Run verification *)
-        with exn ->
-          printf "❌ Verification failed for tree:\n%s\nError: %s\n\n"
-            (Sexp.to_string_hum ([%sexp_of: BaseSingleBespoke.t] tree))
-            (Exn.to_string exn);
-          raise exn (* Re-raise the exception to fail the test *)
-      )
-  
-  (* Run the test harness *)
-  let () = test_red_black_tree_generator ()
+(* Run the test harness *)
+let () =
+  print_endline "Running RBT property test...";
+  test_isBST ();
+  print_endline "All generated trees satisfy the RBT property! ✅"
 
 (* RUNNER COMMAND:
    dune exec RBT -- qcheck prop_DeleteValid bespoke out.txt
