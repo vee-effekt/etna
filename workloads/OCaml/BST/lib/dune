@@ -7,13 +7,12 @@
   spec
   type
   test
-  baseTypeG
-  baseTypeG_sr
-  baseTypeC
+  baseType
+  baseType_Staged_SR
+  baseType_Staged_C
   baseType_Staged_CSR
   baseBespoke
   baseSingleBespoke
-  baseTypeC
   nat
   display)
  (libraries qcheck crowbar fast_gen util core core_unix ppx_staged ppxlib)
