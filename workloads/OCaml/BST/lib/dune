@@ -7,17 +7,18 @@
   spec
   type
   test
-  baseType
-  baseTypCsr
-  baseTypGsr
+  baseTypeG
+  baseTypeG_sr
+  baseTypeC
+  baseTypeC_sr
   baseBespoke
   baseSingleBespoke
   baseTypeC
   nat
   display)
- (libraries qcheck crowbar fast_gen util core core_unix ppx_staged)
+ (libraries qcheck crowbar fast_gen util core core_unix ppx_staged ppxlib)
  (preprocess
-  (pps ppx_jane ppx_staged)))
+  (pps ppx_jane ppx_staged ppxlib.metaquot)))
 
 (env
  (dev

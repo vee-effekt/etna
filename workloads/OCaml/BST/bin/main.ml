@@ -4,10 +4,28 @@ open Util.Runner
 open Util.Io
 open BST.Type
 open BST.Test
+open BST.Nat
 open Sexplib0.Sexp_conv;;
 open Sexplib;;
 open Stdio
 open Ppx_staged;;
+open Nat;;
+
+type nat = Nat.t * Nat.t [@@deriving wh, sexp]
+
+let () =
+  let generator = G.jit ~extra_cmi_paths:["/home/ubuntu/waffle-house/ppx_staged/_build/default/bin/.main.eobjs/byte"] staged_quickcheck_generator_nat in
+  let () = G.print staged_quickcheck_generator_nat in  
+  let random_a = Splittable_random.State.of_int 1 in
+  let random_b = Splittable_random.State.of_int 1 in
+  let size = 10 in
+  for _ = 1 to 10 do
+    printf "\n";
+    printf "\n";
+    let staged_values = Base_quickcheck.Generator.generate generator ~size ~random:random_b in
+    printf "========= Staged generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (sexp_of_nat staged_values))
+  done
 
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
@@ -66,6 +84,6 @@ let cstrategies : (string * tree gen) list =
   []
 
 let bstrategies : (string * tree basegen) list =
-  [ ("type", (module BST.BaseType.BaseType)); ("bespoke", (module BST.BaseBespoke.BaseBespoke)); ("typeC", (module BST.BaseTypeC.BaseTypeC)) (*("typGsr", (module BaseTypGsr)); ("typCsr", (module BaseTypCsr)) *)]
+  []
 
 let () = main properties qstrategies cstrategies bstrategies

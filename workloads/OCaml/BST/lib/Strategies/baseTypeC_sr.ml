@@ -1,11 +1,10 @@
 open Type;;
 open Fast_gen;;
 open Core;;
-open Core_unix;;
 
-module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
+module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
 
-module BaseTypeC : Base_quickcheck.Test.S with type t = Type.tree = struct
+module BaseTypeC_sr : Base_quickcheck.Test.S with type t = Type.tree = struct
   type t = Type.tree [@@deriving sexp, quickcheck]
 
   let staged_code =

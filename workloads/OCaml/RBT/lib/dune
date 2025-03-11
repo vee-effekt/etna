@@ -12,9 +12,9 @@
   baseBespoke
   nat
   display)
- (libraries qcheck crowbar util core fast_gen ppx_staged)
- (preprocess
-  (pps ppx_jane)))
+  (libraries qcheck crowbar fast_gen util core core_unix ppx_staged ppxlib)
+  (preprocess
+    (pps ppx_jane ppx_staged ppxlib.metaquot)))
 
 (env
  (dev

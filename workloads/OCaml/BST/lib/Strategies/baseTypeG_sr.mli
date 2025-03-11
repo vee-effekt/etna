@@ -1,0 +1,1 @@
+module BaseTypeG_sr : Base_quickcheck.Test.S with type t = Type.tree

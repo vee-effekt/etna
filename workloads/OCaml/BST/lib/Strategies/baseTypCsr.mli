@@ -1,1 +1,0 @@
-module BaseTypCsr : Base_quickcheck.Test.S with type t = Type.tree

@@ -1,5 +1,6 @@
 open Core;;
-
+open Ppx_staged;;
+open Nat;;
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
 
 let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
@@ -7,4 +8,4 @@ let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
 
 type tree =
 | E
-| T of tree * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * tree [@@deriving quickcheck, sexp]
+| T of tree * Nat.t * Nat.t * tree [@@deriving wh, quickcheck, sexp]
