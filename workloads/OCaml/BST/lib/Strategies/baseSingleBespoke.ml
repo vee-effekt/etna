@@ -13,8 +13,8 @@ module BaseSingleBespoke : Base_quickcheck.Test.S with type t = Type.tree = stru
     if lo >= hi then return E
     else
       let open Let_syntax in
-      let%bind k = int_inclusive lo hi in
-      let%bind v = int_inclusive lo hi in
+      let%bind k = Nat.quickcheck_generator in
+      let%bind v = Nat.quickcheck_generator in
       let%bind left = quickcheck_generator lo (k - 1) in
       let%bind right = quickcheck_generator (k + 1) hi in
       return (T (left, k, v, right))

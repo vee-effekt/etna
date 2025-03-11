@@ -4,13 +4,13 @@ open Ppx_staged;;
 open Type;;
 let fuel : int = 10000
 
-let rec insert (k: int) (v: int) t =
+let rec insert k v t =
   match t with
   | E -> T (E, k, v, E)
   | T (l, k', v', r) ->
     (*! *)
-      if k < k' then T ((insert k v l), k', v', r)
-      else if k' < k then T (l, k', v', (insert k v r))
+      if Poly.(<) k k' then T ((insert k v l), k', v', r)
+      else if Poly.(<) k' k then T (l, k', v', (insert k v r))
       else T (l, k', v, r)
     (*!! insert_1 *)
       (*!
@@ -40,7 +40,7 @@ let rec delete (k: int) (t: tree) =
   | E -> E
   | T (l, k', v', r) ->
   (*! *)
-  if k < k' then T ((delete k l), k', v', r)
+  if Poly.(<) k k' then T ((delete k l), k', v', r)
   else if k' < k then T (l, k', v', (delete k r))
   else join l r
   (*!! delete_4 *)

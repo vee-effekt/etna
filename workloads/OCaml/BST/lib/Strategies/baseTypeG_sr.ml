@@ -17,9 +17,9 @@ module BaseTypeG_sr : Base_quickcheck.Test.S with type t = Type.tree = struct
                           G.with_size ~size_c:(G.C.pred _size__001_)
                             (G.bind (G.recurse go (G.C.lift ()))
                                ~f:(fun _x__006_ ->
-                                     G.bind G.int
+                                     G.bind Nat.staged_quickcheck_generator_sr_t
                                        ~f:(fun _x__007_ ->
-                                             G.bind G.int
+                                             G.bind Nat.staged_quickcheck_generator_sr_t
                                                ~f:(fun _x__008_ ->
                                                      G.bind
                                                        (G.recurse go

@@ -5,11 +5,11 @@ let rec format_tree ppf tree =
   match tree with
   | E -> fprintf ppf "E"
   | T (left, key, value, right) ->
-      fprintf ppf "T (%a, %i, %i, %a)" format_tree left key value format_tree
+      fprintf ppf "T (%a, %s, %s, %a)" format_tree left (Nat.to_string key) (Nat.to_string value) format_tree
         right
 
 let rec string_of_tree = function
   | E -> "Empty"
   | T (l, k, v, r) ->
-      "Tree (" ^ string_of_tree l ^ "," ^ string_of_int k ^ ","
-      ^ string_of_int v ^ "," ^ string_of_tree r ^ ")"
+      "Tree (" ^ string_of_tree l ^ "," ^ Nat.to_string k ^ ","
+      ^ Nat.to_string v ^ "," ^ string_of_tree r ^ ")"

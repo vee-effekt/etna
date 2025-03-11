@@ -13,6 +13,6 @@ module BaseBespoke : Base_quickcheck.Test.S with type t = Type.tree = struct
 
   let quickcheck_generator =
     let open Base_quickcheck.Generator in
-    list (both Nat.Nat.quickcheck_generator Nat.Nat.quickcheck_generator)
+    list (both Nat.quickcheck_generator Nat.quickcheck_generator)
     >>= fun l -> Base.List.fold l ~init:E ~f:insert_correct |> return
 end
