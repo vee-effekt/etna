@@ -4,7 +4,6 @@ open Core;;
 
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
 
-module BaseTypeC_sr : Base_quickcheck.Test.S with type t = Type.tree = struct
   type t = Type.tree [@@deriving sexp, quickcheck]
 
   let staged_code =
@@ -50,4 +49,3 @@ module BaseTypeC_sr : Base_quickcheck.Test.S with type t = Type.tree = struct
   let quickcheck_generator = quickcheck_generator
   
   let sexp_of_t = sexp_of_t
-end

@@ -11,7 +11,7 @@ open Stdio
 open Ppx_staged;;
 open Nat;;
 
-type nat = Nat.t * Nat.t [@@deriving wh, sexp]
+(* type nat = Nat.t * Nat.t [@@deriving wh, sexp]
 
 let () =
   let generator = G.jit ~extra_cmi_paths:["/home/ubuntu/waffle-house/ppx_staged/_build/default/bin/.main.eobjs/byte"] staged_quickcheck_generator_nat in
@@ -25,7 +25,7 @@ let () =
     let staged_values = Base_quickcheck.Generator.generate generator ~size ~random:random_b in
     printf "========= Staged generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (sexp_of_nat staged_values))
-  done
+  done *)
 
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out

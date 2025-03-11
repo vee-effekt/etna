@@ -1,1 +1,1 @@
-module BaseTypeG : Base_quickcheck.Test.S with type t = Type.tree
+include Base_quickcheck.Test.S with type t = Type.tree
