@@ -1,11 +1,13 @@
 open Option
 open Core;;
-
-let quickcheck_generator_int_new = Base_quickcheck.Generator.int_uniform_inclusive 0 1000
+open Ppx_staged;;
 
 let ( >>= ) = bind
 let ( <$> ) f x = match x with None -> None | Some v -> Some (f v)
 let return x = Some x
+
+let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
+  bind int ~f:(fun i -> return (i % 1000))
 
 type color = R | B [@@deriving sexp, quickcheck]
 

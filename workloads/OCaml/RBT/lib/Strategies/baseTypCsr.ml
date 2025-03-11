@@ -140,7 +140,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                 then
                                   T
                                     (R, t_204,
-                                      (4611686018427387903 lxor
+                                      (1000 lxor
                                           (- (Base.Bool.to_int t_191))),
                                       (0 lxor (- (Base.Bool.to_int t_128))),
                                       t_127)
@@ -152,7 +152,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                     then
                                       T
                                         (B, t_204,
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_191))),
                                           (0 lxor (- (Base.Bool.to_int t_128))),
                                           t_127)
@@ -163,7 +163,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                               else
                                 (let t_195 =
                                   Fast_gen.C_sr_dropin_random_runtime.int_c_log_uniform
-                                    random_119 0 4611686018427387903 in
+                                    random_119 0 1000 in
                                 let t_196 =
                                   go_116 (Obj.magic 0) ~size:(size_118 - 1)
                                     ~random:random_119 in
@@ -241,7 +241,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                   T
                                     (R, t_183,
                                       (0 lxor (- (Base.Bool.to_int t_162))),
-                                      (4611686018427387903 lxor
+                                      (1000 lxor
                                           (- (Base.Bool.to_int t_128))), t_127)
                                 else
                                   (let t_188 = t_186 -. 1. in
@@ -252,7 +252,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                       T
                                         (B, t_183,
                                           (0 lxor (- (Base.Bool.to_int t_162))),
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_128))),
                                           t_127)
                                     else
@@ -287,9 +287,9 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                     then
                                       T
                                         (R, t_175,
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_162))),
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_128))),
                                           t_127)
                                     else
@@ -300,9 +300,9 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                       then
                                         T
                                           (B, t_175,
-                                            (4611686018427387903 lxor
+                                            (1000 lxor
                                                 (- (Base.Bool.to_int t_162))),
-                                            (4611686018427387903 lxor
+                                            (1000 lxor
                                                 (- (Base.Bool.to_int t_128))),
                                             t_127)
                                       else
@@ -312,7 +312,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                 else
                                   (let t_166 =
                                       Fast_gen.C_sr_dropin_random_runtime.int_c_log_uniform
-                                        random_119 0 4611686018427387903 in
+                                        random_119 0 1000 in
                                     let t_167 =
                                       go_116 (Obj.magic 0) ~size:(size_118 - 1)
                                         ~random:random_119 in
@@ -338,7 +338,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                         (R, t_167,
                                           (t_166 lxor
                                             (- (Base.Bool.to_int t_162))),
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_128))),
                                           t_127)
                                     else
@@ -351,7 +351,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                           (B, t_167,
                                             (t_166 lxor
                                                 (- (Base.Bool.to_int t_162))),
-                                            (4611686018427387903 lxor
+                                            (1000 lxor
                                                 (- (Base.Bool.to_int t_128))),
                                             t_127)
                                       else
@@ -361,7 +361,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                           else
                             (let t_132 =
                                 Fast_gen.C_sr_dropin_random_runtime.int_c_log_uniform
-                                  random_119 0 4611686018427387903 in
+                                  random_119 0 1000 in
                               let t_133 =
                                 Fast_gen.C_sr_dropin_random_runtime.bool_c
                                   random_119 in
@@ -440,7 +440,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                     then
                                       T
                                         (R, t_146,
-                                          (4611686018427387903 lxor
+                                          (1000 lxor
                                             (- (Base.Bool.to_int t_133))),
                                           (t_132 lxor
                                             (- (Base.Bool.to_int t_128))),
@@ -453,7 +453,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                       then
                                         T
                                           (B, t_146,
-                                            (4611686018427387903 lxor
+                                            (1000 lxor
                                                 (- (Base.Bool.to_int t_133))),
                                             (t_132 lxor
                                                 (- (Base.Bool.to_int t_128))),
@@ -465,7 +465,7 @@ module BaseTypCsr : Base_quickcheck.Test.S with type t = rbt = struct
                                 else
                                   (let t_137 =
                                       Fast_gen.C_sr_dropin_random_runtime.int_c_log_uniform
-                                        random_119 0 4611686018427387903 in
+                                        random_119 0 1000 in
                                     let t_138 =
                                       go_116 (Obj.magic 0) ~size:(size_118 - 1)
                                         ~random:random_119 in

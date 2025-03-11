@@ -9,13 +9,14 @@
   baseType
   baseTypCsr
   baseBespoke
+  baseSingleBespoke
   nat
   display)
- (libraries qcheck crowbar util core fast_gen)
+ (libraries qcheck crowbar util core fast_gen ppx_staged)
  (preprocess
   (pps ppx_jane)))
 
 (env
  (dev
   (flags
-   (:standard -g -w "-26-27-32-33-34-37-39"))))
+   (:standard -g -w "-26-27-32-33-34-37-39-6"))))

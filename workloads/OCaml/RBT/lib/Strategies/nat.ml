@@ -4,5 +4,5 @@ module Nat = struct
   type t = Core.Int.t [@@deriving sexp, quickcheck]
   let quickcheck_generator =
     let open Base_quickcheck.Generator in
-    int >>= fun i -> return (i % 128)
+    int >>= fun i -> return (i % 1000)
 end
