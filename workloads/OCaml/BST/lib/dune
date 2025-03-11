@@ -5,15 +5,17 @@
  (modules
   impl
   spec
+  type
   test
   baseType
   baseTypCsr
   baseTypGsr
   baseBespoke
   baseSingleBespoke
+  baseTypeC
   nat
   display)
- (libraries qcheck crowbar fast_gen util core ppx_staged)
+ (libraries qcheck crowbar fast_gen util core core_unix ppx_staged)
  (preprocess
   (pps ppx_jane ppx_staged)))
 

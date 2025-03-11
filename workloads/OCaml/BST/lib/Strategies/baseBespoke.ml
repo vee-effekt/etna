@@ -1,4 +1,4 @@
-open Impl
+open Type
 
 let rec insert_correct (t : tree) (k, v) =
   match t with
@@ -8,8 +8,8 @@ let rec insert_correct (t : tree) (k, v) =
       else if k' < k then T (l, k', v', insert_correct r (k, v))
       else T (l, k', v, r)
 
-module BaseBespoke : Base_quickcheck.Test.S with type t = tree = struct
-  type t = tree [@@deriving sexp, quickcheck]
+module BaseBespoke : Base_quickcheck.Test.S with type t = Type.tree = struct
+  type t = Type.tree [@@deriving sexp, quickcheck]
 
   let quickcheck_generator =
     let open Base_quickcheck.Generator in

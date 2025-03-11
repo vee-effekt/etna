@@ -1,19 +1,10 @@
 
 open Core;;
 open Ppx_staged;;
-
-module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
-
-let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
-  bind int ~f:(fun i -> return (i % 1000))
-
-type tree =
-| E
-| T of tree * (int [@quickcheck.generator quickcheck_generator_int_new]) * (int [@quickcheck.generator quickcheck_generator_int_new]) * tree [@@deriving quickcheck, sexp]
-
+open Type;;
 let fuel : int = 10000
 
-let rec insert (k: int) (v: int) (t: tree) =
+let rec insert (k: int) (v: int) t =
   match t with
   | E -> T (E, k, v, E)
   | T (l, k', v', r) ->

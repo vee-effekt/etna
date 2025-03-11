@@ -1,11 +1,11 @@
-open Impl;;
+open Type;;
 open Fast_gen;;
 open Core;;
 
 module C_SR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
 
-module BaseTypCsr : Base_quickcheck.Test.S with type t = tree = struct
-  type t = tree [@@deriving sexp, quickcheck]
+module BaseTypCsr : Base_quickcheck.Test.S with type t = Type.tree = struct
+  type t = Type.tree [@@deriving sexp, quickcheck]
 
   let staged_quickcheck_generator = 
       C_SR.recursive (C_SR.C.lift ())

@@ -1,14 +1,13 @@
-open Impl
 open Core;;
-open Impl;;
+open Type;;
 open Fast_gen;;
 open Fast_gen.Bq_generator;;
 open Base_quickcheck.Generator;;
 
 module BQ = Fast_gen.Bq_generator;;
 
-module BaseSingleBespoke : Base_quickcheck.Test.S with type t = tree = struct
-  type t = tree [@@deriving sexp, quickcheck]
+module BaseSingleBespoke : Base_quickcheck.Test.S with type t = Type.tree = struct
+  type t = Type.tree [@@deriving sexp, quickcheck]
 
   let rec quickcheck_generator (lo: int) (hi: int) : tree Base_quickcheck.Generator.t =
     if lo >= hi then return E

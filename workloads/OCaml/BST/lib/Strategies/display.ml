@@ -1,4 +1,4 @@
-open Impl
+open Type
 
 let rec format_tree ppf tree =
   let open Format in

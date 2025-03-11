@@ -1,4 +1,4 @@
-open Impl
+open Type
 open Spec
 open Util
 open Runner

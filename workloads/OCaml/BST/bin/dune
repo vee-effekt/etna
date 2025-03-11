@@ -1,7 +1,7 @@
 (executable
  (public_name BST)
  (name main)
- (libraries BST ppx_staged core))
+ (libraries BST core))
 
 (env
  (dev

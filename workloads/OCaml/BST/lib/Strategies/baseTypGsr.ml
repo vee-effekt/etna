@@ -1,9 +1,9 @@
-open Impl;;
+open Type;;
 
 module G_SR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
 
-module BaseTypGsr : Base_quickcheck.Test.S with type t = tree = struct
-  type t = tree [@@deriving sexp, quickcheck]
+module BaseTypGsr : Base_quickcheck.Test.S with type t = Type.tree = struct
+  type t = Type.tree [@@deriving sexp, quickcheck]
   let quickcheck_generator =
     Base_quickcheck.Generator.create
       (fun ~size:size_28 ->

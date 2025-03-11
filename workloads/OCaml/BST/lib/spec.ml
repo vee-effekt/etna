@@ -1,4 +1,5 @@
 open Impl
+open Type
 open List
 open Util.Runner
 
@@ -28,7 +29,7 @@ let rec keys (t : tree) : int list =
 let rec all (f : 'a -> bool) (l : 'a list) : bool =
   match l with [] -> true | x :: xs -> f x && all f xs
 
-let rec isBST (t : tree) : bool =
+let rec isBST (t : Type.tree) : bool =
   match t with
   | E -> true
   | T (l, k, _, r) ->

@@ -2,12 +2,8 @@ open QCheck
 open Crowbar
 open Util.Runner
 open Util.Io
-open BST.Impl
+open BST.Type
 open BST.Test
-open BST.BaseType
-open BST.BaseBespoke
-open BST.BaseTypGsr
-open BST.BaseTypCsr
 open Sexplib0.Sexp_conv;;
 open Sexplib;;
 open Stdio
@@ -23,30 +19,8 @@ open Ppx_staged;;
   dune exec BST -- base prop_InsertInsert bespoke out
   dune exec BST -- base prop_InsertInsert type out
   *)
-  open QCheck
-  open Crowbar
-  open Util.Runner
-  open Util.Io
-  open Ppx_staged;;
-  open Core;;
-  open Sexplib0.Sexp_conv;;
-  open Sexplib;;
-  open Ppx_staged;;
-  open Core
-  open Base_quickcheck
-  open Fast_gen
-  open Fast_gen.Bq_generator
-  
-  open Core
-  open Fast_gen
-  open Fast_gen.Bq_generator
-  open Base_quickcheck
-  open BST.Spec
-  open BST.BaseSingleBespoke
-  module BQ = Fast_gen.Bq_generator
-  open Sexplib0.Sexp_conv;;
-  open Sexplib;;
-  
+
+  (*
   let test_isBST () =
     Quickcheck.test
       ~sexp_of:BaseSingleBespoke.sexp_of_t
@@ -61,8 +35,8 @@ open Ppx_staged;;
     print_endline "Running BST property test...";
     test_isBST ();
     print_endline "All generated trees satisfy the BST property! ✅"
+*)
 
-(*
 let properties : (string * tree property) list =
   [
     ("prop_InsertValid", test_prop_InsertValid);
@@ -92,24 +66,6 @@ let cstrategies : (string * tree gen) list =
   []
 
 let bstrategies : (string * tree basegen) list =
-  [ ("type", (module BaseType)); ("bespoke", (module BaseBespoke)); ("typGsr", (module BaseTypGsr)); ("typCsr", (module BaseTypCsr))]
+  [ ("type", (module BST.BaseType.BaseType)); ("bespoke", (module BST.BaseBespoke.BaseBespoke)); ("typeC", (module BST.BaseTypeC.BaseTypeC)) (*("typGsr", (module BaseTypGsr)); ("typCsr", (module BaseTypCsr)) *)]
 
 let () = main properties qstrategies cstrategies bstrategies
-
-(*
-let () =
-  let random_a = Splittable_random.State.of_int 0 in
-  let random_b = Splittable_random.State.of_int 0 in
-  let size = 10 in
-  for _ = 1 to 3 do
-    printf "\n";
-    printf "\n";
-    let quickc_values = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
-    let staged_values = Base_quickcheck.Generator.generate BaseTypCsr.quickcheck_generator ~size ~random:random_b in
-    printf "========== quickcheck_generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseStagedType.sexp_of_t quickc_values));
-    printf "========= Staged generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseType.sexp_of_t staged_values))
-  done
-*)
-*)
