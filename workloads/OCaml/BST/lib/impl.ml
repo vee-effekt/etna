@@ -39,17 +39,10 @@ let rec delete (k: int) (t: tree) =
   match t with
   | E -> E
   | T (l, k', v', r) ->
-  (*! *)
-  if Poly.(<) k k' then T ((delete k l), k', v', r)
-  else if Poly.(<) k' k then T (l, k', v', (delete k r))
-  else join l r
-  (*!! delete_4 *)
-  (*!
   let _ = ignore v' in
   if Poly.(<) k k' then delete k l
   else if Poly.(<) k' k then delete k r
   else join l r
-  *)
   (*!! delete_5 *)
   (*!
   if Poly.(<) k' k then T ((delete k l), k', v', r)

@@ -1,7 +1,6 @@
 open Type;;
 open Fast_gen;;
 open Core;;
-open Core_unix;;
 
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
 
