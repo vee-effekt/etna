@@ -78,7 +78,7 @@ let bbuild (g : 'b basegen) (f : 'b -> unit Base.Or_error.t) ?(seed : string opt
       let res = f x in
       match res with
       | Ok () -> Ok ()
-      | Error _ ->  Error (Base.Error.of_string (Sexplib.Sexp.to_string_hum x))
+      | Error err ->  Error err
       ) g
       ~config:
         {
