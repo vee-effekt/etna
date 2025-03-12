@@ -8,7 +8,9 @@
   test
   type
   baseType
-  baseTypCsr
+  baseType_Staged_SR
+  baseType_Staged_C
+  baseType_Staged_CSR
   baseBespoke
   nat
   display)

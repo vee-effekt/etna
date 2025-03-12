@@ -27,11 +27,9 @@ let insert_correct s (k, vk) : rbt =
   in
   blacken_correct (ins k vk s)
 
-module BaseBespoke : Base_quickcheck.Test.S with type t = rbt = struct
-  type t = rbt [@@deriving sexp, quickcheck]
+type t = rbt [@@deriving sexp, quickcheck]
 
-  let quickcheck_generator =
-    let open Base_quickcheck.Generator in
-    list (both Nat.Nat.quickcheck_generator Nat.Nat.quickcheck_generator)
-    >>= fun l -> Base.List.fold l ~init:E ~f:insert_correct |> return
-end
+let quickcheck_generator =
+  let open Base_quickcheck.Generator in
+  list (both Nat.quickcheck_generator Nat.quickcheck_generator)
+  >>= fun l -> Base.List.fold l ~init:E ~f:insert_correct |> return
