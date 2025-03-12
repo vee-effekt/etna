@@ -12,3 +12,5 @@ type expr =
   | Abs of typ * expr
   | App of expr * expr
 [@@deriving sexp, quickcheck]
+
+type ctx = typ list

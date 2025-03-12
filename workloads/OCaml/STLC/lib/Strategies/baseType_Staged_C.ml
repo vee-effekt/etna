@@ -1,11 +1,12 @@
-open Type;;
+open Type_defn;;
 open Fast_gen;;
 open Core;;
 open Core_unix;;
 
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
 
-type t = Type.expr [@@deriving quickcheck, sexp]
+type t = Type_defn.expr [@@deriving quickcheck, sexp]
+
 let staged_quickcheck_generator_typ =
   G.recursive (G.C.lift ())
     (fun go ->

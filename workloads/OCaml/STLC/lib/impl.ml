@@ -1,10 +1,8 @@
 open List
 open Option
-open Type;;
+open Type_defn;;
 
 let ( >>= ) = bind
-
-type ctx = typ list
 
 let rec getTyp (c : ctx) (e : expr) : typ option =
   match e with

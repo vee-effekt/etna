@@ -1,4 +1,4 @@
-open Type
+open Type_defn
 open Impl
 open Util.Runner
 

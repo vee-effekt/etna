@@ -5,8 +5,10 @@
  (modules
   impl
   spec
-  type
+  type_defn
   test
+  baseBespoke
+  baseBespoke_Staged
   baseType
   baseType_Staged_C
   baseType_Staged_SR

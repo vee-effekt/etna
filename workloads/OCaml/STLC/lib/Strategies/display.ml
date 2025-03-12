@@ -1,4 +1,4 @@
-open Type;;
+open Type_defn;;
 
 let rec string_of_expr (e : expr) : string =
   let rec string_of_typ (t : typ) : string =

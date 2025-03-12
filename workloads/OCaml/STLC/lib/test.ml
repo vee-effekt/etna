@@ -1,5 +1,5 @@
 open Spec
-open Type
+open Type_defn
 open Util
 open Runner
 open Crowbar
