@@ -7,8 +7,10 @@ type btest = unit -> unit
 (* rename of the Core module type *)
 type 'a basegen = (module Base_quickcheck.Test.S with type t = 'a)
 
+type 'a testres = Succeeded | FailedWith of 'a
+
 (* Generalizing pre and post conditions *)
-type 'a test = Pre of bool * ('a test) | Post of ('a option)
+type 'a test = Pre of bool * ('a test) | Post of ('a testres)
 
 let ( =>> ) pre post = Pre (pre, post)
 let ( ->> ) pre post = Pre (pre, Post post)
@@ -28,16 +30,16 @@ let rec qmake (t : 'a test) : bool =
   | Pre (pre, post) ->
       QCheck.assume pre;
       qmake post
-  | Post None -> true
-  | Post (Some _) -> false
+  | Post Succeeded -> true
+  | Post (FailedWith _) -> false
 
 let rec cmake (t : 'a test) : unit =
   match t with
   | Pre (pre, post) ->
       Crowbar.guard pre;
       cmake post
-  | Post None -> Crowbar.check true
-  | Post (Some _) -> Crowbar.check false
+  | Post Succeeded -> Crowbar.check true
+  | Post (FailedWith _) -> Crowbar.check false
   
 let rec bmake (t : 'a test) : (unit,'a) result =
   match t with
@@ -48,10 +50,10 @@ let rec bmake (t : 'a test) : (unit,'a) result =
       (* Printf.printf "Skipping test due to false pre-condition\n"; *)
       (* false precondition, we can skip test *)
       Ok ()
-  | Post None ->
+  | Post Succeeded ->
       (* Printf.printf "Post-condition passed: true\n"; *)
       Ok ()
-  | Post (Some v) ->
+  | Post (FailedWith v) ->
       (* Printf.printf "Post-condition failed: false\n"; *)
       Error v
 
