@@ -209,8 +209,8 @@ let main (props : (string * 'a property) list)
     let filename = Sys.argv.(4) in
     let seed = Sys.argv.(5) in
     Printf.printf
-      "Executing test %s into file %s using strategy %s on framework %s\n"
-      testname filename strategy framework;
+      "Executing test %s into file %s using strategy %s on framework %s, with seed %s\n"
+      testname filename strategy framework seed;
     flush stdout;
     match framework with
     | "qcheck" ->
