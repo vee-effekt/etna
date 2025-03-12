@@ -8,7 +8,7 @@ type btest = unit -> unit
 type 'a basegen = (module Base_quickcheck.Test.S with type t = 'a)
 
 (* Generalizing pre and post conditions *)
-type test = Pre of bool * test | Post of bool
+type 'a test = Pre of bool * ('a test) | Post of ('a option)
 
 let ( =>> ) pre post = Pre (pre, post)
 let ( ->> ) pre post = Pre (pre, Post post)
@@ -23,21 +23,23 @@ type 'a property = {
 }
 
 (* Functions for realizing preconditions *)
-let rec qmake (t : test) : bool =
+let rec qmake (t : 'a test) : bool =
   match t with
   | Pre (pre, post) ->
       QCheck.assume pre;
       qmake post
-  | Post post -> post
+  | Post None -> true
+  | Post (Some _) -> false
 
-let rec cmake (t : test) : unit =
+let rec cmake (t : 'a test) : unit =
   match t with
   | Pre (pre, post) ->
       Crowbar.guard pre;
       cmake post
-  | Post post -> Crowbar.check post
+  | Post None -> Crowbar.check true
+  | Post (Some _) -> Crowbar.check false
   
-let rec bmake (t : test) : unit Base.Or_error.t =
+let rec bmake (t : 'a test) : (unit,'a) result =
   match t with
   | Pre (true, post) ->
       (* Printf.printf "Processing Pre-condition: true\n"; *)
@@ -46,12 +48,12 @@ let rec bmake (t : test) : unit Base.Or_error.t =
       (* Printf.printf "Skipping test due to false pre-condition\n"; *)
       (* false precondition, we can skip test *)
       Ok ()
-  | Post true ->
+  | Post None ->
       (* Printf.printf "Post-condition passed: true\n"; *)
       Ok ()
-  | Post false ->
+  | Post (Some v) ->
       (* Printf.printf "Post-condition failed: false\n"; *)
-      Error (Base.Error.of_string "fail")
+      Error v
 
 (* Helpers to build `'a property` types. Note that `'b` is the input to the property, INCLUDING the other parameters. *)
 let qbuild (g : 'b QCheck.arbitrary) (f : 'b -> bool) : string -> qtest =
