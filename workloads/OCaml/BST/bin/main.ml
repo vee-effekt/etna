@@ -58,7 +58,7 @@ let () =
 
 let properties : (string * tree property) list =
   [
-    (* ("prop_InsertValid", test_prop_InsertValid);
+    ("prop_InsertValid", test_prop_InsertValid);
     ("prop_DeleteValid", test_prop_DeleteValid);
     ("prop_UnionValid", test_prop_UnionValid);
     ("prop_InsertPost", test_prop_InsertPost);
@@ -70,12 +70,12 @@ let properties : (string * tree property) list =
     ("prop_InsertInsert", test_prop_InsertInsert);
     ("prop_InsertDelete", test_prop_InsertDelete);
     ("prop_InsertUnion", test_prop_InsertUnion);
-    ("prop_DeleteInsert", test_prop_DeleteInsert); *)
+    ("prop_DeleteInsert", test_prop_DeleteInsert);
     ("prop_DeleteDelete", test_prop_DeleteDelete);
-    (* ("prop_DeleteUnion", test_prop_DeleteUnion);
+    ("prop_DeleteUnion", test_prop_DeleteUnion);
     ("prop_UnionDeleteInsert", test_prop_UnionDeleteInsert);
     ("prop_UnionUnionIdem", test_prop_UnionUnionIdem);
-    ("prop_UnionUnionAssoc", test_prop_UnionUnionAssoc); *)
+    ("prop_UnionUnionAssoc", test_prop_UnionUnionAssoc);
   ]
 
 let qstrategies : (string * tree arbitrary) list =
