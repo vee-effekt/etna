@@ -1,6 +1,6 @@
 open Type
 open Fast_gen;;
-module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
+module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
 open G
 open Let_syntax
 
@@ -8,7 +8,7 @@ type t = rbt [@@deriving sexp, quickcheck]
   
 let staged_code =
   bind 
-    (list (map2 Nat.staged_quickcheck_generator_sr_t Nat.staged_quickcheck_generator_sr_t 
+    (list (map2 Nat.staged_quickcheck_generator_c_t Nat.staged_quickcheck_generator_c_t 
               ~f:(fun x y -> G.C.pair x y)))
     ~f:(fun l -> return .< repeat_insert .~l >.)
     

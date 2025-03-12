@@ -11,4 +11,11 @@ val staged_quickcheck_generator_c_t : t G_C.c G_C.t
 
 val staged_quickcheck_generator_csr_t : t G_CSR.c G_CSR.t
 
+val staged_quickcheck_generator_range_csr_t : lo:t G_CSR.c -> hi:t G_CSR.c -> t G_CSR.c G_CSR.t
+
+val staged_quickcheck_generator_range_sr_t : lo:t G_SR.c -> hi:t G_SR.c -> t G_SR.c G_SR.t
+
+val staged_quickcheck_generator_range_c_t : lo:t G_C.c -> hi:t G_C.c -> t G_C.c G_C.t
+
+
 val to_string : t -> string

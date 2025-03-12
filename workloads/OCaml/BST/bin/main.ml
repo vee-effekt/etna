@@ -11,23 +11,36 @@ open Stdio
 open Ppx_staged;;
 open Nat;;
 open BST;;
-
-(* type nat = Nat.t * Nat.t [@@deriving wh, sexp]
-
+(*
 let () =
-  let generator = G.jit ~extra_cmi_paths:["/home/ubuntu/waffle-house/ppx_staged/_build/default/bin/.main.eobjs/byte"] staged_quickcheck_generator_nat in
-  let () = G.print staged_quickcheck_generator_nat in  
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
+  (*
+  let random_c = Splittable_random.State.of_int 1 in
+  let random_d = Splittable_random.State.of_int 1 in
+  *)
   let size = 10 in
   for _ = 1 to 10 do
     printf "\n";
     printf "\n";
-    let staged_values = Base_quickcheck.Generator.generate generator ~size ~random:random_b in
+    let v1 = Base_quickcheck.Generator.generate BaseBespoke.quickcheck_generator ~size ~random:random_a in
+    let v2 = Base_quickcheck.Generator.generate BaseBespoke_Staged_SR.quickcheck_generator ~size ~random:random_b in
+    (*
+    let v3 = Base_quickcheck.Generator.generate BaseBespoke_Staged_C.quickcheck_generator ~size ~random:random_c in
+    let v4 = Base_quickcheck.Generator.generate BaseBespoke_Staged_CSR.quickcheck_generator ~size ~random:random_d in
+    *)
+    printf "========= generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (sexp_of_nat staged_values))
-  done *)
-
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v2));
+    (*
+    printf "========= Staged generator C ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_C.sexp_of_t v3));
+    printf "========= Staged generator CSR ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_CSR.sexp_of_t v4))
+    *)
+  done
+*)
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
   dune exec BST -- qcheck prop_InsertInsert type out

@@ -4,7 +4,7 @@ open Util.Runner
 open STLC.Type_defn;;
 open STLC
 open Core;;
-
+(*
 let () =
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
@@ -27,7 +27,7 @@ let () =
     printf "========= Staged generator CSR ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_C.sexp_of_t v4))
   done
-
+*)
 (* RUNNER COMMAND:
    dune exec STLC -- qcheck prop_SinglePreserve bespoke out
    dune exec STLC -- qcheck prop_SinglePreserve type out
@@ -73,6 +73,8 @@ let properties : (string * expr property) list =
     [
       ("bespoke", (module BaseBespoke));
       ("bespokeStaged", (module BaseBespoke_Staged_SR));
+      ("bespokeStagedC", (module BaseBespoke_Staged_C));
+      ("bespokeStagedCSR", (module BaseBespoke_Staged_CSR));
       ("type", (module BaseType));
       ("staged", (module BaseType_Staged_SR));
       ("stagedC", (module BaseType_Staged_C));

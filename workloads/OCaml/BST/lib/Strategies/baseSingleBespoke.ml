@@ -2,24 +2,22 @@ open Core;;
 open Type;;
 open Fast_gen;;
 open Fast_gen.Bq_generator;;
-open Base_quickcheck.Generator;;
 
 module BQ = Fast_gen.Bq_generator;;
 
-module BaseSingleBespoke : Base_quickcheck.Test.S with type t = Type.tree = struct
   type t = Type.tree [@@deriving sexp, quickcheck]
 
-  let rec quickcheck_generator (lo: int) (hi: int) : tree Base_quickcheck.Generator.t =
-    if lo >= hi then return E
+  let rec staged_quickcheck_generator (lo: int) (hi: int) =
+    if 
+      lo >= hi then return E
     else
       let open Let_syntax in
+      let range = hi - lo in
       let%bind k = Nat.quickcheck_generator in
+      let k = (lo + (k mod range)) in
       let%bind v = Nat.quickcheck_generator in
-      let%bind left = quickcheck_generator lo (k - 1) in
-      let%bind right = quickcheck_generator (k + 1) hi in
+      let%bind left = staged_quickcheck_generator lo (k - 1) in
+      let%bind right = staged_quickcheck_generator (k + 1) hi in
       return (T (left, k, v, right))
-
-  let quickcheck_generator = quickcheck_generator 0 1000
-
-  let sexp_of_t = sexp_of_t
-end
+  
+  let quickcheck_generator = staged_quickcheck_generator 0 1000

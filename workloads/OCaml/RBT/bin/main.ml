@@ -5,7 +5,7 @@ open RBT.Test
 open Core
 open RBT.Spec
 open RBT
-
+(*
 let () =
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
@@ -17,22 +17,18 @@ let () =
     printf "\n";
     let v1 = Base_quickcheck.Generator.generate BaseBespoke.quickcheck_generator ~size ~random:random_a in
     let v2 = Base_quickcheck.Generator.generate BaseBespoke_Staged_SR.quickcheck_generator ~size ~random:random_b in
-    (*
     let v3 = Base_quickcheck.Generator.generate BaseBespoke_Staged_C.quickcheck_generator ~size ~random:random_c in
     let v4 = Base_quickcheck.Generator.generate BaseBespoke_Staged_CSR.quickcheck_generator ~size ~random:random_d in
-    *)
     printf "========= generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_SR.sexp_of_t v1));
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_SR.sexp_of_t v2));
-    (*
     printf "========= Staged generator C ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_C.sexp_of_t v3));
     printf "========= Staged generator CSR ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_C.sexp_of_t v4))
-    *)
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_CSR.sexp_of_t v4))
   done
-
+*)
 let properties : (string * rbt property) list =
   [
     ("prop_InsertValid", test_prop_InsertValid);
@@ -48,6 +44,15 @@ let properties : (string * rbt property) list =
   ]
 
 let bstrategies : (string * rbt basegen) list =
-  [ ("type", (module BaseType)); ("bespoke", (module BaseBespoke)) ]
+  [
+    ("bespoke", (module BaseBespoke));
+    ("bespokeStaged", (module BaseBespoke_Staged_SR));
+    ("bespokeStagedC", (module BaseBespoke_Staged_C));
+    ("bespokeStagedCSR", (module BaseBespoke_Staged_CSR));
+    ("type", (module BaseType));
+    ("staged", (module BaseType_Staged_SR));
+    ("stagedC", (module BaseType_Staged_C));
+    ("stagedCSR", (module BaseType_Staged_CSR))
+  ]
 
 let () = main properties [] [] bstrategies

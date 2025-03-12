@@ -12,7 +12,8 @@ STRATEGIES : list[PBTGenerator] = [
     # PBTGenerator('base', 'bespoke'),
     # PBTGenerator('base', 'typGsr'),
     # PBTGenerator('base', 'type'),
-    PBTGenerator('base', 'bespoke'),
+    # PBTGenerator('base', 'bespoke'),
+    PBTGenerator('base', 'staged')
     # PBTGenerator('base', 'type'),
     # PBTGenerator('base', 'staged'),
     # PBTGenerator('base', 'stagedC'),
