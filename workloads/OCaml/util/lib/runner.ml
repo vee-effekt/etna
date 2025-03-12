@@ -67,18 +67,19 @@ let cbuild (g : ('c, unit) Crowbar.gens) (f : 'c) : string -> ctest =
   | Error (_,err) -> print_endline "bug found!";
                      print_endline (Base.Error.to_string_hum err)
 
-let bbuild (g : 'b basegen) (f : 'b -> unit Base.Or_error.t) ?(seed : string option = None) : string -> btest =
+let bbuild (type b) (g : b basegen) (f : b -> unit Base.Or_error.t) ?(seed : string option = None) : string -> btest =
   fun _ () ->
     let seed_config =
       match seed with
       | Some s when not (String.equal s "") -> Base_quickcheck.Test.Config.Seed.Deterministic s
       | _ -> Base_quickcheck.Test.Config.Seed.Nondeterministic
     in
+    let module G = (val g : Base_quickcheck.Test.S with type t = b) in
     Base_quickcheck.Test.result ~f:(fun x ->
       let res = f x in
       match res with
       | Ok () -> Ok ()
-      | Error _ ->  Error (Base.Error.of_string (Sexplib.Sexp.to_string_hum x))
+      | Error _ ->  Error (Base.Error.of_string (Sexplib.Sexp.to_string_hum (G.sexp_of_t x)))
       ) g
       ~config:
         {
