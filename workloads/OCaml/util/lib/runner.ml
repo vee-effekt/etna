@@ -61,18 +61,21 @@ let qbuild (g : 'b QCheck.arbitrary) (f : 'b -> bool) : string -> qtest =
 let cbuild (g : ('c, unit) Crowbar.gens) (f : 'c) : string -> ctest =
  fun name () -> Crowbar.add_test ~name g f
 
-let _verbose res =
-  if Core.is_ok res then print_endline "tests passed?"
-  else print_endline "bug found!"
+let _verbose (type a) (g : (module Base_quickcheck.Test.S with type t = a)) (res : (unit,a * 'e) result) =
+  match res with
+  | Ok() -> print_endline "tests passed?"
+  | Error((v,_)) ->
+    let module G = (val g : Base_quickcheck.Test.S with type t = a) in
+    print_endline ("bug found, cex: " ^ (Sexplib0.Sexp.to_string_hum (G.sexp_of_t v)))
 
-let bbuild (g : 'b basegen) (f : 'b -> unit Base.Or_error.t) ?(seed : string option = None) : string -> btest =
+let bbuild (g : 'b basegen) (f : 'b -> (unit,'b) result) ?(seed : string option = None) : string -> btest =
   fun _ () ->
     let seed_config =
       match seed with
       | Some s when not (String.equal s "") -> Base_quickcheck.Test.Config.Seed.Deterministic s
       | _ -> Base_quickcheck.Test.Config.Seed.Nondeterministic
     in
-    Base_quickcheck.Test.run ~f g
+    Base_quickcheck.Test.result ~f g
       ~config:
         {
           seed = seed_config;
@@ -80,5 +83,5 @@ let bbuild (g : 'b basegen) (f : 'b -> unit Base.Or_error.t) ?(seed : string opt
           shrink_count = 0;
           sizes = Base_quickcheck.Test.default_config.sizes;
         }
-    |> _verbose
+    |> (_verbose g)
   
