@@ -1,3 +1,4 @@
+open Type
 open Impl
 open Util.Runner
 

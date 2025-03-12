@@ -1,5 +1,5 @@
-open Impl
 open Spec
+open Type
 open Util
 open Runner
 open Crowbar

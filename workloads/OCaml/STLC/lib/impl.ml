@@ -1,16 +1,8 @@
 open List
 open Option
+open Type;;
 
 let ( >>= ) = bind
-
-type typ = TBool | TFun of typ * typ [@@deriving sexp, quickcheck]
-
-type expr =
-  | Var of Core.Int.t
-  | Bool of Core.Bool.t
-  | Abs of typ * expr
-  | App of expr * expr
-[@@deriving sexp, quickcheck]
 
 type ctx = typ list
 

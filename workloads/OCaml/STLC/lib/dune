@@ -5,14 +5,16 @@
  (modules
   impl
   spec
+  type
   test
-  qcheckType
-  qcheckBespoke
-  crowbarBespoke
-  crowbarType
   baseType
-  baseBespoke
+  baseType_Staged_C
   display)
- (libraries qcheck crowbar util core)
- (preprocess
-  (pps ppx_jane)))
+  (libraries qcheck crowbar fast_gen util core core_unix ppx_staged ppxlib)
+  (preprocess
+    (pps ppx_jane ppx_staged ppxlib.metaquot)))
+
+(env
+ (dev
+  (flags
+   (:standard -g -w "-26-27-32-33-34-37-39-6"))))
