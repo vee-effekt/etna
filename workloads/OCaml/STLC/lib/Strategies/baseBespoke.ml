@@ -9,8 +9,8 @@ open Base
 open Let_syntax
 open Type_defn
 
-type t = expr [@@deriving quickcheck, sexp]
 
+type t = expr [@@deriving quickcheck, sexp]
 let rec equal_typ x y =
   match x, y with
   | TBool, TBool -> true

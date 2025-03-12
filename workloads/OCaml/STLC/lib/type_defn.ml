@@ -14,3 +14,9 @@ type expr =
 [@@deriving sexp, quickcheck]
 
 type ctx = typ list
+
+let rec equal x y =
+  match x, y with
+  | TBool, TBool -> true
+  | TFun(x1,x2), TFun(y1,y2) -> equal x1 y1 && equal x2 y2
+  | _ -> false

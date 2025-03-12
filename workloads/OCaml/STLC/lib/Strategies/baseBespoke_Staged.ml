@@ -49,52 +49,51 @@ let split_expr = GS.split
 let split_typ = GTS.split
 
 let genTyp : typ code G.t =
-  recursive .<()>. @@ fun go u ->
-    G.bind size ~f:(fun n ->
-      G.bind (split_bool .< .~n <= 1 >.) ~f:(fun b ->
-        if b then return .<TBool>.
+  G.recursive .<()>. @@ fun go u ->
+    G.bind G.size ~f:(fun n ->
+      G.bind (G.split_bool .< .~n <= 1 >.) ~f:(fun b ->
+        if b then G.return .<TBool>.
         else
-          weighted_union [
-            .<1.0>., return .<TBool>.;
+          G.weighted_union [
+            .<1.0>., G.return .<TBool>.;
             .<Int.to_float .~n>.,
-              G.bind (with_size ~size_c:.<.~n / 2>. (recurse go u)) ~f:(fun t1 ->
-              G.bind (with_size ~size_c:.<.~n / 2>. (recurse go u)) ~f:(fun t2 ->
-                return .<TFun(.~t1,.~t2)>.
+              G.bind (G.with_size ~size_c:.<.~n / 2>. (G.recurse go u)) ~f:(fun t1 ->
+              G.bind (G.with_size ~size_c:.<.~n / 2>. (G.recurse go u)) ~f:(fun t2 ->
+                G.return .<TFun(.~t1,.~t2)>.
               ))
           ]))
 
 let genConst t : expr code G.t =
-  recursive t @@ fun go t ->
+  G.recursive t @@ fun go t ->
     G.bind (split_typ t) ~f:(function
       | `TBool -> map ~f:(fun b -> .<Bool .~b>.) bool
-      | `TFun(t1,t2) -> map ~f:(fun e -> .<Abs(.~t1,.~e)>.) (recurse go t2))
+      | `TFun(t1,t2) -> map ~f:(fun e -> .<Abs(.~t1,.~e)>.) (G.recurse go t2))
 
-let genVar g t : expr option code G.t =
-  let eq = equal_typ .~t 
-  G.bind (return .<List.filter_mapi ~f:(fun i t' -> if equal_typ .~t t' then Some (Some (Var i)) else None) .~g>.) ~f:(fun vars ->
-    G.bind (split_list vars) ~f:(function
-      | `Nil -> return .<None>.
-      | `Cons _ -> of_list_dyn vars))   
+let genVar g t : Type_defn.expr option code G.t =
+  G.bind (G.return .<List.filter_mapi ~f:(fun i t' -> if Type_defn.equal .~t t' then Some (Some (Var i)) else None) .~g>.) ~f:(fun vars ->
+    G.bind (G.split_list vars) ~f:(function
+      | `Nil -> G.return .<None>.
+      | `Cons _ -> G.of_list_dyn vars))
 
 let genExactExpr n g t =
-  recursive .<(.~n,.~g,.~t)>. @@ fun go ngt ->
-    G.bind (split_triple ngt) ~f:(fun (n,g,t) ->
-      G.bind (genVar g t >>= split_option) ~f:(function
-        | `Some e -> return e
+  G.recursive .<(.~n,.~g,.~t)>. @@ fun go ngt ->
+    G.bind (G.split_triple ngt) ~f:(fun (n,g,t) ->
+      G.bind (genVar g t >>= G.split_option) ~f:(function
+        | `Some e -> G.return e
         | `None ->
-            G.bind (split_bool .<.~n <= 1>.) ~f:(fun b ->
+            G.bind (G.split_bool .<.~n <= 1>.) ~f:(fun b ->
               if b then genConst t else
-                G.bind (split_typ t) ~f:(function
-                  | `TFun (t1,t2) -> map ~f:(fun e -> .<Abs(.~t1,.~e)>.) (recurse go .<(.~n - 1,.~t1 :: .~g,.~t2)>.)
+                G.bind (G.split_typ t) ~f:(function
+                  | `TFun (t1,t2) -> map ~f:(fun e -> .<Abs(.~t1,.~e)>.) (G.recurse go .<(.~n - 1,.~t1 :: .~g,.~t2)>.)
                   | _ ->
                       G.bind genTyp ~f:(fun t' ->
-                        G.bind (recurse go .<(.~n/2,.~g,TFun(.~t',.~t))>.) ~f:(fun e1 ->
-                          G.bind (recurse go .<(.~n/2,.~g,.~t')>.) ~f:(fun e2 ->
-                            return .<App(.~e1,.~e2)>.
+                        G.bind (G.recurse go .<(.~n/2,.~g,TFun(.~t',.~t))>.) ~f:(fun e1 ->
+                          G.bind (G.recurse go .<(.~n/2,.~g,.~t')>.) ~f:(fun e2 ->
+                            G.return .<App(.~e1,.~e2)>.
                           )))))))
 
 let genExpr =
-  G.bind size ~f:(fun n ->
+  G.bind G.size ~f:(fun n ->
     G.bind genTyp ~f:(fun t ->
       genExactExpr n .<[]>. t))
 

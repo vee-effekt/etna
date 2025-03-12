@@ -6,16 +6,18 @@ open STLC
 open Core;;
 
 let () =
-  let generator = BaseBespoke.quickcheck_generator in
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
   let size = 10 in
   for _ = 1 to 10 do
     printf "\n";
     printf "\n";
-    let staged_values = Base_quickcheck.Generator.generate generator ~size ~random:random_b in
+    let v1 = Base_quickcheck.Generator.generate BaseBespoke.quickcheck_generator ~size ~random:random_a in
+    let v2 = Base_quickcheck.Generator.generate BaseBespoke_Staged.quickcheck_generator ~size ~random:random_b in
+    printf "========= generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t staged_values))
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged.sexp_of_t v2))
   done
 
 (* RUNNER COMMAND:
