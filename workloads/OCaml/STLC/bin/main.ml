@@ -17,7 +17,7 @@ let () =
     printf "========= generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged.sexp_of_t v2))
+    printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v2))
   done
 
 (* RUNNER COMMAND:
