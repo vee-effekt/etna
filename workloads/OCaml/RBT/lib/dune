@@ -12,6 +12,7 @@
   baseType_Staged_C
   baseType_Staged_CSR
   baseBespoke
+  baseBespoke_Staged_SR
   nat
   display)
   (libraries qcheck crowbar fast_gen util core core_unix ppx_staged ppxlib)
