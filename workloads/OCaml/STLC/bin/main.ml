@@ -24,12 +24,18 @@ let () =
   for _ = 1 to 10 do
     printf "\n";
     printf "\n";
-    let values = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
-    let staged_values_c = Base_quickcheck.Generator.generate BaseType_Staged_C.quickcheck_generator ~size ~random:random_c in
+    let gen1 = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
+    let gen2 = Base_quickcheck.Generator.generate BaseType_Staged_SR.quickcheck_generator ~size ~random:random_b in
+    let gen3 = Base_quickcheck.Generator.generate BaseType_Staged_C.quickcheck_generator ~size ~random:random_c in
+    let gen4 = Base_quickcheck.Generator.generate BaseType_Staged_CSR.quickcheck_generator ~size ~random:random_d in
     printf "========= type generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseType.sexp_of_t values));
+    printf "%s\n" (Sexp.to_string_hum (BaseType.sexp_of_t gen1));
+    printf "========= staged generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_SR.sexp_of_t gen1));
     printf "========= staged generator c ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_C.sexp_of_t staged_values_c));
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_C.sexp_of_t gen1));
+    printf "========= staged generator csr ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_CSR.sexp_of_t gen1));
   done
 
 

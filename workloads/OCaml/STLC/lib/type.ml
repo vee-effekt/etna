@@ -4,8 +4,6 @@ open Ppx_staged;;
 *)
 open Core;;
 
-module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
-
 type typ = TBool | TFun of typ * typ [@@deriving sexp, quickcheck]
 
 type expr =
