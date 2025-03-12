@@ -87,6 +87,9 @@ let cstrategies : (string * tree gen) list =
 let bstrategies : (string * tree basegen) list =
   [
     ("bespoke", (module BaseBespoke));
+    ("bespokeStaged", (module BaseBespoke_Staged_SR));
+    ("bespokeStagedC", (module BaseBespoke_Staged_C));
+    ("bespokeStagedCSR", (module BaseBespoke_Staged_CSR));
     ("type", (module BaseType));
     ("staged", (module BaseType_Staged_SR));
     ("stagedC", (module BaseType_Staged_C));

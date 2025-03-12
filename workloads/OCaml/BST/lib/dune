@@ -12,6 +12,9 @@
   baseType_Staged_C
   baseType_Staged_CSR
   baseBespoke
+  baseBespoke_Staged_SR
+  baseBespoke_Staged_C
+  baseBespoke_Staged_CSR
   baseSingleBespoke
   nat
   display)
