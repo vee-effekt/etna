@@ -11,22 +11,31 @@ open Stdio
 open Ppx_staged;;
 open Nat;;
 
-(* type nat = Nat.t * Nat.t [@@deriving wh, sexp]
-
+open BST
+(*
 let () =
-  let generator = G.jit ~extra_cmi_paths:["/home/ubuntu/waffle-house/ppx_staged/_build/default/bin/.main.eobjs/byte"] staged_quickcheck_generator_nat in
-  let () = G.print staged_quickcheck_generator_nat in  
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
+  let random_c = Splittable_random.State.of_int 1 in
+  let random_d = Splittable_random.State.of_int 1 in
   let size = 10 in
   for _ = 1 to 10 do
     printf "\n";
     printf "\n";
-    let staged_values = Base_quickcheck.Generator.generate generator ~size ~random:random_b in
-    printf "========= Staged generator ==========\n";
-    printf "%s\n" (Sexp.to_string_hum (sexp_of_nat staged_values))
-  done *)
-
+    let values = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
+    let staged_values_sr = Base_quickcheck.Generator.generate BaseType_Staged_SR.quickcheck_generator ~size ~random:random_b in
+    let staged_values_c = Base_quickcheck.Generator.generate BaseType_Staged_C.quickcheck_generator ~size ~random:random_c in
+    let staged_values_csr = Base_quickcheck.Generator.generate BaseType_Staged_CSR.quickcheck_generator ~size ~random:random_d in
+    printf "========= type generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType.sexp_of_t values));
+    printf "========= staged generator ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_SR.sexp_of_t staged_values_sr));
+    printf "========= staged generator c ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_C.sexp_of_t staged_values_sr));
+    printf "========= staged generator csr ==========\n";
+    printf "%s\n" (Sexp.to_string_hum (BaseType_Staged_CSR.sexp_of_t staged_values_sr))
+  done
+*)
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
   dune exec BST -- qcheck prop_InsertInsert type out
@@ -84,6 +93,6 @@ let cstrategies : (string * tree gen) list =
   []
 
 let bstrategies : (string * tree basegen) list =
-  []
+  [("bespoke", (module BaseBespoke)); ("type", (module BaseType)); ("staged", (module BaseType_Staged_C)); ("stagedC", (module BaseType_Staged_C)); ("stagedCSR", (module BaseType_Staged_CSR))]
 
 let () = main properties qstrategies cstrategies bstrategies

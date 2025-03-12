@@ -18,13 +18,13 @@ let rec insert k v t =
       *)
     (*!! insert_2 *)
       (*!
-      if k < k' then T ((insert k v l), k', v', r)
+      if Poly.(<) k k' then T ((insert k v l), k', v', r)
       else T (l, k', v, r)
       *)
     (*!! insert_3 *)
       (*!
-      if k < k' then T ((insert k v l), k', v', r)
-      else if k' < k then T (l, k', v', (insert k v r))
+      if Poly.(<) k k' then T ((insert k v l), k', v', r)
+      else if Poly.(<) k' k then T (l, k', v', (insert k v r))
       else T (l, k', v', r)
       *)
 
@@ -41,19 +41,19 @@ let rec delete (k: int) (t: tree) =
   | T (l, k', v', r) ->
   (*! *)
   if Poly.(<) k k' then T ((delete k l), k', v', r)
-  else if k' < k then T (l, k', v', (delete k r))
+  else if Poly.(<) k' k then T (l, k', v', (delete k r))
   else join l r
   (*!! delete_4 *)
   (*!
   let _ = ignore v' in
-  if k < k' then delete k l
-  else if k' < k then delete k r
+  if Poly.(<) k k' then delete k l
+  else if Poly.(<) k' k then delete k r
   else join l r
   *)
   (*!! delete_5 *)
   (*!
-  if k' < k then T ((delete k l), k', v', r)
-  else if k < k' then T (l, k', v', (delete k r))
+  if Poly.(<) k' k then T ((delete k l), k', v', r)
+  else if Poly.(<) k k' then T (l, k', v', (delete k r))
   else join l r
   *)
 
@@ -62,14 +62,14 @@ let rec below (k: int) (t: tree) =
   match k, t with
   | _, E -> E
   | k, T (l, k', v, r) ->
-    if k <= k' then below k l
+    if Poly.(<=) k k' then below k l
     else T (l, k', v, below k r)
 
 let rec above (k: int) (t: tree) =
   match k, t with
   | _, E -> E
   | k, T (l, k', v, r) ->
-    if k' <= k then above k r
+    if Poly.(<=) k' k then above k r
     else T (above k l, k', v, r)
 
 let rec union_ (l: tree) (r: tree) (f: int) =
@@ -90,15 +90,15 @@ let rec union_ (l: tree) (r: tree) (f: int) =
     (*!! union_7 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-      if Base.(=) k k' then T (union_ l l' f', k, v, union_ r r' f')
-      else if k < k' then T (l, k, v, T (union_ r l' f', k', v', r'))
+      if Poly.(=) k k' then T (union_ l l' f', k, v, union_ r r' f')
+      else if Poly.(<) k k' then T (l, k, v, T (union_ r l' f', k', v', r'))
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
     *)
     (*!! union_8 *)
     (*!
     | T (l, k, v, r), T (l', k', v', r') ->
-    if Base.(=) k k'  then T (union_ l l' f', k, v, union_ r r' f')
-    else if k < k'   then T (union_ l (below k l') f', k, v,
+    if Poly.(=) k k'  then T (union_ l l' f', k, v, union_ r r' f')
+    else if Poly.(<) k k'   then T (union_ l (below k l') f', k, v,
                             union_ r (T (above k l', k', v', r')) f')
       else union_ (T (l', k', v', r')) (T (l, k, v, r)) f'
     *)
@@ -110,8 +110,8 @@ let rec find (k: int) (t: tree): int option =
   match k, t with
   | _, E -> None
   | k, T (l, k', v', r) ->
-    if k < k' then find k l
-    else if k' < k then find k r
+    if Poly.(<) k k' then find k l
+    else if Poly.(<) k' k then find k r
     else Some v'
 
 let rec size (t: tree) =

@@ -15,7 +15,7 @@ SPEC_PATH = 'lib/spec.ml'
 
 class OCaml(BenchTool):
 
-    def __init__(self, results: str, log_level: LogLevel = LogLevel.DEBUG, replace_level: ReplaceLevel = ReplaceLevel.REPLACE):
+    def __init__(self, results: str, log_level: LogLevel = LogLevel.INFO, replace_level: ReplaceLevel = ReplaceLevel.REPLACE):
         super().__init__(
             Config(start='(*',
                    end='*)',
@@ -43,12 +43,9 @@ class OCaml(BenchTool):
                 new_filename = os.path.splitext(filename)[0] + '.txt'
                 os.rename(filename, new_filename)
         with self._change_dir(workload_path):
-            i = 0
             for _ in range(params.trials):
                 # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
                 # seed = random.randint(0, 1_000_000)
-                i += 1
-                print("I VALUE: ",i)
                 seed = 0
                 self._shell_command(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file, str(seed)])
         reformat(params.file)

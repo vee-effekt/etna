@@ -12,13 +12,11 @@ STRATEGIES : list[PBTGenerator] = [
     # PBTGenerator('base', 'bespoke'),
     # PBTGenerator('base', 'typGsr'),
     # PBTGenerator('base', 'type'),
-    PBTGenerator('base', 'typeC')
-    # PBTGenerator('qcheck', 'bespoke'),
-    # PBTGenerator('qcheck', 'type'),
-    # PBTGenerator('crowbar', 'bespoke'),
-    # PBTGenerator('crowbar', 'type'),
-    # PBTGenerator('afl', 'bespoke'),
-    # PBTGenerator('afl', 'type'),
+    PBTGenerator('base', 'bespoke'),
+    # PBTGenerator('base', 'type'),
+    # PBTGenerator('base', 'staged'),
+    # PBTGenerator('base', 'stagedC'),
+    # PBTGenerator('base', 'stagedCSR')
 ]
 
 TRIALS = 10
