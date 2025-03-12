@@ -3,12 +3,6 @@ open Fast_gen
 open Base
 open Type_defn;;
 
-let rec equal_typ x y =
-  match x, y with
-  | TBool, TBool -> true
-  | TFun (x1, x2), TFun (y1, y2) -> equal_typ x1 y1 && equal_typ x2 y2
-  | _ -> false   
-
 module M : Fast_gen.Splittable.S = struct
   type nonrec t = expr
   type nonrec f = VarF of int code | BoolF of bool code | AbsF of (typ code) * (expr code) | AppF of (expr code) * (expr code)
@@ -78,12 +72,12 @@ let genVar g t : Type_defn.expr option code G.t =
 let genExactExpr n g t =
   G.recursive .<(.~n,.~g,.~t)>. @@ fun go ngt ->
     G.bind (G.split_triple ngt) ~f:(fun (n,g,t) ->
-      G.bind (genVar g t >>= G.split_option) ~f:(function
+      G.bind (G.bind (genVar g t) G.split_option) ~f:(function
         | `Some e -> G.return e
         | `None ->
             G.bind (G.split_bool .<.~n <= 1>.) ~f:(fun b ->
               if b then genConst t else
-                G.bind (G.split_typ t) ~f:(function
+                G.bind (split_typ t) ~f:(function
                   | `TFun (t1,t2) -> map ~f:(fun e -> .<Abs(.~t1,.~e)>.) (G.recurse go .<(.~n - 1,.~t1 :: .~g,.~t2)>.)
                   | _ ->
                       G.bind genTyp ~f:(fun t' ->
