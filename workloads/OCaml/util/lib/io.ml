@@ -4,7 +4,7 @@ open Crowbar
 open Parse
 
 (* global timeout in seconds for test threads *)
-let timeout = ref 20
+let timeout = ref 60
 
 (* super simple running of the tests *)
 let qrun (p : 'a property) (g : 'a QCheck.arbitrary) (oc : out_channel) : unit =
@@ -55,9 +55,12 @@ let bmain seed oc t ts s ss =
   | None, _ -> Printf.printf "Test %s not found\n" t
   | _, None -> Printf.printf "Strategy %s not found\n" s
   | Some t', Some s' ->
-      Printf.fprintf oc "[%f start %s]\n" (Unix.gettimeofday ()) seed;
-      flush oc;
-      brun t' s' seed
+      let start_time = Unix.gettimeofday () in
+      brun t' s' seed;
+      let end_time = Unix.gettimeofday () in
+      Printf.fprintf oc "[%f start %s]\n" start_time seed;
+      Printf.fprintf oc "[%f end %s]\n" end_time seed;
+      flush oc
   
 (* piping helper functions *)
 
@@ -106,10 +109,10 @@ let crowbar_fork framework test strat filename =
       | pid' -> (
           (* waiting thread *)
           let _, status = Unix.waitpid [] pid in
-          Unix.kill pid' Sys.sigterm;
           let endtime = Unix.gettimeofday () in
+          Unix.kill pid' Sys.sigterm;
           match status with
-          | Unix.WEXITED c -> Printf.fprintf oc "[%f exit %i]\n" endtime c
+          | Unix.WEXITED _ -> ()
           | Unix.WSIGNALED c when c = Sys.sigalrm ->
               Printf.fprintf oc "[%f exit timeout]\n" endtime
           | _ -> Printf.fprintf oc "[%f exit unexpected]\n" endtime))
@@ -171,8 +174,8 @@ let afl_fork framework test strat filename : unit =
         | pid' -> (
             (* waiting thread *)
             let _, status = Unix.waitpid [] pid in
-            Unix.kill pid' Sys.sigterm;
             let endtime = Unix.gettimeofday () in
+            Unix.kill pid' Sys.sigterm;
             match status with
             | Unix.WEXITED c -> 
               Printf.fprintf oc "[%f exit %i]\n" endtime c
