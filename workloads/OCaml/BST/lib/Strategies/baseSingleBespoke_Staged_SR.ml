@@ -4,20 +4,25 @@ open Fast_gen;;
 open Nat;;
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
 open G
+open Let_syntax
+open Codelib;;
 
 type t = Type.tree [@@deriving sexp, quickcheck]
 
-let rec staged_quickcheck_generator (lo: int G.c) (hi: int G.c) =
-  let open Let_syntax in
-  let%bind stop = .< .~lo >= .~hi >. in
-  if stop
-    then return .< E >.
-  else
-    let%bind k = Nat.staged_quickcheck_generator_range_sr_t ~lo ~hi in
-    let%bind v = Nat.staged_quickcheck_generator_sr_t in
-    let%bind left = staged_quickcheck_generator lo (G.C.minus k (G.C.lift 1)) in
-    let%bind right = staged_quickcheck_generator (G.C.plus k (G.C.lift 1)) hi in
-    return (.< T (.~left, .~k, .~v, .~right) >.)
+let staged_quickcheck_generator (lo: int code) (hi: int code) : Type.tree code G.t =
+  recursive (.< (.~lo, .~hi ) >.) 
+  (fun go lohi -> 
+    let%bind (lo, hi) = split_pair lohi in
+    let%bind should_stop = split_bool .< .~lo >= .~hi >. in
+    if should_stop
+      then return .< E >.
+    else
+      let%bind k = int_inclusive ~lo ~hi in
+      let%bind v = Nat.staged_quickcheck_generator_sr_t in
+      let%bind left = recurse go .<(.~lo, .~k - 1) >. in
+      let%bind right = recurse go .<(.~k + 1, .~hi) >. in
+      return (.< T (.~left, .~k, .~v, .~right) >.)
+  )
 
 let staged_code =
   staged_quickcheck_generator (G.C.lift 0) (G.C.lift 1000)

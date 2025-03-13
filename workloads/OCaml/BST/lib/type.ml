@@ -17,3 +17,6 @@ let rec insert_correct (t : tree) (k, v) =
 
 let repeat_insert (lst : (Nat.t * Nat.t) list) : tree =
   List.fold_left ~f:insert_correct ~init:E lst
+
+let geq x y =
+  if x >= y then true else false
