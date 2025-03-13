@@ -1,0 +1,1798 @@
+{
+    "no_balance_insert_1": {
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0163934426229508,
+                "baseBespokestaged": 1.0598290598290598,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0420168067226891,
+                "baseType": 1.0,
+                "baseStaged": 1.189312628453985,
+                "baseStagedc": 2.9768505287224922,
+                "baseStagedcsr": 3.0825688073394493
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1129482029523683,
+                "baseBespokestagedc": 2.0344039953026805,
+                "baseBespokestagedcsr": 2.128882406957273,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0954946780460932,
+                "baseBespokestagedc": 2.0770824838434,
+                "baseBespokestagedcsr": 2.1370658145789756,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "union_6": {
+        "prop_UnionValid.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0416666666666665,
+                "baseBespokestagedc": 1.1363636363636362,
+                "baseBespokestagedcsr": 1.2,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3221476510067114,
+                "baseBespokesinglestagedc": 1.6837606837606838,
+                "baseBespokesinglestagedcsr": 1.4924242424242422,
+                "baseType": 1.0,
+                "baseStaged": 2.66044061302682,
+                "baseStagedc": 12.829099307159353,
+                "baseStagedcsr": 13.450363196125908
+            }
+        },
+        "prop_UnionPost.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.230344827586207,
+                "baseBespokestagedc": 2.983277591973244,
+                "baseBespokestagedcsr": 3.086505190311419,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 4.079352226720648,
+                "baseBespokesinglestagedc": 10.13682092555332,
+                "baseBespokesinglestagedcsr": 4.109298531810766,
+                "baseType": 1.0,
+                "baseStaged": 1.1976865360566902,
+                "baseStagedc": 5.1887133182844245,
+                "baseStagedcsr": 5.573714839961203
+            }
+        },
+        "prop_UnionModel.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1567164179104477,
+                "baseBespokestagedc": 1.2109375,
+                "baseBespokestagedcsr": 1.2704918032786885,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3239436619718308,
+                "baseBespokesinglestagedc": 1.5798319327731092,
+                "baseBespokesinglestagedcsr": 1.261744966442953,
+                "baseType": 1.0,
+                "baseStaged": 1.1308411214953271,
+                "baseStagedc": 1.315217391304348,
+                "baseStagedcsr": 1.2222222222222223
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 2.6025641025641026,
+                "baseBespokestagedc": 6.070574162679425,
+                "baseBespokestagedcsr": 6.351689612015019,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.2753803596127247,
+                "baseBespokesinglestagedc": 1.628864158275923,
+                "baseBespokesinglestagedcsr": 1.282119021134594,
+                "baseType": 1.0,
+                "baseStaged": 1.2817819859189126,
+                "baseStagedc": 3.1368664963460287,
+                "baseStagedcsr": 3.2810037535111487
+            }
+        },
+        "prop_UnionUnionAssoc.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0606060606060603,
+                "baseBespokestagedc": 1.0852713178294573,
+                "baseBespokestagedcsr": 1.1666666666666665,
+                "baseBespokesingle": 1.7727272727272727,
+                "baseBespokesinglestaged": 1.0,
+                "baseBespokesinglestagedc": 3.046875,
+                "baseBespokesinglestagedcsr": 2.8260869565217392,
+                "baseType": 1.0,
+                "baseStaged": 1.1330547967218383,
+                "baseStagedc": 10.072857142857142,
+                "baseStagedcsr": 10.864406779661017
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0775193798449612,
+                "baseBespokestaged": 1.130081300813008,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0220588235294117,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.15527950310559,
+                "baseBespokesinglestagedc": 1.2916666666666665,
+                "baseBespokesinglestagedcsr": 1.3381294964028778,
+                "baseType": 1.0,
+                "baseStaged": 1.3131101813110182,
+                "baseStagedc": 3.297723292469352,
+                "baseStagedcsr": 3.280487804878049
+            }
+        },
+        "prop_UnionUnionIdem.txt": {
+            "BST": {
+                "baseBespoke": 1.0081967213114755,
+                "baseBespokestaged": 1.0165289256198349,
+                "baseBespokestagedc": 1.1181818181818182,
+                "baseBespokestagedcsr": 1.0,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.171875,
+                "baseBespokesinglestagedc": 1.5789473684210524,
+                "baseBespokesinglestagedcsr": 1.4423076923076923,
+                "baseType": 1.0,
+                "baseStaged": 1.5208333333333333,
+                "baseStagedc": 1.697674418604651,
+                "baseStagedcsr": 1.622222222222222
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.1507936507936507,
+                "baseBespokestaged": 1.1328125,
+                "baseBespokestagedc": 1.1068702290076335,
+                "baseBespokestagedcsr": 1.0,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.5202020202020203,
+                "baseBespokesinglestagedc": 2.0201342281879198,
+                "baseBespokesinglestagedcsr": 1.5842105263157893,
+                "baseType": 1.0,
+                "baseStaged": 1.3599033816425121,
+                "baseStagedc": 2.480176211453745,
+                "baseStagedcsr": 2.606481481481482
+            }
+        }
+    },
+    "swap_bc": {
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0969691660826908,
+                "baseBespokestagedc": 1.5301808406647115,
+                "baseBespokestagedcsr": 1.5696916520431183,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0354279321275406,
+                "baseBespokestagedc": 2.7233938205002453,
+                "baseBespokestagedcsr": 2.8073811931243675,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0722753007784855,
+                "baseBespokestagedc": 1.5016105054509417,
+                "baseBespokestagedcsr": 1.560576799279001,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1105357498506274,
+                "baseBespokestagedc": 1.878284302717269,
+                "baseBespokestagedcsr": 1.9555763385550617,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1470709355519282,
+                "baseBespokestagedc": 2.30193159327251,
+                "baseBespokestagedcsr": 2.4301006611170557,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1183040403333098,
+                "baseBespokestagedc": 1.901363176379546,
+                "baseBespokestagedcsr": 2.0241444866920153,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0232142857142856,
+                "baseBespokestagedc": 2.8226600985221677,
+                "baseBespokestagedcsr": 2.9485420240137223,
+                "baseType": 1.0,
+                "baseStaged": 1.195974919897013,
+                "baseStagedc": 2.3508584366928416,
+                "baseStagedcsr": 2.4368157554489582
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0817369093231162,
+                "baseBespokestagedc": 4.224438902743143,
+                "baseBespokestagedcsr": 4.193069306930693,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1511220552396426,
+                "baseBespokestagedc": 2.538345275414241,
+                "baseBespokestagedcsr": 2.6909382232508454,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeletePost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.150482963389854,
+                "baseBespokestagedc": 2.4966280130319105,
+                "baseBespokestagedcsr": 2.645618997927186,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "miscolor_balLeft": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1280337078651685,
+                "baseBespokestagedc": 2.0038922155688623,
+                "baseBespokestagedcsr": 2.1064834242551402,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1578806756442785,
+                "baseBespokestagedc": 2.2388925420715124,
+                "baseBespokestagedcsr": 2.3800306788435095,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "insert_3": {
+        "prop_InsertModel.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1892332789559543,
+                "baseBespokestagedc": 2.1315789473684212,
+                "baseBespokestagedcsr": 2.222560975609756,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.9047619047619047,
+                "baseBespokesinglestagedc": 2.871794871794872,
+                "baseBespokesinglestagedcsr": 1.8983050847457625,
+                "baseType": 1.0,
+                "baseStaged": 1.1650307100625683,
+                "baseStagedc": 1.9577505546445455,
+                "baseStagedcsr": 1.9915611814345993
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0572625698324023,
+                "baseBespokestagedc": 4.532934131736527,
+                "baseBespokestagedcsr": 4.5602409638554215,
+                "baseType": 1.0,
+                "baseStaged": 1.1669936243256498,
+                "baseStagedc": 1.8464821520951888,
+                "baseStagedcsr": 1.848394614189539
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0716534441506107,
+                "baseBespokestagedc": 1.3730235559858017,
+                "baseBespokestagedcsr": 1.4292912327846825,
+                "baseType": 1.0,
+                "baseStaged": 1.287875900294606,
+                "baseStagedc": 2.9867222820732393,
+                "baseStagedcsr": 3.15011168301447
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0850264239577216,
+                "baseBespokestagedc": 1.5017880364109233,
+                "baseBespokestagedcsr": 1.529635761589404,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.2317184049876608,
+                "baseBespokesinglestagedc": 1.4903347477604905,
+                "baseBespokesinglestagedcsr": 1.2457961114030478,
+                "baseType": 1.0,
+                "baseStaged": 1.2197945665738699,
+                "baseStagedc": 2.612806382628722,
+                "baseStagedcsr": 2.7909418379898088
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.024207492795389,
+                "baseBespokestagedc": 2.8296178343949046,
+                "baseBespokestagedcsr": 2.9083469721767594,
+                "baseType": 1.0,
+                "baseStaged": 1.0737100737100735,
+                "baseStagedc": 3.2919020715630887,
+                "baseStagedcsr": 3.31060606060606
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1283095723014256,
+                "baseBespokestagedc": 1.9070567986230638,
+                "baseBespokestagedcsr": 1.985663082437276,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 2.994824611845888,
+                "baseBespokesinglestagedc": 4.369127516778524,
+                "baseBespokesinglestagedcsr": 2.993103448275862,
+                "baseType": 1.0,
+                "baseStaged": 1.0924304555026043,
+                "baseStagedc": 1.506035141329259,
+                "baseStagedcsr": 1.5272699101332508
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1051163849524785,
+                "baseBespokestagedc": 1.7030345553411683,
+                "baseBespokestagedcsr": 1.751894622879827,
+                "baseType": 1.0,
+                "baseStaged": 1.239921218211831,
+                "baseStagedc": 2.4808336765264016,
+                "baseStagedcsr": 2.5764544074605213
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0971664498614333,
+                "baseBespokestagedc": 1.6593105807886408,
+                "baseBespokestagedcsr": 1.712935982339956,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3219858156028368,
+                "baseBespokesinglestagedc": 1.6205379973406977,
+                "baseBespokesinglestagedcsr": 1.3380626636263828,
+                "baseType": 1.0,
+                "baseStaged": 1.2040262634420662,
+                "baseStagedc": 2.4280328392961628,
+                "baseStagedcsr": 2.5674010384110013
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.198047419804742,
+                "baseBespokestagedc": 2.3029490616621984,
+                "baseBespokestagedcsr": 2.3091397849462365,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.1593417231364955,
+                "baseBespokesinglestagedc": 4.425720620842572,
+                "baseBespokesinglestagedcsr": 1.1722787783868442,
+                "baseType": 1.0,
+                "baseStaged": 1.2163839295169112,
+                "baseStagedc": 2.5084730957372465,
+                "baseStagedcsr": 2.643439038983753
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.190524193548387,
+                "baseBespokestagedc": 2.4200819672131146,
+                "baseBespokestagedcsr": 2.5127659574468084,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.7602523659305993,
+                "baseBespokesinglestagedc": 2.4155844155844157,
+                "baseBespokesinglestagedcsr": 1.7547169811320755,
+                "baseType": 1.0,
+                "baseStaged": 1.2182564157571532,
+                "baseStagedc": 2.4173894535199274,
+                "baseStagedcsr": 2.573791853152796
+            }
+        }
+    },
+    "miscolor_join_2": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.8529614325068873,
+                "baseBespokestagedc": 2.9356246590289143,
+                "baseBespokestagedcsr": 2.9276387377584334,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1444364112069474,
+                "baseBespokestagedc": 2.3007382536895995,
+                "baseBespokestagedcsr": 2.421074443295222,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "swap_cd": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1422314369394664,
+                "baseBespokestagedc": 2.2943771932832666,
+                "baseBespokestagedcsr": 2.3969882251785335,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0630554380025392,
+                "baseBespokestagedc": 1.3011049723756907,
+                "baseBespokestagedcsr": 1.3378306408663234,
+                "baseType": 1.0,
+                "baseStaged": 1.2436877214963795,
+                "baseStagedc": 2.5080685450382734,
+                "baseStagedcsr": 2.608225386015047
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0910973084886129,
+                "baseBespokestagedc": 1.596969696969697,
+                "baseBespokestagedcsr": 1.5778443113772456,
+                "baseType": 1.0,
+                "baseStaged": 1.0705521472392638,
+                "baseStagedc": 2.417685411572942,
+                "baseStagedcsr": 2.507607776838546
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.075070290534208,
+                "baseBespokestagedc": 1.6571800057786767,
+                "baseBespokestagedcsr": 1.6586176980913823,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0613414223120998,
+                "baseBespokestagedc": 2.682282793867121,
+                "baseBespokestagedcsr": 2.7490178961152334,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0594795539033457,
+                "baseBespokestagedc": 1.5159574468085106,
+                "baseBespokestagedcsr": 1.3443396226415094,
+                "baseType": 1.0,
+                "baseStaged": 1.2290013449899126,
+                "baseStagedc": 2.4587467626383237,
+                "baseStagedcsr": 2.5432627074418117
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0444444444444445,
+                "baseBespokestagedc": 3.881696428571429,
+                "baseBespokestagedcsr": 3.952272727272727,
+                "baseType": 1.0,
+                "baseStaged": 1.297712309248754,
+                "baseStagedc": 3.2390565713454698,
+                "baseStagedcsr": 3.4514679364363796
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.119846040282611,
+                "baseBespokestagedc": 1.8364894076956333,
+                "baseBespokestagedcsr": 1.8259112792297112,
+                "baseType": 1.0,
+                "baseStaged": 1.2762257236622763,
+                "baseStagedc": 3.0343661391467824,
+                "baseStagedcsr": 3.214206758232825
+            }
+        },
+        "prop_DeletePost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1418558861163652,
+                "baseBespokestagedc": 2.49336580920636,
+                "baseBespokestagedcsr": 2.6448516070575514,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0797260737233683,
+                "baseBespokestagedc": 1.5612469437652812,
+                "baseBespokestagedcsr": 1.6048002010555416,
+                "baseType": 1.0,
+                "baseStaged": 1.236261091714581,
+                "baseStagedc": 2.5227167912990636,
+                "baseStagedcsr": 2.6249595885922967
+            }
+        }
+    },
+    "insert_2": {
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0567701635127686,
+                "baseBespokestagedc": 2.362217659137577,
+                "baseBespokestagedcsr": 2.415791684166317,
+                "baseType": 1.0,
+                "baseStaged": 1.19677214183495,
+                "baseStagedc": 2.0777087646652865,
+                "baseStagedcsr": 2.128384588193708
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0499026720934348,
+                "baseBespokestagedc": 3.33689538807649,
+                "baseBespokestagedcsr": 3.294280955024986,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 4.241379310344827,
+                "baseBespokesinglestagedc": 6.438926174496644,
+                "baseBespokesinglestagedcsr": 4.333333333333334,
+                "baseType": 1.0,
+                "baseStaged": 1.1314134694249522,
+                "baseStagedc": 1.578913900546865,
+                "baseStagedcsr": 1.6085773516455042
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.125,
+                "baseBespokestaged": 1.115702479338843,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.1440677966101696,
+                "baseType": 1.0168067226890756,
+                "baseStaged": 1.110091743119266,
+                "baseStagedc": 1.0,
+                "baseStagedcsr": 1.1523809523809523
+            },
+            "BST": {
+                "baseBespoke": 1.0427350427350428,
+                "baseBespokestaged": 1.033898305084746,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0517241379310345,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3316326530612246,
+                "baseBespokesinglestagedc": 1.4662921348314608,
+                "baseBespokesinglestagedcsr": 1.2608695652173914,
+                "baseType": 1.0,
+                "baseStaged": 1.054263565891473,
+                "baseStagedc": 1.1239669421487604,
+                "baseStagedcsr": 1.1056910569105691
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.1551724137931034,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 1.072,
+                "baseBespokestagedcsr": 1.0307692307692309,
+                "baseType": 1.0,
+                "baseStaged": 1.1785714285714286,
+                "baseStagedc": 1.3561643835616437,
+                "baseStagedcsr": 1.4452554744525548
+            },
+            "BST": {
+                "baseBespoke": 1.2212389380530972,
+                "baseBespokestaged": 1.0454545454545454,
+                "baseBespokestagedc": 1.0952380952380951,
+                "baseBespokestagedcsr": 1.0,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.0232558139534884,
+                "baseBespokesinglestagedc": 1.0,
+                "baseBespokesinglestagedcsr": 1.0476190476190477,
+                "baseType": 1.0,
+                "baseStaged": 1.3633998265394625,
+                "baseStagedc": 3.112871287128713,
+                "baseStagedcsr": 3.1067193675889326
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.088050314465409,
+                "baseBespokestagedc": 1.5799086757990868,
+                "baseBespokestagedcsr": 1.5309734513274338,
+                "baseType": 1.0,
+                "baseStaged": 1.2199001194224297,
+                "baseStagedc": 2.247749549909982,
+                "baseStagedcsr": 2.317759900990099
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1042345276872965,
+                "baseBespokestagedc": 1.555045871559633,
+                "baseBespokestagedcsr": 1.5339366515837103,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.5176991150442478,
+                "baseBespokesinglestagedc": 1.7411167512690355,
+                "baseBespokesinglestagedcsr": 1.4658119658119657,
+                "baseType": 1.0,
+                "baseStaged": 1.1467606875275451,
+                "baseStagedc": 1.6953901286854536,
+                "baseStagedcsr": 1.7257502901674682
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0920245398773005,
+                "baseBespokestagedc": 1.1558441558441557,
+                "baseBespokestagedcsr": 1.1866666666666668,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3597560975609755,
+                "baseBespokesinglestagedc": 1.4203821656050957,
+                "baseBespokesinglestagedcsr": 1.2965116279069766,
+                "baseType": 1.025,
+                "baseStaged": 1.0,
+                "baseStagedc": 1.1714285714285715,
+                "baseStagedcsr": 1.1468531468531469
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0477079796264857,
+                "baseBespokestagedc": 3.0793413173652695,
+                "baseBespokestagedcsr": 3.1198179979777554,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.1638769949396652,
+                "baseBespokesinglestagedc": 3.548961424332344,
+                "baseBespokesinglestagedcsr": 1.1469121595703875,
+                "baseType": 1.0,
+                "baseStaged": 1.1152171604544971,
+                "baseStagedc": 1.6050741250191043,
+                "baseStagedcsr": 1.6080232736181288
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0557620817843867,
+                "baseBespokestagedc": 3.374257425742574,
+                "baseBespokestagedcsr": 3.5648535564853554,
+                "baseType": 1.0,
+                "baseStaged": 1.1883167720566092,
+                "baseStagedc": 1.880670987418986,
+                "baseStagedcsr": 1.9959538741654863
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.026143790849673,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 1.246031746031746,
+                "baseBespokestagedcsr": 1.1376811594202898,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.4035087719298245,
+                "baseBespokesinglestagedc": 1.3953488372093024,
+                "baseBespokesinglestagedcsr": 1.3872832369942196,
+                "baseType": 1.0,
+                "baseStaged": 1.270509977827051,
+                "baseStagedc": 2.2648221343873516,
+                "baseStagedcsr": 2.3875
+            }
+        }
+    },
+    "insert_1": {
+        "prop_InsertPost.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1557093425605536,
+                "baseBespokestagedc": 1.568075117370892,
+                "baseBespokestagedcsr": 1.4844444444444445,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.7342995169082127,
+                "baseBespokesinglestagedc": 1.9301075268817205,
+                "baseBespokesinglestagedcsr": 1.5341880341880343,
+                "baseType": 1.0,
+                "baseStaged": 1.1308308637910218,
+                "baseStagedc": 1.6812989556135771,
+                "baseStagedcsr": 1.6005903371135621
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.3066666666666666,
+                "baseBespokestagedc": 1.8317757009345794,
+                "baseBespokestagedcsr": 1.7422222222222221,
+                "baseType": 1.0,
+                "baseStaged": 1.0814788855791133,
+                "baseStagedc": 3.18801652892562,
+                "baseStagedcsr": 3.3218514531754577
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.1308411214953271,
+                "baseBespokestaged": 1.1415094339622642,
+                "baseBespokestagedc": 1.0083333333333333,
+                "baseBespokestagedcsr": 1.0,
+                "baseType": 1.0413223140495869,
+                "baseStaged": 1.05,
+                "baseStagedc": 1.0,
+                "baseStagedcsr": 1.0413223140495869
+            },
+            "BST": {
+                "baseBespoke": 1.3047619047619046,
+                "baseBespokestaged": 1.1810344827586206,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0378787878787878,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.123076923076923,
+                "baseBespokesinglestagedc": 1.050359712230216,
+                "baseBespokesinglestagedcsr": 1.0656934306569343,
+                "baseType": 1.0,
+                "baseStaged": 1.113821138211382,
+                "baseStagedc": 1.0873015873015872,
+                "baseStagedcsr": 1.2232142857142856
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.1166666666666667,
+                "baseBespokestaged": 1.1652173913043478,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0151515151515151,
+                "baseType": 1.0,
+                "baseStaged": 1.1233766233766234,
+                "baseStagedc": 1.226950354609929,
+                "baseStagedcsr": 1.2013888888888888
+            },
+            "BST": {
+                "baseBespoke": 1.1565217391304348,
+                "baseBespokestaged": 1.0991735537190084,
+                "baseBespokestagedc": 1.0310077519379846,
+                "baseBespokestagedcsr": 1.0,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.282051282051282,
+                "baseBespokesinglestagedc": 1.079136690647482,
+                "baseBespokesinglestagedcsr": 1.0869565217391304,
+                "baseType": 1.0,
+                "baseStaged": 1.27217125382263,
+                "baseStagedc": 2.0904522613065324,
+                "baseStagedcsr": 2.4470588235294115
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0352877307274704,
+                "baseBespokestagedc": 3.4630750605326877,
+                "baseBespokestagedcsr": 3.5578358208955225,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.903693931398417,
+                "baseBespokesinglestagedc": 2.938900203665988,
+                "baseBespokesinglestagedcsr": 1.9500000000000002,
+                "baseType": 1.0,
+                "baseStaged": 1.3730929264909848,
+                "baseStagedc": 2.28110599078341,
+                "baseStagedcsr": 2.456575682382134
+            },
+            "RBT": {
+                "baseBespoke": 1.0056507151686387,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 2.63291724456773,
+                "baseBespokestagedcsr": 2.6099908340971587,
+                "baseType": 1.0,
+                "baseStaged": 1.2099197099197099,
+                "baseStagedc": 2.3151069629140166,
+                "baseStagedcsr": 2.3729258381307146
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.1416666666666666,
+                "baseBespokestaged": 1.0073529411764706,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0223880597014925,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.112676056338028,
+                "baseBespokesinglestagedc": 1.1205673758865247,
+                "baseBespokesinglestagedcsr": 1.1366906474820144,
+                "baseType": 1.0,
+                "baseStaged": 1.28,
+                "baseStagedc": 2.6407766990291264,
+                "baseStagedcsr": 2.6798029556650245
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.152542372881356,
+                "baseBespokestaged": 1.0074074074074073,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.0381679389312977,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.119205298013245,
+                "baseBespokesinglestagedc": 1.0628930817610063,
+                "baseBespokesinglestagedcsr": 1.0833333333333333,
+                "baseType": 1.0130718954248366,
+                "baseStaged": 1.0,
+                "baseStagedc": 1.099290780141844,
+                "baseStagedcsr": 1.3025210084033614
+            }
+        }
+    },
+    "delete_5": {
+        "prop_DeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0203523174277407,
+                "baseBespokestagedc": 3.3034330011074196,
+                "baseBespokestagedcsr": 3.283434232250963,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.900255754475703,
+                "baseBespokesinglestagedc": 2.7620817843866172,
+                "baseBespokesinglestagedcsr": 1.742086752637749,
+                "baseType": 1.0,
+                "baseStaged": 1.237017310252996,
+                "baseStagedc": 1.9723991507430998,
+                "baseStagedcsr": 2.015184381778742
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1162687886825817,
+                "baseBespokestagedc": 1.4544930875576036,
+                "baseBespokestagedcsr": 1.487919858573954,
+                "baseType": 1.0,
+                "baseStaged": 1.2089384609426437,
+                "baseStagedc": 2.0672847682119206,
+                "baseStagedcsr": 2.1572909467864547
+            }
+        },
+        "prop_DeletePost.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1191200964907242,
+                "baseBespokestagedc": 1.9138591493959334,
+                "baseBespokestagedcsr": 1.9793783015034536,
+                "baseType": 1.0,
+                "baseStaged": 1.301484263370812,
+                "baseStagedc": 3.3885243328624712,
+                "baseStagedcsr": 3.617077704840311
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1068355922215676,
+                "baseBespokestagedc": 1.8084922010398616,
+                "baseBespokestagedcsr": 1.8884978885984316,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.651068619940276,
+                "baseBespokesinglestagedc": 2.5885871163839593,
+                "baseBespokesinglestagedcsr": 1.6515075691229826,
+                "baseType": 1.0,
+                "baseStaged": 1.2609579564667013,
+                "baseStagedc": 3.375590123859974,
+                "baseStagedcsr": 3.7064134068785135
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1424561981244339,
+                "baseBespokestagedc": 2.2881833580668856,
+                "baseBespokestagedcsr": 2.442703749339905,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.6122848296497259,
+                "baseBespokesinglestagedc": 2.5811630206030185,
+                "baseBespokesinglestagedcsr": 1.6555993798596962,
+                "baseType": 1.0,
+                "baseStaged": 1.2265961938293877,
+                "baseStagedc": 2.695633400233169,
+                "baseStagedcsr": 2.8678747883484106
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.139818824373676,
+                "baseBespokestagedc": 2.295933268978491,
+                "baseBespokestagedcsr": 2.40653587310153,
+                "baseType": "timeout",
+                "baseStaged": 1.0,
+                "baseStagedc": 2.1567820906312414,
+                "baseStagedcsr": 2.2573669217657844
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.2025316455696202,
+                "baseBespokestagedc": 2.220779220779221,
+                "baseBespokestagedcsr": 2.355371900826446,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.2243940578577013,
+                "baseBespokesinglestagedc": 4.626292466765141,
+                "baseBespokesinglestagedcsr": 1.2374555511655472,
+                "baseType": 1.0,
+                "baseStaged": 1.2422029191719832,
+                "baseStagedc": 2.8270679637004634,
+                "baseStagedcsr": 2.9845473092192325
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.128930817610063,
+                "baseBespokestagedc": 1.6244343891402715,
+                "baseBespokestagedcsr": 1.6854460093896713,
+                "baseType": 1.0,
+                "baseStaged": 1.2569433004974797,
+                "baseStagedc": 2.757245067572451,
+                "baseStagedcsr": 2.8871679741694627
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0987261146496816,
+                "baseBespokestagedc": 1.6507177033492821,
+                "baseBespokestagedcsr": 1.6586538461538463,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 2.071428571428571,
+                "baseBespokesinglestagedc": 3.3322981366459623,
+                "baseBespokesinglestagedcsr": 1.9652014652014649,
+                "baseType": 1.0,
+                "baseStaged": 1.2094300107545142,
+                "baseStagedc": 2.6066853726973287,
+                "baseStagedcsr": 2.717641073472676
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1162010235758033,
+                "baseBespokestagedc": 1.690040650406504,
+                "baseBespokestagedcsr": 1.7707972847065088,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3001126126126126,
+                "baseBespokesinglestagedc": 1.5979238754325258,
+                "baseBespokesinglestagedcsr": 1.289043963712491,
+                "baseType": 1.0,
+                "baseStaged": 1.2419516834142814,
+                "baseStagedc": 2.94632579768866,
+                "baseStagedcsr": 3.1593206531801186
+            }
+        }
+    },
+    "union_7": {
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0390625,
+                "baseBespokestaged": 1.0075757575757576,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.1083333333333334,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.5420560747663552,
+                "baseBespokesinglestagedc": 1.864406779661017,
+                "baseBespokesinglestagedcsr": 1.5207373271889402,
+                "baseType": 1.0,
+                "baseStaged": 1.062645011600928,
+                "baseStagedc": 4.4312370421561855,
+                "baseStagedcsr": 4.56045519203414
+            }
+        },
+        "prop_UnionPost.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.2455418381344305,
+                "baseBespokestagedc": 2.494505494505494,
+                "baseBespokestagedcsr": 3.242857142857143,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 4.072107765451664,
+                "baseBespokesinglestagedc": 10.136094674556215,
+                "baseBespokesinglestagedcsr": 4.131028938906752,
+                "baseType": 1.0,
+                "baseStaged": 1.337036692698649,
+                "baseStagedc": 4.24849827671098,
+                "baseStagedcsr": 4.628137738682686
+            }
+        },
+        "prop_UnionValid.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1333333333333333,
+                "baseBespokestagedc": 1.2540983606557379,
+                "baseBespokestagedcsr": 1.457142857142857,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3014705882352942,
+                "baseBespokesinglestagedc": 1.6857142857142855,
+                "baseBespokesinglestagedcsr": 1.3828125,
+                "baseType": 1.0,
+                "baseStaged": 1.1550945698596706,
+                "baseStagedc": 6.975681650700074,
+                "baseStagedcsr": 7.471191791633782
+            }
+        },
+        "prop_UnionUnionAssoc.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0077519379844961,
+                "baseBespokestagedc": 1.1926605504587153,
+                "baseBespokestagedcsr": 1.2149532710280373,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.4137931034482758,
+                "baseBespokesinglestagedc": 1.6532258064516128,
+                "baseBespokesinglestagedcsr": 1.3666666666666667,
+                "baseType": 1.0,
+                "baseStaged": 1.1266495011264885,
+                "baseStagedc": 9.777932960893855,
+                "baseStagedcsr": 10.575528700906345
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1544011544011543,
+                "baseBespokestagedc": 2.3121387283236996,
+                "baseBespokestagedcsr": 2.3391812865497075,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.2826448572220683,
+                "baseBespokesinglestagedc": 1.6391496899911429,
+                "baseBespokesinglestagedcsr": 1.2867473230426922,
+                "baseType": 1.0,
+                "baseStaged": 1.288257132923104,
+                "baseStagedc": 3.211264738216698,
+                "baseStagedcsr": 3.3883937887436324
+            }
+        },
+        "prop_UnionModel.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0469798657718121,
+                "baseBespokestagedc": 1.1908396946564883,
+                "baseBespokestagedcsr": 1.3928571428571428,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.197080291970803,
+                "baseBespokesinglestagedc": 1.4017094017094018,
+                "baseBespokesinglestagedcsr": 1.1388888888888888,
+                "baseType": 1.0,
+                "baseStaged": 1.2264150943396226,
+                "baseStagedc": 1.1607142857142856,
+                "baseStagedcsr": 1.1016949152542372
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0282485875706215,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 1.2297297297297298,
+                "baseBespokestagedcsr": 1.3284671532846717,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.1388888888888888,
+                "baseBespokesinglestagedc": 1.2148148148148148,
+                "baseBespokesinglestagedcsr": 1.0933333333333335,
+                "baseType": 1.0136986301369864,
+                "baseStaged": 1.0,
+                "baseStagedc": 1.088235294117647,
+                "baseStagedcsr": 1.0136986301369864
+            }
+        }
+    },
+    "subst_var_none": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 8.041044776119403,
+                "baseBespokestagedc": 9.288793103448276,
+                "baseBespokestagedcsr": 9.707207207207206,
+                "baseType": 1.0,
+                "baseStaged": 1.5865540640212419,
+                "baseStagedc": 2.1543893034203014,
+                "baseStagedcsr": 2.2506408579649486
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 2.652777777777778,
+                "baseBespokestagedc": 3.080645161290323,
+                "baseBespokestagedcsr": 3.1483516483516487,
+                "baseType": 1.0,
+                "baseStaged": 1.5643738413347823,
+                "baseStagedc": 2.1359430915597453,
+                "baseStagedcsr": 2.2560615838480684
+            }
+        }
+    },
+    "delete_4": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.127076375937893,
+                "baseBespokestagedc": 2.005479240623553,
+                "baseBespokestagedcsr": 2.1184478682644494,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": 1.0,
+                "baseStagedcsr": 1.0642383838469356
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1216256556782804,
+                "baseBespokestagedc": 1.9680484884765044,
+                "baseBespokestagedcsr": 2.0696411709159586,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.7102454226723802,
+                "baseBespokesinglestagedc": 2.8249036128124048,
+                "baseBespokesinglestagedcsr": 1.7040649814003892,
+                "baseType": 1.0,
+                "baseStaged": 1.2741464956029422,
+                "baseStagedc": 3.526965314321893,
+                "baseStagedcsr": 3.8004150587337264
+            }
+        },
+        "prop_DeletePost.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1822558459422283,
+                "baseBespokestagedc": 2.841322314049587,
+                "baseBespokestagedcsr": 2.963793103448276,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 2.896280775275013,
+                "baseBespokesinglestagedc": 5.012692656391659,
+                "baseBespokesinglestagedcsr": 2.836839404822986,
+                "baseType": 1.0,
+                "baseStaged": 1.0985699089942087,
+                "baseStagedc": 3.5396039603960396,
+                "baseStagedcsr": 3.692888359157727
+            },
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1368641845831147,
+                "baseBespokestagedc": 3.4632587859424913,
+                "baseBespokestagedcsr": 3.5367047308319735,
+                "baseType": 1.0,
+                "baseStaged": 1.215272767634164,
+                "baseStagedc": 2.327593537414966,
+                "baseStagedcsr": 2.358935688893677
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.2187499999999998,
+                "baseBespokestagedc": 2.484076433121019,
+                "baseBespokestagedcsr": 2.4920127795527156,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.3376913265306123,
+                "baseBespokesinglestagedc": 4.062953995157385,
+                "baseBespokesinglestagedcsr": 1.3709150326797386,
+                "baseType": 1.0,
+                "baseStaged": 1.2895887902754115,
+                "baseStagedc": 3.8851177935261445,
+                "baseStagedcsr": 4.195631489678567
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0583333333333333,
+                "baseBespokestagedc": 1.2330097087378642,
+                "baseBespokestagedcsr": 1.27,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.092857142857143,
+                "baseBespokesinglestagedc": 1.176923076923077,
+                "baseBespokesinglestagedcsr": 1.150375939849624,
+                "baseType": 1.0546875,
+                "baseStaged": 1.0714285714285714,
+                "baseStagedc": 1.0,
+                "baseStagedcsr": 1.1440677966101696
+            },
+            "RBT": {
+                "baseBespoke": 1.0462962962962963,
+                "baseBespokestaged": 1.018018018018018,
+                "baseBespokestagedc": 1.0865384615384615,
+                "baseBespokestagedcsr": 1.0,
+                "baseType": 1.0636363636363635,
+                "baseStaged": 1.054054054054054,
+                "baseStagedc": 1.054054054054054,
+                "baseStagedcsr": 1.0
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 1.0168067226890756,
+                "baseBespokestaged": 1.0614035087719298,
+                "baseBespokestagedc": 1.043103448275862,
+                "baseBespokestagedcsr": 1.0,
+                "baseType": 1.0,
+                "baseStaged": 1.10625,
+                "baseStagedc": 1.3937007874015748,
+                "baseStagedcsr": 1.3511450381679388
+            },
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1397058823529411,
+                "baseBespokestagedc": 1.4220183486238531,
+                "baseBespokestagedcsr": 1.4485981308411215,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.072992700729927,
+                "baseBespokesinglestagedc": 1.1136363636363635,
+                "baseBespokesinglestagedcsr": 1.1307692307692307,
+                "baseType": 1.0,
+                "baseStaged": 1.1122448979591837,
+                "baseStagedc": 1.4630872483221478,
+                "baseStagedcsr": 1.5244755244755246
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "BST": {
+                "baseBespoke": 1.0254237288135595,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 1.1523809523809523,
+                "baseBespokestagedcsr": 1.1862745098039216,
+                "baseBespokesingle": 1.2307692307692308,
+                "baseBespokesinglestaged": 1.0666666666666667,
+                "baseBespokesinglestagedc": 1.0,
+                "baseBespokesinglestagedcsr": 1.1636363636363636,
+                "baseType": 1.0,
+                "baseStaged": 1.0077519379844961,
+                "baseStagedc": 1.0483870967741935,
+                "baseStagedcsr": 1.0317460317460316
+            },
+            "RBT": {
+                "baseBespoke": 1.0462962962962963,
+                "baseBespokestaged": 1.036697247706422,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.018018018018018,
+                "baseType": 1.0,
+                "baseStaged": 1.027777777777778,
+                "baseStagedc": 1.0471698113207548,
+                "baseStagedcsr": 1.0471698113207548
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0222222222222221,
+                "baseBespokestagedc": 1.2,
+                "baseBespokestagedcsr": 1.2321428571428572,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.1800000000000002,
+                "baseBespokesinglestagedc": 1.2733812949640289,
+                "baseBespokesinglestagedcsr": 1.2464788732394365,
+                "baseType": 1.0,
+                "baseStaged": 1.0728476821192052,
+                "baseStagedc": 1.1408450704225352,
+                "baseStagedcsr": 1.1654676258992807
+            }
+        }
+    },
+    "no_balance_insert_2": {
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1304667266231245,
+                "baseBespokestagedc": 2.089136022232919,
+                "baseBespokestagedcsr": 2.1726525272846624,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0256410256410258,
+                "baseBespokestaged": 1.0,
+                "baseBespokestagedc": 1.0666666666666669,
+                "baseBespokestagedcsr": 1.073825503355705,
+                "baseType": 1.0,
+                "baseStaged": 1.0985939069300301,
+                "baseStagedc": 3.218734673859735,
+                "baseStagedcsr": 3.358751279426817
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1283573682618904,
+                "baseBespokestagedc": 2.048506133465209,
+                "baseBespokestagedcsr": 2.1885555655055073,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "union_8": {
+        "prop_UnionUnionAssoc.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1851368970013039,
+                "baseBespokestagedc": 2.7215568862275448,
+                "baseBespokestagedcsr": 2.7379518072289155,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.6358695652173914,
+                "baseBespokesinglestagedc": 2.1347517730496453,
+                "baseBespokesinglestagedcsr": 1.4333333333333333,
+                "baseType": 1.0,
+                "baseStaged": 1.2137104211497078,
+                "baseStagedc": 4.487610820641055,
+                "baseStagedcsr": 5.083955704352305
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.144946769865641,
+                "baseBespokestagedc": 2.4117779092782663,
+                "baseBespokestagedcsr": 2.5864717596341116,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.6566053555520621,
+                "baseBespokesinglestagedc": 2.6202961816875727,
+                "baseBespokesinglestagedcsr": 1.649459971824617,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.035129231889334,
+                "baseBespokestagedc": 4.079626972740316,
+                "baseBespokestagedcsr": 4.26951951951952,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.758513931888545,
+                "baseBespokesinglestagedc": 2.4482758620689657,
+                "baseBespokesinglestagedcsr": 1.6955223880597015,
+                "baseType": 1.0,
+                "baseStaged": 1.2132117672641423,
+                "baseStagedc": 2.6468654693324294,
+                "baseStagedcsr": 2.7960980848398065
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1558787187529702,
+                "baseBespokestagedc": 2.546642181736175,
+                "baseBespokestagedcsr": 2.7523633767997358,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.639809084658011,
+                "baseBespokesinglestagedc": 2.565236648949633,
+                "baseBespokesinglestagedcsr": 1.6506921824104235,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_UnionModel.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.2043090638930165,
+                "baseBespokestagedc": 2.728956228956229,
+                "baseBespokestagedcsr": 2.910233393177738,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.8559782608695652,
+                "baseBespokesinglestagedc": 2.8577405857740583,
+                "baseBespokesinglestagedcsr": 1.82620320855615,
+                "baseType": 1.0,
+                "baseStaged": 1.1918620298372844,
+                "baseStagedc": 2.1759413573074293,
+                "baseStagedcsr": 2.25813608957795
+            }
+        },
+        "prop_UnionPost.txt": {
+            "BST": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0790546047269765,
+                "baseBespokestagedc": 1.7020729551663185,
+                "baseBespokestagedcsr": 1.753932770326213,
+                "baseBespokesingle": 1.0,
+                "baseBespokesinglestaged": 1.8332640236577027,
+                "baseBespokesinglestagedc": 3.4336218087408055,
+                "baseBespokesinglestagedcsr": 1.8287432877785716,
+                "baseType": 1.0,
+                "baseStaged": 1.3143959683246706,
+                "baseStagedc": 4.436991615410815,
+                "baseStagedcsr": 5.038652137869056
+            }
+        }
+    },
+    "shift_var_all": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.6101875857861825,
+                "baseBespokestagedc": 2.2302492606675113,
+                "baseBespokestagedcsr": 2.284292514063176,
+                "baseType": 1.0,
+                "baseStaged": 1.4131558202680212,
+                "baseStagedc": 1.7479956663055254,
+                "baseStagedcsr": 1.8093529213861164
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 2.4332963244317183,
+                "baseBespokestagedc": 2.4593078195133473,
+                "baseBespokestagedcsr": 2.517441508977692,
+                "baseType": 1.0,
+                "baseStaged": 1.5716887584741477,
+                "baseStagedc": 2.1196779475982535,
+                "baseStagedcsr": 2.2292972300626706
+            }
+        }
+    },
+    "substTop_no_shift": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.8313725490196078,
+                "baseBespokestagedc": 2.084821428571429,
+                "baseBespokestagedcsr": 2.1131221719457014,
+                "baseType": 1.0,
+                "baseStaged": 1.625937321937322,
+                "baseStagedc": 2.2145030111131807,
+                "baseStagedcsr": 2.3736607439941437
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.577639751552795,
+                "baseBespokestagedc": 1.7397260273972603,
+                "baseBespokestagedcsr": 1.6178343949044587,
+                "baseType": 1.0,
+                "baseStaged": 1.7106017191977076,
+                "baseStagedc": 2.395840933965706,
+                "baseStagedcsr": 2.4090242112986058
+            }
+        }
+    },
+    "shift_var_none": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.607843137254902,
+                "baseBespokestagedc": 1.696551724137931,
+                "baseBespokestagedcsr": 1.696551724137931,
+                "baseType": 1.0,
+                "baseStaged": 1.6706000502134069,
+                "baseStagedc": 2.4626202812731313,
+                "baseStagedcsr": 2.561200923787529
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.7559055118110236,
+                "baseBespokestagedc": 1.9141630901287554,
+                "baseBespokestagedcsr": 1.9647577092511015,
+                "baseType": 1.0,
+                "baseStaged": 1.6794110985277464,
+                "baseStagedc": 2.3362636670132653,
+                "baseStagedcsr": 2.454515360169492
+            }
+        }
+    },
+    "subst_abs_no_shift": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": "timeout",
+                "baseBespokestaged": "timeout",
+                "baseBespokestagedc": "timeout",
+                "baseBespokestagedcsr": "timeout",
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 3.1536128148186684,
+                "baseBespokestagedc": 3.219351319942945,
+                "baseBespokestagedcsr": 3.3450997840227434,
+                "baseType": 1.0,
+                "baseStaged": 1.7181719438243337,
+                "baseStagedc": 2.449102169109638,
+                "baseStagedcsr": 2.6381830372108617
+            }
+        }
+    },
+    "miscolor_insert": {
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0082644628099173,
+                "baseBespokestaged": 1.0252100840336134,
+                "baseBespokestagedc": 1.0,
+                "baseBespokestagedcsr": 1.1090909090909091,
+                "baseType": 1.0,
+                "baseStaged": 1.1041666666666665,
+                "baseStagedc": 1.2045454545454544,
+                "baseStagedcsr": 1.2137404580152669
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0578842315369261,
+                "baseBespokestagedc": 2.3612798703928717,
+                "baseBespokestagedcsr": 2.3962186600904234,
+                "baseType": 1.0,
+                "baseStaged": 1.2069193135046983,
+                "baseStagedc": 2.066688829787234,
+                "baseStagedcsr": 2.1470608551495474
+            }
+        }
+    },
+    "miscolor_join_1": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1449160035366932,
+                "baseBespokestagedc": 2.389886033313339,
+                "baseBespokestagedcsr": 2.5136368048141318,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "shift_var_leq": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": "timeout",
+                "baseBespokestaged": "timeout",
+                "baseBespokestagedc": "timeout",
+                "baseBespokestagedcsr": "timeout",
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 3.1915758332578585,
+                "baseBespokestagedc": 3.260307956835553,
+                "baseBespokestagedcsr": 3.3801112666507547,
+                "baseType": 1.0,
+                "baseStaged": 1.7806723420932309,
+                "baseStagedc": 2.576072320085675,
+                "baseStagedcsr": 2.7415253882189274
+            }
+        }
+    },
+    "substTop_no_shift_back": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.7480314960629921,
+                "baseBespokestagedc": 1.9821428571428572,
+                "baseBespokestagedcsr": 1.8893617021276596,
+                "baseType": 1.0,
+                "baseStaged": 1.5998217468805704,
+                "baseStagedc": 2.1895721256099088,
+                "baseStagedcsr": 2.3065897858319606
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.55,
+                "baseBespokestagedc": 1.631578947368421,
+                "baseBespokestagedcsr": 1.6644295302013425,
+                "baseType": 1.0,
+                "baseStaged": 1.632215780186539,
+                "baseStagedc": 2.372663979479663,
+                "baseStagedcsr": 2.453580901856764
+            }
+        }
+    },
+    "miscolor_balRight": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1540366638963002,
+                "baseBespokestagedc": 2.2760517301949763,
+                "baseBespokestagedcsr": 2.419114535252404,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.1249641237586823,
+                "baseBespokestagedc": 1.9670781893004117,
+                "baseBespokestagedcsr": 2.075399767023192,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "shift_abs_no_incr": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.636251731035544,
+                "baseBespokestagedc": 2.2223615464994775,
+                "baseBespokestagedcsr": 2.2601487778958553,
+                "baseType": 1.0,
+                "baseStaged": 1.4358839050131926,
+                "baseStagedc": 1.7687973997833153,
+                "baseStagedcsr": 1.8451627486437614
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 2.4364124722643936,
+                "baseBespokestagedc": 2.479263220439691,
+                "baseBespokestagedcsr": 2.49110447761194,
+                "baseType": 1.0,
+                "baseStaged": 1.586942621571597,
+                "baseStagedc": 2.1253887411547305,
+                "baseStagedcsr": 2.257131916523071
+            }
+        }
+    },
+    "subst_var_all": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.5060975609756098,
+                "baseBespokestagedc": 1.5935483870967742,
+                "baseBespokestagedcsr": 1.61437908496732,
+                "baseType": 1.0,
+                "baseStaged": 1.411990240501917,
+                "baseStagedc": 1.7531104619712214,
+                "baseStagedcsr": 1.816184711947994
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.8252032520325203,
+                "baseBespokestagedc": 1.9521739130434783,
+                "baseBespokestagedcsr": 1.9867256637168142,
+                "baseType": 1.0,
+                "baseStaged": 1.6667126155102876,
+                "baseStagedc": 2.386117120804584,
+                "baseStagedcsr": 2.5152087153489378
+            }
+        }
+    },
+    "subst_abs_no_incr": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 2.473863303021414,
+                "baseBespokestagedc": 2.501008303677343,
+                "baseBespokestagedcsr": 2.5575908291381086,
+                "baseType": 1.0,
+                "baseStaged": 1.7690001529597714,
+                "baseStagedc": 2.526020735045722,
+                "baseStagedcsr": 2.6834708762268646
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.6512307692307693,
+                "baseBespokestagedc": 2.23790658882402,
+                "baseBespokestagedcsr": 2.273459012920991,
+                "baseType": 1.0,
+                "baseStaged": 1.4726826273787599,
+                "baseStagedc": 1.8129115837201768,
+                "baseStagedcsr": 1.871920633151265
+            }
+        }
+    },
+    "miscolor_delete": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 1.0,
+                "baseBespokestaged": 1.0165289256198349,
+                "baseBespokestagedc": 1.0603448275862069,
+                "baseBespokestagedcsr": 1.0165289256198349,
+                "baseType": 1.0,
+                "baseStaged": 1.0846560846560847,
+                "baseStagedc": 1.357615894039735,
+                "baseStagedcsr": 1.314102564102564
+            }
+        }
+    }
+}

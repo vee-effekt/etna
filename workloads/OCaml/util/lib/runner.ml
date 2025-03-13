@@ -17,8 +17,6 @@ let ( ->> ) pre post = Pre (pre, Post post)
 
 type 'a property = {
   name : string;
-  q : 'a QCheck.arbitrary -> string -> qtest;
-  c : 'a Crowbar.gen -> string -> ctest;
   b : 'a basegen -> string -> string -> btest;
 }
 
@@ -30,13 +28,6 @@ let rec qmake (t : test) : bool =
       qmake post
   | Post b -> b
 
-let rec cmake (t : test) : unit =
-  match t with
-  | Pre (pre, post) ->
-      Crowbar.guard pre;
-      cmake post
-  | Post b -> Crowbar.check b
-  
 let rec bmake (t : test) : unit Base.Or_error.t =
   match t with
   | Pre (true, post) ->
@@ -53,13 +44,6 @@ let rec bmake (t : test) : unit Base.Or_error.t =
       (* Printf.printf "Post-condition failed: false\n"; *)
       Error (Base.Error.of_string "fail")
 
-(* Helpers to build `'a property` types. Note that `'b` is the input to the property, INCLUDING the other parameters. *)
-let qbuild (g : 'b QCheck.arbitrary) (f : 'b -> bool) : string -> qtest =
- fun name -> QCheck.Test.make ~name ~count:500000000 g f
-
-(* crowbar's type signature means 'c is essentially 'b -> unit *)
-let cbuild (g : ('c, unit) Crowbar.gens) (f : 'c) : string -> ctest =
- fun name () -> Crowbar.add_test ~name g f
 
  let _verbose res =
   match res with

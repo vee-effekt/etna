@@ -55,4 +55,4 @@ let bstrategies : (string * rbt basegen) list =
     ("stagedCSR", (module BaseType_Staged_CSR))
   ]
 
-let () = main properties [] [] bstrategies
+let () = main properties bstrategies

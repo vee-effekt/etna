@@ -84,12 +84,6 @@ let properties : (string * tree property) list =
     ("prop_UnionUnionAssoc", test_prop_UnionUnionAssoc);
   ]
 
-let qstrategies : (string * tree arbitrary) list =
-  []
-
-let cstrategies : (string * tree gen) list =
-  []
-
 let bstrategies : (string * tree basegen) list =
   [
     ("bespoke", (module BaseBespoke));
@@ -106,4 +100,4 @@ let bstrategies : (string * tree basegen) list =
     ("stagedCSR", (module BaseType_Staged_CSR))
   ]
 
-let () = main properties qstrategies cstrategies bstrategies
+let () = main properties bstrategies
