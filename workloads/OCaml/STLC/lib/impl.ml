@@ -1,7 +1,7 @@
 open List
 open Option
 open Type_defn;;
-
+open Core;;
 let ( >>= ) = bind
 
 let rec getTyp (c : ctx) (e : expr) : typ option =
@@ -14,11 +14,11 @@ let rec getTyp (c : ctx) (e : expr) : typ option =
       getTyp c e1 >>= fun t' ->
       match t' with
       | TFun (t11, t12) ->
-          getTyp c e2 >>= fun t2 -> if t11 = t2 then Some t12 else None
+          getTyp c e2 >>= fun t2 -> if Poly.(=) t11 t2 then Some t12 else None
       | _ -> None)
 
 let typeCheck (c : ctx) (e : expr) (t : typ) : bool =
-  match getTyp c e with Some t' -> t = t' | None -> false
+  match getTyp c e with Some t' -> Poly.(=) t t' | None -> false
 
 let shift (d : int) (ex : expr) : expr =
   let _ = ignore (d, ex) in
@@ -26,7 +26,7 @@ let shift (d : int) (ex : expr) : expr =
     match e with
     | Var n ->
         (*! *)
-        if n < c then Var n
+        if Poly.(<) n c then Var n
         else Var (n + d)
           (*!! shift_var_none *)
           (*!
@@ -38,7 +38,7 @@ let shift (d : int) (ex : expr) : expr =
           *)
           (*!! shift_var_leq *)
           (*!
-            if n <= c then Var n
+            if Poly.(<=) n c then Var n
             else Var (n + d)
           *)
     | Bool b -> Bool b

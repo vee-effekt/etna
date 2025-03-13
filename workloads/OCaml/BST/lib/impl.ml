@@ -47,7 +47,7 @@ let rec join (l: tree) (r: tree) =
       (*!
       let _ = ignore v' in
       if Poly.(<) k k' then delete k l
-      else if k' < k then delete k r
+      else if Poly.(<) k' k then delete k r
       else join l r
       *)
       (*!! delete_5 *)

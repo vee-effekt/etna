@@ -54,8 +54,8 @@ let rec insert (k : key) (v : value) (t : rbt) : rbt option =
     | x, vx, T (rb, a, y, vy, b) ->
         let _ = ignore (rb, a, y, vy, b, ins) in
         (*! *)
-        if x < y then balance rb (ins x vx a) y vy b
-        else if y < x then balance rb a y vy (ins x vx b)
+        if Poly.(<) x y then balance rb (ins x vx a) y vy b
+        else if Poly.(<) y x then balance rb a y vy (ins x vx b)
         else T (rb, a, y, vx, b)
     (*!! insert_1 *)
     (*!
@@ -164,19 +164,19 @@ let delete x tr =
     | T (_, a, y, vy, b) ->
         let _ = ignore (vy, delLeft, delRight) in
         (*! *)
-        if x < y then delLeft a y vy b
-        else if x > y then delRight a y vy b
+        if Poly.(<) x y then delLeft a y vy b
+        else if Poly.(>) x y then delRight a y vy b
         else join a b
     (*!! delete_4 *)
     (*!
-      if x < y then del a
-      else if x > y then del b
+      if Poly.(<) x y then del a
+      else if Poly.(>) x y then del b
       else join a b
     *)
     (*!! delete_5 *)
     (*!
-      if x > y then delLeft a y vy b
-      else if x < y then delRight a y vy b
+      if Poly.(>) x y then delLeft a y vy b
+      else if Poly.(<) x y then delRight a y vy b
       else join a b
     *)
   in
@@ -191,7 +191,7 @@ let rec find (x : key) (t : rbt) : value option =
   match t with
   | E -> None
   | T (_, l, y, vy, r) ->
-      if x < y then find x l else if y < x then find x r else Some vy
+      if Poly.(<) x y then find x l else if Poly.(<) y x then find x r else Some vy
 
 let rec size (t : rbt) : int =
   match t with E -> 0 | T (_, l, _, _, r) -> 1 + size l + size r

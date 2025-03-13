@@ -81,4 +81,4 @@ let properties : (string * expr property) list =
       ("stagedCSR", (module BaseType_Staged_CSR))
     ]
   
-let () = main properties [] [] bstrategies
+let () = main properties bstrategies
