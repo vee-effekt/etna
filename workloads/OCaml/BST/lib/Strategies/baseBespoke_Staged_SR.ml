@@ -7,7 +7,7 @@ open Let_syntax
 type t = Type.tree [@@deriving sexp, quickcheck]
 
 let staged_code =
-  bind (list (map2 Nat.staged_quickcheck_generator_sr_t Nat.staged_quickcheck_generator_sr_t ~f:(fun x y -> G.C.pair x y)))
+  bind (list (map2 (Nat.staged_quickcheck_generator_sr_t (G.C.lift 100000)) (Nat.staged_quickcheck_generator_sr_t (G.C.lift 100000)) ~f:(fun x y -> G.C.pair x y)))
   ~f:(fun l -> return .< repeat_insert .~l >.)
 
 let quickcheck_generator = 

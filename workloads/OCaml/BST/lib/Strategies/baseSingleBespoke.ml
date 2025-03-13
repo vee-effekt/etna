@@ -16,11 +16,11 @@ let rec gen ~(lo: int) ~(hi: int) ~size =
       (float_of_int size, (
         let open BQ.Let_syntax in
         let%bind k = int_inclusive ~lo ~hi in
-        let%bind v = Nat.quickcheck_generator in
+        let%bind v = (Nat.quickcheck_generator_parameterized 100000) in
         let%bind left = gen ~lo:lo ~hi:(k - 1) ~size:(size - 1) in
         let%bind right = gen ~lo:(k + 1) ~hi:hi ~size:(size - 1) in
         return (T (left, k, v, right))  
       ))
     ]
 
-  let quickcheck_generator = gen ~lo:0 ~hi:1000 ~size:10
+  let quickcheck_generator = gen ~lo:0 ~hi:100000 ~size:10

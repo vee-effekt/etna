@@ -11,15 +11,14 @@ open Stdio
 open Ppx_staged;;
 open Nat;;
 open BST;;
-
 (*
 let () =
-  let random_a = Splittable_random.State.of_int 11 in
-  let random_b = Splittable_random.State.copy random_a in
-  let random_c = Splittable_random.State.copy random_b in
-  let random_d = Splittable_random.State.copy random_c in
+  let random_a = Splittable_random.State.of_int 1 in
+  let random_b = Splittable_random.State.of_int 1 in
+  let random_c = Splittable_random.State.of_int 1 in
+  let random_d = Splittable_random.State.of_int 1 in
   let size = 2 in
-  for _ = 1 to 1 do
+  for _ = 1 to 4 do
     let v1 = Base_quickcheck.Generator.generate BaseSingleBespoke.quickcheck_generator            ~size ~random:random_a in
     let v2 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_SR.quickcheck_generator  ~size ~random:random_b in
     let v3 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_C.quickcheck_generator   ~size ~random:random_c in

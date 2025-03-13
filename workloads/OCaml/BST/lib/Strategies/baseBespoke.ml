@@ -12,5 +12,5 @@ type t = Type.tree [@@deriving sexp, quickcheck]
 
 let quickcheck_generator =
   let open Base_quickcheck.Generator in
-  list (both Nat.quickcheck_generator Nat.quickcheck_generator)
+  list (both (Nat.quickcheck_generator_parameterized 100000) (Nat.quickcheck_generator_parameterized 1000))
   >>= fun l -> Base.List.fold l ~init:E ~f:insert_correct |> return

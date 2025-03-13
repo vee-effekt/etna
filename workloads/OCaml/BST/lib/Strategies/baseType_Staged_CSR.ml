@@ -19,10 +19,10 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
                           (G.bind (G.recurse go (G.C.lift ()))
                               ~f:(fun _x__006_ ->
                                     G.bind
-                                      Nat.staged_quickcheck_generator_csr_t
+                                      (Nat.staged_quickcheck_generator_csr_t (G.C.lift 100))
                                       ~f:(fun _x__007_ ->
                                             G.bind
-                                              Nat.staged_quickcheck_generator_csr_t
+                                              (Nat.staged_quickcheck_generator_csr_t (G.C.lift 100))
                                               ~f:(fun _x__008_ ->
                                                     G.bind
                                                       (G.recurse go
