@@ -13,7 +13,7 @@ let staged_quickcheck_generator (lo: int code) (hi: int code) (size: int code) :
   recursive (.< (.~lo, .~hi, .~size ) >.) 
   (fun go lohisz -> 
     let%bind (lo, hi, sz) = split_triple lohisz in
-    let%bind should_stop = split_bool .< .~hi <= .~lo || .~sz <= 0 >. in
+    let%bind should_stop = split_bool .< .~hi <= .~lo || .~sz <= 1 >. in
     if should_stop
       then return .< E >.
     else
