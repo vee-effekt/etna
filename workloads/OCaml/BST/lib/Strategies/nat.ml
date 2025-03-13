@@ -6,18 +6,6 @@ module G_CSR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
 let staged_quickcheck_generator_sr_t =
     (G_SR.bind G_SR.int ~f:(fun  i -> G_SR.return (G_SR.C.modulus i 1000)))
 
-let staged_quickcheck_generator_range_sr_t ~lo ~hi =
-    G_SR.bind G_SR.int ~f:(fun i ->
-        G_SR.return (G_SR.C.plus lo (G_SR.C.modulus2 (G_SR.C.minus i lo) (G_SR.C.minus hi lo))))
-
-let staged_quickcheck_generator_range_csr_t ~lo ~hi =
-    G_CSR.bind G_CSR.int ~f:(fun i ->
-        G_CSR.return (G_CSR.C.plus lo (G_CSR.C.modulus2 (G_CSR.C.minus i lo) (G_CSR.C.minus hi lo))))
-
-let staged_quickcheck_generator_range_c_t ~lo ~hi =
-    G_C.bind G_C.int ~f:(fun i ->
-        G_C.return (G_C.C.plus lo (G_C.C.modulus2 (G_C.C.minus i lo) (G_C.C.minus hi lo))))
-    
 let staged_quickcheck_generator_c_t =
     (G_C.bind G_C.int ~f:(fun  i -> G_C.return (G_C.C.modulus i 1000)))
 

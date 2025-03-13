@@ -2,7 +2,7 @@ open Base;;
 open Type;;
 open Fast_gen;;
 open Nat;;
-module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
+module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
 open G
 open Let_syntax
 open Codelib;;
@@ -22,7 +22,7 @@ let staged_quickcheck_generator (lo: int code) (hi: int code) (size: int code) :
         (.< 1. >., return .< E >.);
         ((G.C.i2f sz), (
           let%bind k = int_inclusive ~lo ~hi in
-          let%bind v = Nat.staged_quickcheck_generator_sr_t in
+          let%bind v = Nat.staged_quickcheck_generator_c_t in
           let%bind left = recurse go .<(.~lo, .~k - 1, .~(G.C.pred sz)) >. in
           let%bind right = recurse go .<(.~k + 1, .~hi, .~(G.C.pred sz)) >. in
           return (.< T (.~left, .~k, .~v, .~right) >.)))
