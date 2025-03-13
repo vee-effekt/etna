@@ -1,3 +1,4 @@
+open Util.Limits
 open Type;;
 open Fast_gen;;
 open Core;;
@@ -25,10 +26,10 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
                           (G.bind (G.recurse go (G.C.lift ()))
                              ~f:(fun _x__017_ ->
                                    G.bind
-                                     Nat.staged_quickcheck_generator_csr_t
+                                     (Nat.staged_quickcheck_generator_csr_t (G.C.lift rbt_type_limits))
                                      ~f:(fun _x__018_ ->
                                            G.bind
-                                             Nat.staged_quickcheck_generator_csr_t
+                                             (Nat.staged_quickcheck_generator_csr_t (G.C.lift rbt_type_limits))
                                              ~f:(fun _x__019_ ->
                                                    G.bind
                                                      (G.recurse go

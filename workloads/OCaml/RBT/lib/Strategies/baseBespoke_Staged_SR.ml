@@ -1,3 +1,4 @@
+open Util.Limits
 open Type
 open Fast_gen;;
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
@@ -8,7 +9,7 @@ type t = rbt [@@deriving sexp, quickcheck]
   
 let staged_code =
   bind 
-    (list (map2 Nat.staged_quickcheck_generator_sr_t Nat.staged_quickcheck_generator_sr_t 
+    (list (map2 (Nat.staged_quickcheck_generator_sr_t (G.C.lift rbt_bespoke_limits)) (Nat.staged_quickcheck_generator_sr_t (G.C.lift rbt_bespoke_limits)) 
               ~f:(fun x y -> G.C.pair x y)))
     ~f:(fun l -> return .< repeat_insert .~l >.)
     

@@ -1,3 +1,4 @@
+open Util.Limits
 open Type;;
 open Fast_gen;;
 open Core;;
@@ -25,10 +26,10 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
                           (G.bind (G.recurse go (G.C.lift ()))
                              ~f:(fun _x__017_ ->
                                    G.bind
-                                     Nat.staged_quickcheck_generator_c_t
+                                     (Nat.staged_quickcheck_generator_c_t (G.C.lift rbt_type_limits))
                                      ~f:(fun _x__018_ ->
                                            G.bind
-                                             Nat.staged_quickcheck_generator_c_t
+                                             (Nat.staged_quickcheck_generator_c_t (G.C.lift rbt_type_limits))
                                              ~f:(fun _x__019_ ->
                                                    G.bind
                                                      (G.recurse go
@@ -55,7 +56,9 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
            let _gen__013_ = G.weighted_union [_pair__015_]
            and _gen__014_ =
              G.weighted_union [_pair__015_; _pair__016_] in
-           G.bind G.size ~f:(fun x -> G.if_z x _gen__013_ _gen__014_))  let quickcheck_generator = quickcheck_generator
+           G.bind G.size ~f:(fun x -> G.if_z x _gen__013_ _gen__014_))  
+  
+  let quickcheck_generator = quickcheck_generator
   
   let quickcheck_generator = G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/RBT/_build/default/lib/.RBT.objs/byte"] staged_code
   

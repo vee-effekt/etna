@@ -15,10 +15,10 @@ let () =
   for _ = 1 to 10 do
     printf "\n";
     printf "\n";
-    let v1 = Base_quickcheck.Generator.generate BaseBespoke.quickcheck_generator ~size ~random:random_a in
-    let v2 = Base_quickcheck.Generator.generate BaseBespoke_Staged_SR.quickcheck_generator ~size ~random:random_b in
-    let v3 = Base_quickcheck.Generator.generate BaseBespoke_Staged_C.quickcheck_generator ~size ~random:random_c in
-    let v4 = Base_quickcheck.Generator.generate BaseBespoke_Staged_CSR.quickcheck_generator ~size ~random:random_d in
+    let v1 = Base_quickcheck.Generator.generate BaseType.quickcheck_generator ~size ~random:random_a in
+    let v2 = Base_quickcheck.Generator.generate BaseType_Staged_SR.quickcheck_generator ~size ~random:random_b in
+    let v3 = Base_quickcheck.Generator.generate BaseType_Staged_C.quickcheck_generator ~size ~random:random_c in
+    let v4 = Base_quickcheck.Generator.generate BaseType_Staged_CSR.quickcheck_generator ~size ~random:random_d in
     printf "========= generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
