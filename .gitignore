@@ -22,7 +22,6 @@ tool/build
 tool/dist
 
 **/_build/*
-/oc3/
 
 **/Coq/**/_qc_**
 **/Coq/**.vo
