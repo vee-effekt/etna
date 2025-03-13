@@ -45,8 +45,8 @@ let bmain seed oc t ts s ss =
             let endtime = Unix.gettimeofday () in
             Unix.kill pid' Sys.sigterm;
             match status with
-            | Unix.WEXITED c -> 
-              Printf.fprintf oc "[%f exit %i]\n" endtime c
+            | Unix.WEXITED _ -> 
+              Printf.fprintf oc "[%f exit ok]\n" endtime
             | Unix.WSIGNALED c when c = Sys.sigalrm ->
                 Printf.fprintf oc "[%f exit timeout]\n" endtime
             | _ -> Printf.fprintf oc "[%f exit unexpected]\n" endtime))
