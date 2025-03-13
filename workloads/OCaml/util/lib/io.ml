@@ -1,52 +1,11 @@
 open Runner
-open QCheck
 open Crowbar
 open Parse
 
 (* global timeout in seconds for test threads *)
 let timeout = ref 60
 
-(* super simple running of the tests *)
-let qrun (p : 'a property) (g : 'a QCheck.arbitrary) (oc : out_channel) : unit =
-  let (_ : int) =
-    QCheck_runner.run_tests
-      [ p.q g p.name ]
-      ~colors:false ~verbose:false ~out:oc
-  in ()
-
-let crun (p : 'a property) (g : 'a Crowbar.gen) : unit = p.c g p.name ()
 let brun (p : 'a property) (g : 'a basegen) (s : string) : unit = p.b g p.name s ()
-
-(* starting the execution for the various frameworks *)
-let qmain oc t ts s ss =
-  let t' = lookup ts t in
-  let s' = lookup ss s in
-  match (t', s') with
-  | None, _ -> Printf.printf "Test %s not found\n" t
-  | _, None -> Printf.printf "Strategy %s not found\n" s
-  | Some t', Some s' ->
-      Printf.fprintf oc "[%f start]\n" (Unix.gettimeofday ());
-      flush oc;
-      qrun t' s' oc
-
-let cmain t ts s ss =
-  let t' = lookup ts t in
-  let s' = lookup ss s in
-  match (t', s') with
-  | None, _ -> Printf.printf "Test %s not found\n" t
-  | _, None -> Printf.printf "Strategy %s not found\n" s
-  | Some t', Some s' ->
-      Printf.printf "[%f start]\n" (Unix.gettimeofday ());
-      flush stdout;
-      crun t' s'
-
-let fmain t ts s ss =
-  let t' = lookup ts t in
-  let s' = lookup ss s in
-  match (t', s') with
-  | None, _ -> Printf.printf "Test %s not found\n" t
-  | _, None -> Printf.printf "Strategy %s not found\n" s
-  | Some t', Some s' -> crun t' s'
 
 let bmain seed oc t ts s ss =
   let t' = lookup ts t in
@@ -64,98 +23,7 @@ let bmain seed oc t ts s ss =
   
 (* piping helper functions *)
 
-let load_env () =
-  let get = Unix.getenv in
-  (get "framework", get "test", get "strategy", get "filename")
 
-let make_env framework test strategy filename =
-  [|
-    "framework=" ^ framework;
-    "test=" ^ test;
-    "strategy=" ^ strategy;
-    "filename=" ^ filename;
-  |]
-
-let crowbar_child tests strats =
-  let _framework, test, strat, _filename = load_env () in
-  cmain test tests strat strats
-
-let afl_child tests strats =
-  let _framework, test, strat, _filename = load_env () in
-  fmain test tests strat strats
-
-let crowbar_fork framework test strat filename =
-  let oc =
-    open_out_gen [ Open_wronly; Open_append; Open_creat ] 0o666 filename
-  in
-  let od = Unix.descr_of_out_channel oc in
-  let cur = Sys.executable_name in
-  Random.self_init ();
-  let seed = string_of_int (0) in
-  match
-    Unix.create_process_env cur
-      [| cur; "--repeat=461168601842738"; "--seed=" ^ seed |]
-      (* pass the # of tests as a command line argument to the child process *)
-      (make_env framework test strat filename)
-      Unix.stdin od Unix.stderr
-  with
-  | 0 -> () (* runner/child thread *)
-  | pid -> (
-      match Unix.fork () with
-      | 0 ->
-          (* timeout thread *)
-          Unix.sleep !timeout;
-          Unix.kill pid Sys.sigalrm
-      | pid' -> (
-          (* waiting thread *)
-          let _, status = Unix.waitpid [] pid in
-          let endtime = Unix.gettimeofday () in
-          Unix.kill pid' Sys.sigterm;
-          match status with
-          | Unix.WEXITED _ -> ()
-          | Unix.WSIGNALED c when c = Sys.sigalrm ->
-              Printf.fprintf oc "[%f exit timeout]\n" endtime
-          | _ -> Printf.fprintf oc "[%f exit unexpected]\n" endtime))
-
-let afl_fork framework test strat filename : unit =
-  let (_ : int) = Sys.command "mkdir -p input && echo asdf > input/nikhil" in
-  let (_ : int) = Sys.command "echo lkj > input/nikhil2" in
-  let channels =
-    Unix.open_process_args_full "afl-fuzz"
-      [|
-        "afl-fuzz";
-        "-i";
-        "input";
-        "-o";
-        "output";
-        "-V";
-        string_of_int !timeout;
-        Sys.executable_name;
-        "@@";
-      |]
-      (Array.append
-         (make_env framework test strat "-")
-         [| "AFL_BENCH_UNTIL_CRASH=true" |])
-  in
-  let _status = Unix.close_process_full channels in
-  let now = Unix.gettimeofday () in
-  let get = parse "output/default/fuzzer_stats" in
-  match (get "execs_done", get "execs_per_sec", get "saved_crashes") with
-  | Some runs, Some rps, Some found when found >= 0.5 ->
-      let oc =
-        open_out_gen [ Open_wronly; Open_append; Open_creat ] 0o666 filename
-      in
-      Printf.fprintf oc "[%f start]\n" now;
-      Printf.fprintf oc "[%f exit 0]\n" (now +. (runs /. rps));
-      close_out oc
-  | Some runs, Some rps, Some _ ->
-      let oc =
-        open_out_gen [ Open_wronly; Open_append; Open_creat ] 0o666 filename
-      in
-      Printf.fprintf oc "[%f start]\n" now;
-      Printf.fprintf oc "[%f exit timeout]\n" (now +. (runs /. rps));
-      close_out oc
-  | _ -> failwith "Error attempting to read AFL output file"
 
   let _simple_fork f file =
     Printf.printf "Timeout value: %d seconds\n" !timeout; (* Debugging timeout value *)
@@ -183,7 +51,6 @@ let afl_fork framework test strat filename : unit =
                 Printf.fprintf oc "[%f exit timeout]\n" endtime
             | _ -> Printf.fprintf oc "[%f exit unexpected]\n" endtime))
   
-let qcheck_fork t ts s ss = _simple_fork (fun oc -> qmain oc t ts s ss)
 let base_fork seed t ts s ss = _simple_fork (fun oc ->
   bmain seed oc t ts s ss)
 
@@ -195,12 +62,10 @@ let base_fork seed t ts s ss = _simple_fork (fun oc ->
    dune exec BST -- crowbar prop_InsertPost crowbarType out2.txt
 *)
 let main (props : (string * 'a property) list)
-    (qstrats : (string * 'a arbitrary) list) (cstrats : (string * 'a gen) list)
+     
     (bstrats : (string * 'a basegen) list) : unit =
   if Array.length Sys.argv < 5 then
     match Unix.getenv "framework" with
-    | "crowbar" -> crowbar_child props cstrats
-    | "afl" -> afl_child props cstrats
     | _ ->
         print_endline
           "Not enough arguments were passed. Could not determine whether this \
@@ -216,15 +81,6 @@ let main (props : (string * 'a property) list)
       testname filename strategy framework seed;
     flush stdout;
     match framework with
-    | "qcheck" ->
-        print_endline "Valid framework QCheck\n";
-        qcheck_fork testname props strategy qstrats filename
-    | "crowbar" ->
-        print_endline "Valid framework Crowbar\n";
-        crowbar_fork framework testname strategy filename
-    | "afl" ->
-        print_endline "Valid framework AFL\n";
-        afl_fork framework testname strategy filename
     | "base" ->
         print_endline "Valid framework Base_quickcheck\n";
         base_fork seed testname props strategy bstrats filename
