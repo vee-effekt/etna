@@ -29,6 +29,7 @@ let bmain seed oc t ts s ss =
     Printf.printf "Timeout value: %d seconds\n" !timeout; (* Debugging timeout value *)
     let oc = open_out_gen [ Open_wronly; Open_append; Open_creat ] 0o666 file in
     Printf.fprintf oc "[start]\n";
+    flush oc;
     match Unix.fork () with
     (* runner/child thread *)
     | 0 ->
@@ -48,7 +49,8 @@ let bmain seed oc t ts s ss =
             | Unix.WEXITED _ -> ()
             | Unix.WSIGNALED c when c = Sys.sigalrm ->
                 Printf.fprintf oc "[exit timeout]\n"
-            | _ -> Printf.fprintf oc "[exit unexpected]\n"))
+            | _ -> Printf.fprintf oc "[exit unexpected]\n"));
+            flush oc
   
 let base_fork seed t ts s ss = _simple_fork (fun oc ->
   bmain seed oc t ts s ss)
