@@ -13,18 +13,18 @@ open Nat;;
 open BST;;
 
 let () =
-  let random_a = Splittable_random.State.of_int 1 in
-  let random_b = Splittable_random.State.of_int 1 in
+  let random_a = Splittable_random.State.of_int 10 in
+  let random_b = Splittable_random.State.of_int 10 in
   (*
   let random_c = Splittable_random.State.of_int 1 in
   let random_d = Splittable_random.State.of_int 1 in
   *)
-  let size = 10 in
-  for _ = 1 to 10 do
+  let size = 2 in
+  for _ = 1 to 1 do
     printf "\n";
     printf "\n";
     let v1 = Base_quickcheck.Generator.generate BaseSingleBespoke.quickcheck_generator ~size ~random:random_a in
-    let v2 = Base_quickcheck.Generator.generate BaseBespoke.quickcheck_generator ~size ~random:random_b in
+    let v2 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_SR.quickcheck_generator ~size ~random:random_b in
     (*
     let v3 = Base_quickcheck.Generator.generate BaseBespoke_Staged_C.quickcheck_generator ~size ~random:random_c in
     let v4 = Base_quickcheck.Generator.generate BaseBespoke_Staged_CSR.quickcheck_generator ~size ~random:random_d in
