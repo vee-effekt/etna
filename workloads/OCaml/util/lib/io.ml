@@ -17,8 +17,8 @@ let bmain seed oc t ts s ss =
       let start_time = Unix.gettimeofday () in
       brun t' s' seed;
       let end_time = Unix.gettimeofday () in
-      Printf.fprintf oc "[%f start %s]\n" start_time seed;
-      Printf.fprintf oc "[%f end %s]\n" end_time seed;
+      Printf.fprintf oc "[exit ok, %f duration %s]\n" (end_time -. start_time) seed;
+      (* Printf.fprintf oc "[%f end %s]\n" end_time seed; *)
       flush oc
   
 (* piping helper functions *)
@@ -28,6 +28,7 @@ let bmain seed oc t ts s ss =
   let _simple_fork f file =
     Printf.printf "Timeout value: %d seconds\n" !timeout; (* Debugging timeout value *)
     let oc = open_out_gen [ Open_wronly; Open_append; Open_creat ] 0o666 file in
+    Printf.fprintf oc "[start]\n";
     match Unix.fork () with
     (* runner/child thread *)
     | 0 ->
@@ -42,14 +43,12 @@ let bmain seed oc t ts s ss =
         | pid' -> (
             (* waiting thread *)
             let _, status = Unix.waitpid [] pid in
-            let endtime = Unix.gettimeofday () in
             Unix.kill pid' Sys.sigterm;
             match status with
-            | Unix.WEXITED _ -> 
-              Printf.fprintf oc "[%f exit ok]\n" endtime
+            | Unix.WEXITED _ -> ()
             | Unix.WSIGNALED c when c = Sys.sigalrm ->
-                Printf.fprintf oc "[%f exit timeout]\n" endtime
-            | _ -> Printf.fprintf oc "[%f exit unexpected]\n" endtime))
+                Printf.fprintf oc "[exit timeout]\n"
+            | _ -> Printf.fprintf oc "[exit unexpected]\n"))
   
 let base_fork seed t ts s ss = _simple_fork (fun oc ->
   bmain seed oc t ts s ss)
