@@ -7,20 +7,23 @@ from benchtool.Tasks import tasks
 DEFAULT_DIR = 'oc3'
 REPLACE = False
 
-WORKLOADS = ['BST']
+WORKLOADS = ['BST', 'RBT', 'STLC']
 STRATEGIES : list[PBTGenerator] = [
-    # PBTGenerator('base', 'bespoke'),
-    # PBTGenerator('base', 'typGsr'),
-    # PBTGenerator('base', 'type'),
-    # PBTGenerator('base', 'bespoke'),
-    PBTGenerator('base', 'staged')
-    # PBTGenerator('base', 'type'),
-    # PBTGenerator('base', 'staged'),
-    # PBTGenerator('base', 'stagedC'),
-    # PBTGenerator('base', 'stagedCSR')
+    PBTGenerator('base', 'bespoke'),
+    PBTGenerator('base', 'bespokeStaged'),
+    PBTGenerator('base', 'bespokeStagedC'),
+    PBTGenerator('base', 'bespokeStagedCSR'),
+    PBTGenerator('base', 'bespokeSingle'),
+    PBTGenerator('base', 'bespokeSingleStaged'),
+    PBTGenerator('base', 'bespokeSingleStagedC'),
+    PBTGenerator('base', 'bespokeSingleStagedCSR'),
+    PBTGenerator('base', 'type'),
+    PBTGenerator('base', 'staged'),
+    PBTGenerator('base', 'stagedC'),
+    PBTGenerator('base', 'stagedCSR'),
 ]
 
-TRIALS = 10
+TRIALS = 1
 TIMEOUT = 65
 
 def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
@@ -38,7 +41,8 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
             for strategy in strategies:
                 for property in tool.all_properties(workload):
                     if workload.name in ['BST',
-                                         # 'RBT'
+                                         'RBT',
+                                         'STLC'
                                         ]:
                         if property.split('_')[1] not in tasks[workload.name][variant.name]:
                             continue
