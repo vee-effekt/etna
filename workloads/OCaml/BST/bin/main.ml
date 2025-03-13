@@ -12,29 +12,29 @@ open Ppx_staged;;
 open Nat;;
 open BST;;
 
+(*
 let () =
   let random_a = Splittable_random.State.of_int 11 in
-  let random_b = Splittable_random.State.of_int 11 in
-  let random_c = Splittable_random.State.of_int 11 in
-  let random_d = Splittable_random.State.of_int 11 in
+  let random_b = Splittable_random.State.copy random_a in
+  let random_c = Splittable_random.State.copy random_b in
+  let random_d = Splittable_random.State.copy random_c in
   let size = 2 in
   for _ = 1 to 1 do
     let v1 = Base_quickcheck.Generator.generate BaseSingleBespoke.quickcheck_generator            ~size ~random:random_a in
     let v2 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_SR.quickcheck_generator  ~size ~random:random_b in
-    (* let v3 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_C.quickcheck_generator   ~size ~random:random_c in  *)  
+    let v3 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_C.quickcheck_generator   ~size ~random:random_c in
     let v4 = Base_quickcheck.Generator.generate BaseSingleBespoke_Staged_CSR.quickcheck_generator ~size ~random:random_d in
+    (* print_endline (if Base.Poly.(=) v1 v4 then "true" else "false") *)
     printf "========= generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t v1));
     printf "========= Staged generator ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t v2));
-    (*
     printf "========= Staged generator C ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t v3));
-    *)
     printf "========= Staged generator CSR ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseSingleBespoke.sexp_of_t v4));
   done
-
+*)
 (*
   dune exec BST -- qcheck prop_InsertInsert bespoke out
   dune exec BST -- qcheck prop_InsertInsert type out
@@ -97,6 +97,10 @@ let bstrategies : (string * tree basegen) list =
     ("bespokeStaged", (module BaseBespoke_Staged_SR));
     ("bespokeStagedC", (module BaseBespoke_Staged_C));
     ("bespokeStagedCSR", (module BaseBespoke_Staged_CSR));
+    ("bespokeSingle", (module BaseSingleBespoke));
+    ("bespokeSingleStaged", (module BaseSingleBespoke_Staged_SR));
+    ("bespokeSingleStagedC", (module BaseSingleBespoke_Staged_C));
+    ("bespokeSingleStagedCSR", (module BaseSingleBespoke_Staged_CSR));
     ("type", (module BaseType));
     ("staged", (module BaseType_Staged_SR));
     ("stagedC", (module BaseType_Staged_C));
