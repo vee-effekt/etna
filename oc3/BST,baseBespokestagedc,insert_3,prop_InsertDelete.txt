@@ -1,0 +1,6 @@
+[start]
+[exit ok, 0.014292 duration 42]
+[start]
+[exit ok, 0.014333 duration 42]
+[start]
+[exit ok, 0.014098 duration 42]

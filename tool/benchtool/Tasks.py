@@ -63,11 +63,11 @@ redblack = {
     'base': [],
     'insert_1': [
         ('InsertPost', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
     ],
     'insert_2': [
         ('InsertPost', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('InsertModel', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('InsertModel', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
         ('InsertDelete', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('InsertUnion', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
@@ -75,7 +75,7 @@ redblack = {
     'insert_3': [
         ('InsertPost', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('InsertDelete', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('InsertInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('InsertInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
         ('UnionDeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
     'delete_4': [
@@ -87,7 +87,7 @@ redblack = {
         ('DeleteModel', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('DeletePost', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('DeleteDelete', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
         ('DeleteUnion', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('UnionDeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
@@ -115,10 +115,10 @@ redblack = {
         ('UnionUnionAssoc', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
     'miscolor_insert': [
-        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
+        ('DeleteInsert', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
     ],
-    'miscolor_delete': [('DeleteValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
+    'miscolor_delete': [('DeleteValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR'])],
     # 'miscolordelete': [('DeleteValid', [])],
     'miscolor_balLeft': [
         ('DeleteValid', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
@@ -126,7 +126,7 @@ redblack = {
     ],
     'miscolor_balRight': [
         ('DeleteValid', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
-        ('DeleteDelete', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('DeleteDelete', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
     ],
     'miscolor_join_1': [('DeleteValid', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'miscolor_join_2': [
@@ -134,12 +134,12 @@ redblack = {
         ('DeleteDelete', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
     'no_balance_insert_1': [
-        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
         ('DeleteInsert', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('InsertDelete', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
     'no_balance_insert_2': [
-        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
+        ('InsertValid', ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR']),
         ('DeleteInsert', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
         ('InsertDelete', ['type', 'staged', 'stagedC', 'stagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']),
     ],
@@ -185,11 +185,11 @@ stlc = {
     'base': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'shift_var_none': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'shift_var_all': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
-    'shift_var_leq': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['type', 'staged', 'stagedC', 'stagedCSR', 'bespoke', 'bespokestaged', 'bespokestagedC', 'bespokestagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
+    'shift_var_leq': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['type', 'staged', 'stagedC', 'stagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'shift_abs_no_incr': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'subst_var_all': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'subst_var_none': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
-    'subst_abs_no_shift': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['type', 'staged', 'stagedC', 'stagedCSR', 'bespoke', 'bespokestaged', 'bespokestagedC', 'bespokestagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
+    'subst_abs_no_shift': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['type', 'staged', 'stagedC', 'stagedCSR', 'bespoke', 'bespokeStaged', 'bespokeStagedC', 'bespokeStagedCSR', 'bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'subst_abs_no_incr': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'substTop_no_shift': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],
     'substTop_no_shift_back': [("SinglePreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR']), ("MultiPreserve", ['bespokeSingle', 'bespokeSingleStaged', 'bespokeSingleStagedC', 'bespokeSingleStagedCSR'])],

@@ -48,7 +48,7 @@ class OCaml(BenchTool):
             for _ in range(params.trials):
                 # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
                 # seed = random.randint(0, 1_000_000)
-                seed = 33
+                seed = 42
                 cmd = ['./_build/default/bin/main.exe',  params.framework, params.property, params.strategy, params.file, str(seed)]
                 self._shell_command(cmd)
             reformat(params.file)
