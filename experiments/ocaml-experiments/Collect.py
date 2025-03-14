@@ -40,8 +40,9 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
             run_trial = None
             for strategy in strategies:
                 for property in tool.all_properties(workload):
-                    if workload.name in ['BST'
-                                        ]:
+                    if workload.name in ['BST',
+                                         'RBT',
+                                         'STLC']:
                         if property.split('_')[1] not in tasks[workload.name][variant.name]:
                             continue
 
@@ -70,7 +71,9 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--data', help='path to folder for JSON data')
+    p.add_argument('--workload', help='single workload to run')
     args = p.parse_args()
     dir = args.data if args.data else DEFAULT_DIR
+    workloads = [args.workload] if args.workload else WORKLOADS
     results_path = f'{os.getcwd()}/{dir}'
-    collect(results_path)
+    collect(results_path, workloads = workloads)
