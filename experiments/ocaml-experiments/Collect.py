@@ -37,24 +37,24 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
             if variant.name == 'base':
                 continue
 
-            run_trial = None
-            for strategy in strategies:
-                for property in tool.all_properties(workload):
+            run_trial = tool.apply_variant(workload, variant, BuildConfig(
+                        path=workload.path,
+                        clean=False,
+                        build_common=False,
+                        build_strategies=True,
+                        build_fuzzers=False,
+                        no_base=True,
+                    ))
+
+            for property in tool.all_properties(workload):
+                for strategy in strategies:
                     if workload.name in ['BST',
                                          'RBT',
                                          'STLC']:
                         if property.split('_')[1] not in tasks[workload.name][variant.name]:
                             continue
 
-                    if not run_trial:
-                        run_trial = tool.apply_variant(workload, variant, BuildConfig(
-                                    path=workload.path,
-                                    clean=False,
-                                    build_common=False,
-                                    build_strategies=True,
-                                    build_fuzzers=False,
-                                    no_base=True,
-                                ))
+
 
                     cfg = TrialConfig(workload=workload,
                                         strategy=strategy.strategy,
