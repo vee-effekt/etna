@@ -1,7 +1,5 @@
 (* the test type for Crowbar is just a lazy call to Crowbar.add_test *)
 (* same with Base_quickcheck, but with Test.run  *)
-type qtest = QCheck.Test.t
-type ctest = unit -> unit
 type btest = unit -> unit
 
 (* rename of the Core module type *)
@@ -20,14 +18,6 @@ type 'a property = {
   b : 'a basegen -> string -> string -> btest;
 }
 
-(* Functions for realizing preconditions *)
-let rec qmake (t : test) : bool =
-  match t with
-  | Pre (pre, post) ->
-      QCheck.assume pre;
-      qmake post
-  | Post b -> b
-
 let rec bmake (t : test) : unit Base.Or_error.t =
   match t with
   | Pre (true, post) ->
@@ -43,7 +33,6 @@ let rec bmake (t : test) : unit Base.Or_error.t =
   | Post false  ->
       (* Printf.printf "Post-condition failed: false\n"; *)
       Error (Base.Error.of_string "fail")
-
 
  let _verbose res =
   match res with

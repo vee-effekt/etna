@@ -1,13 +1,13 @@
+open Util.Limits
 open Type
 open Nat;;
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
 open G
 open Let_syntax
-
 type t = Type.tree [@@deriving sexp, quickcheck]
 
 let staged_code =
-  bind (list (map2 (Nat.staged_quickcheck_generator_c_t (G.C.lift 100000)) (Nat.staged_quickcheck_generator_c_t (G.C.lift 100000)) ~f:(fun x y -> G.C.pair x y)))
+  bind (list (map2 (Nat.staged_quickcheck_generator_c_t (G.C.lift bst_bespoke_limits)) (Nat.staged_quickcheck_generator_c_t (G.C.lift bst_bespoke_limits)) ~f:(fun x y -> G.C.pair x y)))
   ~f:(fun l -> return .< repeat_insert .~l >.)
 
 let quickcheck_generator = 

@@ -7,7 +7,7 @@ from benchtool.Tasks import tasks
 DEFAULT_DIR = 'oc3'
 REPLACE = False
 
-WORKLOADS = ['BST', 'RBT', 'STLC']
+WORKLOADS = ['BST']
 STRATEGIES : list[PBTGenerator] = [
     PBTGenerator('base', 'bespoke'),
     PBTGenerator('base', 'bespokeStaged'),
@@ -40,9 +40,7 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
             run_trial = None
             for strategy in strategies:
                 for property in tool.all_properties(workload):
-                    if workload.name in ['BST',
-                                         'RBT',
-                                         'STLC'
+                    if workload.name in ['BST'
                                         ]:
                         if property.split('_')[1] not in tasks[workload.name][variant.name]:
                             continue

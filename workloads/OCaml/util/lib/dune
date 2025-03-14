@@ -1,7 +1,7 @@
 (library
  (name util)
  (public_name util)
- (modules runner io parse core_plus)
+ (modules runner io parse core_plus limits)
  (private_modules parse)
  (libraries unix qcheck crowbar core base ppxlib ocaml-compiler-libs.common
    compiler-libs.common)

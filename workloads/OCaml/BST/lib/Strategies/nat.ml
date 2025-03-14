@@ -1,3 +1,4 @@
+open Util.Limits;;
 include Core;;
 
 module G_SR = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
@@ -15,7 +16,7 @@ let staged_quickcheck_generator_csr_t k =
     (G_CSR.bind G_CSR.int ~f:(fun  i -> G_CSR.return (G_CSR.C.modulus2 i k)))
     
 let quickcheck_generator_int_new = let open Base_quickcheck.Generator in
-    bind int ~f:(fun i -> return (i mod 100))
+    bind int ~f:(fun i -> return (i mod bst_type_limits))
 
 let quickcheck_generator_parameterized k = let open Base_quickcheck.Generator in
     bind int ~f:(fun i -> return (i mod k))

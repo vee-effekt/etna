@@ -1,3 +1,4 @@
+open Util.Limits
 open Type;;
 
 module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
@@ -16,10 +17,10 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
                           (G.bind (G.recurse go (G.C.lift ()))
                               ~f:(fun _x__006_ ->
                                     G.bind
-                                      (Nat.staged_quickcheck_generator_sr_t (G.C.lift 100))
+                                      (Nat.staged_quickcheck_generator_sr_t (G.C.lift bst_type_limits))
                                       ~f:(fun _x__007_ ->
                                             G.bind
-                                              (Nat.staged_quickcheck_generator_sr_t (G.C.lift 100))
+                                              (Nat.staged_quickcheck_generator_sr_t (G.C.lift bst_type_limits))
                                               ~f:(fun _x__008_ ->
                                                     G.bind
                                                       (G.recurse go

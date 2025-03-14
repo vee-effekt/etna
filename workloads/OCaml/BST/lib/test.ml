@@ -2,14 +2,9 @@ open Type
 open Spec
 open Util
 open Runner
-open QCheck
-open Crowbar
 open Nat
 
 let ( << ) f g x = f (g x)
-let qi = small_int
-let ci = int8
-
 let test_prop_InsertValid : tree property =
   {
     name = "test_prop_InsertValid";

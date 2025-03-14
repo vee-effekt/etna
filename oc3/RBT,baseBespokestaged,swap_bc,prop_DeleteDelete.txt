@@ -1,2 +1,0 @@
-[start]
-[exit ok, 1.340428 duration 0]

@@ -1,2 +1,2 @@
 [start]
-[exit timeout]
+[exit ok, 1.267954 duration 0]

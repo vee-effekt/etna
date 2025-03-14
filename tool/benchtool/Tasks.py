@@ -1,38 +1,27 @@
+
 bst = {
     'base': [],
     'insert_1': [
         'InsertPost',
-        'InsertModel',
         'DeleteInsert',
-        'InsertInsert',
-        'InsertUnion',
-        'UnionDeleteInsert',
     ],
     'insert_2': [
         'InsertPost',
         'InsertModel',
         'InsertDelete',
         'DeleteInsert',
-        'InsertInsert',
         'InsertUnion',
-        'UnionDeleteInsert',
     ],
     'insert_3': [
         'InsertPost',
-        'InsertModel',
         'InsertDelete',
         'InsertInsert',
-        'InsertUnion',
         'UnionDeleteInsert',
     ],
     'delete_4': [
-        'DeleteModel',
         'DeletePost',
         'DeleteDelete',
-        'DeleteInsert',
         'DeleteUnion',
-        'InsertDelete',
-        'UnionDeleteInsert',
     ],
     'delete_5': [
         'DeleteModel',
@@ -43,22 +32,18 @@ bst = {
         'UnionDeleteInsert',
     ],
     'union_6': [
-        'UnionValid',
         'UnionPost',
         'UnionModel',
         'DeleteUnion',
         'InsertUnion',
         'UnionDeleteInsert',
         'UnionUnionAssoc',
-        'UnionUnionIdem',
     ],
     'union_7': [
         'UnionValid',
         'UnionPost',
-        'UnionModel',
         'DeleteUnion',
         'InsertUnion',
-        'UnionDeleteInsert',
         'UnionUnionAssoc',
     ],
     'union_8': [

@@ -1,5 +1,4 @@
 open Runner
-open Crowbar
 open Parse
 
 (* global timeout in seconds for test threads *)
