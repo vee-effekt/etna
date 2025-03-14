@@ -54,6 +54,7 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                     if workload.name in ['BST',
                                          'RBT',
                                          'STLC']:
+                        # this is a map from the properties to try to the strategies that should be excluded from testing this property because they're too slow.
                         props_to_run = dict(tasks[workload.name][variant.name])
                         property_name = property.split('_')[1]
                         if property_name not in props_to_run.keys():

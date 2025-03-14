@@ -5,7 +5,7 @@ open RBT.Test
 open Core
 open RBT.Spec
 open RBT
-(*
+
 let () =
   let random_a = Splittable_random.State.of_int 1 in
   let random_b = Splittable_random.State.of_int 1 in
@@ -28,7 +28,7 @@ let () =
     printf "========= Staged generator CSR ==========\n";
     printf "%s\n" (Sexp.to_string_hum (BaseBespoke_Staged_CSR.sexp_of_t v4))
   done
-*)
+
 let properties : (string * rbt property) list =
   [
     ("prop_InsertValid", test_prop_InsertValid);
