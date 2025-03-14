@@ -1,865 +1,1454 @@
 {
-    "delete_4": {
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000145,
-                "baseBespokestaged": 0.00014,
-                "baseBespokestagedc": 0.000141,
-                "baseBespokestagedcsr": 0.000242,
-                "baseBespokesingle": 0.000204,
-                "baseBespokesinglestaged": 0.00017,
-                "baseBespokesinglestagedc": 0.000172,
-                "baseBespokesinglestagedcsr": 0.000169,
-                "baseType": 0.000209,
-                "baseStaged": 0.000149,
-                "baseStagedc": 0.000146,
-                "baseStagedcsr": 0.000151
+    "no_balance_insert_1": {
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.00012,
+                "baseBespokestaged": 0.000121,
+                "baseBespokestagedc": 0.000113,
+                "baseBespokestagedcsr": 0.000121,
+                "baseType": 0.005643,
+                "baseStaged": 0.002311,
+                "baseStagedc": 0.000816,
+                "baseStagedcsr": 0.000784
             }
         },
         "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.942025,
+                "baseBespokestaged": 0.827138,
+                "baseBespokestagedc": 0.439808,
+                "baseBespokestagedcsr": 0.412909,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.022023,
+                "baseBespokestaged": 0.019981,
+                "baseBespokestagedc": 0.012545,
+                "baseBespokestagedcsr": 0.012249,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "swap_bc": {
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.013132,
+                "baseBespokestaged": 0.012035,
+                "baseBespokestagedc": 0.008131,
+                "baseBespokestagedcsr": 0.008036,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.000348,
+                "baseBespokestaged": 0.000336,
+                "baseBespokestagedc": 0.000209,
+                "baseBespokestagedcsr": 0.000209,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.005411,
+                "baseBespokestaged": 0.005209,
+                "baseBespokestagedc": 0.001592,
+                "baseBespokestagedcsr": 0.00166,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.005592,
+                "baseBespokestaged": 0.005358,
+                "baseBespokestagedc": 0.001488,
+                "baseBespokestagedcsr": 0.001384,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 2.808956,
+                "baseBespokestaged": 2.43196,
+                "baseBespokestagedc": 1.166741,
+                "baseBespokestagedcsr": 1.10801,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 0.031281,
+                "baseBespokestaged": 0.027653,
+                "baseBespokestagedc": 0.01571,
+                "baseBespokestagedcsr": 0.015271,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.001076,
+                "baseBespokestaged": 0.000964,
+                "baseBespokestagedc": 0.000578,
+                "baseBespokestagedcsr": 0.000634,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": 48.740299,
+                "baseStagedcsr": 47.733594
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.000854,
+                "baseBespokestaged": 0.000742,
+                "baseBespokestagedc": 0.000391,
+                "baseBespokestagedcsr": 0.000377,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.236043,
+                "baseBespokestaged": 0.202209,
+                "baseBespokestagedc": 0.084555,
+                "baseBespokestagedcsr": 0.079166,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeletePost.txt": {
+            "RBT": {
+                "baseBespoke": 0.460666,
+                "baseBespokestaged": 0.395393,
+                "baseBespokestagedc": 0.178362,
+                "baseBespokestagedcsr": 0.168799,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "miscolor_balLeft": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.041025,
+                "baseBespokestaged": 0.035781,
+                "baseBespokestagedc": 0.017207,
+                "baseBespokestagedcsr": 0.016118,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": "timeout",
+                "baseBespokestaged": "timeout",
+                "baseBespokestagedc": "timeout",
+                "baseBespokestagedcsr": "timeout",
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "union_6": {
+        "prop_UnionPost.txt": {
             "BST": {
-                "baseBespoke": 0.000127,
-                "baseBespokestaged": 0.000134,
-                "baseBespokestagedc": 0.000133,
-                "baseBespokestagedcsr": 0.000116,
-                "baseBespokesingle": 0.000172,
-                "baseBespokesinglestaged": 0.000152,
-                "baseBespokesinglestagedc": 0.000143,
-                "baseBespokesinglestagedcsr": 0.000159,
-                "baseType": 0.000141,
-                "baseStaged": 0.000172,
-                "baseStagedc": 0.000126,
-                "baseStagedcsr": 0.000135
+                "baseBespoke": 0.00553,
+                "baseBespokestaged": 0.002976,
+                "baseBespokestagedc": 0.000899,
+                "baseBespokestagedcsr": 0.000864,
+                "baseBespokesingle": 0.005042,
+                "baseBespokesinglestaged": 0.001774,
+                "baseBespokesinglestagedc": 0.000515,
+                "baseBespokesinglestagedcsr": 0.001796,
+                "baseType": 0.011378,
+                "baseStaged": 0.009659,
+                "baseStagedc": 0.003452,
+                "baseStagedcsr": 0.002705
+            }
+        },
+        "prop_UnionModel.txt": {
+            "BST": {
+                "baseBespoke": 0.000154,
+                "baseBespokestaged": 0.000139,
+                "baseBespokestagedc": 0.00011,
+                "baseBespokestagedcsr": 0.000113,
+                "baseBespokesingle": 0.000167,
+                "baseBespokesinglestaged": 0.000137,
+                "baseBespokesinglestagedc": 0.000117,
+                "baseBespokesinglestagedcsr": 0.000135,
+                "baseType": 0.000122,
+                "baseStaged": 0.000109,
+                "baseStagedc": 9.3e-05,
+                "baseStagedcsr": 9.4e-05
             }
         },
         "prop_DeleteUnion.txt": {
             "BST": {
-                "baseBespoke": 0.002521,
-                "baseBespokestaged": 0.001017,
-                "baseBespokestagedc": 0.00042,
-                "baseBespokestagedcsr": 0.000952,
-                "baseBespokesingle": 0.002853,
-                "baseBespokesinglestaged": 0.000613,
-                "baseBespokesinglestagedc": 0.000308,
-                "baseBespokesinglestagedcsr": 0.000797,
-                "baseType": 0.125304,
-                "baseStaged": 0.099923,
-                "baseStagedc": 0.031772,
-                "baseStagedcsr": 0.031001
+                "baseBespoke": 0.00168,
+                "baseBespokestaged": 0.001589,
+                "baseBespokestagedc": 0.000381,
+                "baseBespokestagedcsr": 0.000382,
+                "baseBespokesingle": 0.009006,
+                "baseBespokesinglestaged": 0.006701,
+                "baseBespokesinglestagedc": 0.003217,
+                "baseBespokesinglestagedcsr": 0.006731,
+                "baseType": 0.233034,
+                "baseStaged": 0.18491,
+                "baseStagedc": 0.072323,
+                "baseStagedcsr": 0.068495
             }
         },
-        "prop_DeleteModel.txt": {
+        "prop_UnionUnionAssoc.txt": {
             "BST": {
-                "baseBespoke": 0.000126,
-                "baseBespokestaged": 0.000138,
-                "baseBespokestagedc": 0.000559,
-                "baseBespokestagedcsr": 0.000125,
-                "baseBespokesingle": 0.00017,
-                "baseBespokesinglestaged": 0.000139,
-                "baseBespokesinglestagedc": 0.000143,
-                "baseBespokesinglestagedcsr": 0.000148,
-                "baseType": 0.000274,
-                "baseStaged": 0.000206,
-                "baseStagedc": 0.000151,
-                "baseStagedcsr": 0.000167
-            }
-        },
-        "prop_InsertDelete.txt": {
-            "BST": {
-                "baseBespoke": 0.000128,
-                "baseBespokestaged": 0.00012,
-                "baseBespokestagedc": 0.000125,
-                "baseBespokestagedcsr": 0.000497,
-                "baseBespokesingle": 0.000141,
-                "baseBespokesinglestaged": 0.000588,
-                "baseBespokesinglestagedc": 0.000153,
-                "baseBespokesinglestagedcsr": 0.000136,
-                "baseType": 0.000127,
-                "baseStaged": 0.000117,
-                "baseStagedc": 0.000124,
-                "baseStagedcsr": 0.000137
-            }
-        },
-        "prop_DeleteDelete.txt": {
-            "BST": {
-                "baseBespoke": 0.013945,
-                "baseBespokestaged": 0.012423,
-                "baseBespokestagedc": 0.009286,
-                "baseBespokestagedcsr": 0.009606,
-                "baseBespokesingle": 0.39057,
-                "baseBespokesinglestaged": 0.230271,
-                "baseBespokesinglestagedc": 0.139167,
-                "baseBespokesinglestagedcsr": 0.22917,
-                "baseType": 3.801732,
-                "baseStaged": 3.034945,
-                "baseStagedc": 1.033119,
-                "baseStagedcsr": 0.977097
-            }
-        },
-        "prop_DeletePost.txt": {
-            "BST": {
-                "baseBespoke": 0.000711,
-                "baseBespokestaged": 0.000592,
-                "baseBespokestagedc": 0.000316,
-                "baseBespokestagedcsr": 0.000323,
-                "baseBespokesingle": 0.008271,
-                "baseBespokesinglestaged": 0.003102,
-                "baseBespokesinglestagedc": 0.00254,
-                "baseBespokesinglestagedcsr": 0.002736,
-                "baseType": 0.013443,
-                "baseStaged": 0.01236,
-                "baseStagedc": 0.004193,
-                "baseStagedcsr": 0.00416
-            }
-        }
-    },
-    "insert_1": {
-        "prop_DeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.008799,
-                "baseBespokestaged": 0.007974,
-                "baseBespokestagedc": 0.003218,
-                "baseBespokestagedcsr": 0.003745,
-                "baseBespokesingle": 0.002908,
-                "baseBespokesinglestaged": 0.000931,
-                "baseBespokesinglestagedc": 0.000598,
-                "baseBespokesinglestagedcsr": 0.001762,
-                "baseType": 0.002594,
-                "baseStaged": 0.0009,
-                "baseStagedc": 0.000784,
-                "baseStagedcsr": 0.000535
-            }
-        },
-        "prop_InsertInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000121,
-                "baseBespokestaged": 0.000127,
-                "baseBespokestagedc": 0.000144,
-                "baseBespokestagedcsr": 0.000153,
-                "baseBespokesingle": 0.000173,
-                "baseBespokesinglestaged": 0.00015,
-                "baseBespokesinglestagedc": 0.000136,
-                "baseBespokesinglestagedcsr": 0.000136,
-                "baseType": 0.000118,
-                "baseStaged": 0.000133,
-                "baseStagedc": 0.00018,
-                "baseStagedcsr": 0.000133
-            }
-        },
-        "prop_InsertPost.txt": {
-            "BST": {
-                "baseBespoke": 0.002514,
-                "baseBespokestaged": 0.002503,
-                "baseBespokestagedc": 0.000683,
-                "baseBespokestagedcsr": 0.001008,
-                "baseBespokesingle": 0.000418,
-                "baseBespokesinglestaged": 0.000299,
-                "baseBespokesinglestagedc": 0.000318,
-                "baseBespokesinglestagedcsr": 0.000258,
-                "baseType": 0.014154,
-                "baseStaged": 0.012914,
-                "baseStagedc": 0.007175,
-                "baseStagedcsr": 0.005311
+                "baseBespoke": 0.00014,
+                "baseBespokestaged": 0.000116,
+                "baseBespokestagedc": 0.000104,
+                "baseBespokestagedcsr": 0.000102,
+                "baseBespokesingle": 0.000197,
+                "baseBespokesinglestaged": 0.000146,
+                "baseBespokesinglestagedc": 0.00012,
+                "baseBespokesinglestagedcsr": 0.000145,
+                "baseType": 0.006603,
+                "baseStaged": 0.005899,
+                "baseStagedc": 0.000716,
+                "baseStagedcsr": 0.000651
             }
         },
         "prop_UnionDeleteInsert.txt": {
             "BST": {
-                "baseBespoke": 0.00015,
-                "baseBespokestaged": 0.000137,
-                "baseBespokestagedc": 0.000167,
-                "baseBespokestagedcsr": 0.00014,
-                "baseBespokesingle": 0.000197,
-                "baseBespokesinglestaged": 0.000166,
-                "baseBespokesinglestagedc": 0.000155,
-                "baseBespokesinglestagedcsr": 0.000206,
-                "baseType": 0.000211,
-                "baseStaged": 0.000148,
-                "baseStagedc": 0.000144,
-                "baseStagedcsr": 0.000156
+                "baseBespoke": 0.000117,
+                "baseBespokestaged": 0.000113,
+                "baseBespokestagedc": 0.000132,
+                "baseBespokestagedcsr": 0.000115,
+                "baseBespokesingle": 0.000173,
+                "baseBespokesinglestaged": 0.000137,
+                "baseBespokesinglestagedc": 0.000128,
+                "baseBespokesinglestagedcsr": 0.000135,
+                "baseType": 0.002218,
+                "baseStaged": 0.001957,
+                "baseStagedc": 0.000576,
+                "baseStagedcsr": 0.00058
             }
         },
         "prop_InsertUnion.txt": {
             "BST": {
-                "baseBespoke": 0.000136,
-                "baseBespokestaged": 0.000141,
-                "baseBespokestagedc": 0.000151,
-                "baseBespokestagedcsr": 0.000168,
-                "baseBespokesingle": 0.000162,
-                "baseBespokesinglestaged": 0.000162,
-                "baseBespokesinglestagedc": 0.000179,
-                "baseBespokesinglestagedcsr": 0.000184,
-                "baseType": 0.000695,
-                "baseStaged": 0.000485,
-                "baseStagedc": 0.000242,
-                "baseStagedcsr": 0.000309
+                "baseBespoke": 0.000155,
+                "baseBespokestaged": 0.000147,
+                "baseBespokestagedc": 0.000124,
+                "baseBespokestagedcsr": 0.000136,
+                "baseBespokesingle": 0.000291,
+                "baseBespokesinglestaged": 0.000184,
+                "baseBespokesinglestagedc": 0.000151,
+                "baseBespokesinglestagedcsr": 0.000182,
+                "baseType": 0.000557,
+                "baseStaged": 0.000434,
+                "baseStagedc": 0.000225,
+                "baseStagedcsr": 0.00022
+            }
+        }
+    },
+    "miscolor_join_2": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.00537,
+                "baseBespokestaged": 0.005081,
+                "baseBespokestagedc": 0.001135,
+                "baseBespokestagedcsr": 0.001044,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.202644,
+                "baseBespokestaged": 0.175358,
+                "baseBespokestagedc": 0.086768,
+                "baseBespokestagedcsr": 0.082426,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "swap_cd": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.435324,
+                "baseBespokestaged": 0.374344,
+                "baseBespokestagedc": 0.1817,
+                "baseBespokestagedcsr": 0.173232,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.026216,
+                "baseBespokestaged": 0.023414,
+                "baseBespokestagedc": 0.014371,
+                "baseBespokestagedcsr": 0.014073,
+                "baseType": 12.856222,
+                "baseStaged": 10.314769,
+                "baseStagedc": 4.898884,
+                "baseStagedcsr": 4.726244
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.00057,
+                "baseBespokestaged": 0.000498,
+                "baseBespokestagedc": 0.000335,
+                "baseBespokestagedcsr": 0.000324,
+                "baseType": 0.014596,
+                "baseStaged": 0.012786,
+                "baseStagedc": 0.008203,
+                "baseStagedcsr": 0.008412
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.01197,
+                "baseBespokestaged": 0.01106,
+                "baseBespokestagedc": 0.006909,
+                "baseBespokestagedcsr": 0.006736,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.026155,
+                "baseBespokestaged": 0.022705,
+                "baseBespokestagedc": 0.011911,
+                "baseBespokestagedcsr": 0.011275,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
             }
         },
         "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.000293,
+                "baseBespokestaged": 0.000268,
+                "baseBespokestagedc": 0.000204,
+                "baseBespokestagedcsr": 0.000196,
+                "baseType": 0.233585,
+                "baseStaged": 0.185236,
+                "baseStagedc": 0.083727,
+                "baseStagedcsr": 0.080744
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.001113,
+                "baseBespokestaged": 0.000961,
+                "baseBespokestagedc": 0.000472,
+                "baseBespokestagedcsr": 0.000473,
+                "baseType": 0.01855,
+                "baseStaged": 0.015273,
+                "baseStagedc": 0.008107,
+                "baseStagedcsr": 0.0079
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 0.022345,
+                "baseBespokestaged": 0.020123,
+                "baseBespokestagedc": 0.011899,
+                "baseBespokestagedcsr": 0.011844,
+                "baseType": 6.33217,
+                "baseStaged": 4.94377,
+                "baseStagedc": 2.00332,
+                "baseStagedcsr": 1.890021
+            }
+        },
+        "prop_DeletePost.txt": {
+            "RBT": {
+                "baseBespoke": 6.890219,
+                "baseBespokestaged": 5.89131,
+                "baseBespokestagedc": 2.654446,
+                "baseBespokestagedcsr": 2.491845,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.013351,
+                "baseBespokestaged": 0.012111,
+                "baseBespokestagedc": 0.008281,
+                "baseBespokestagedcsr": 0.008015,
+                "baseType": 10.479653,
+                "baseStaged": 8.450543,
+                "baseStagedc": 4.006992,
+                "baseStagedcsr": 3.851863
+            }
+        }
+    },
+    "insert_2": {
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.005333,
+                "baseBespokestaged": 0.004952,
+                "baseBespokestagedc": 0.001349,
+                "baseBespokestagedcsr": 0.001354,
+                "baseType": 0.012666,
+                "baseStaged": 0.010987,
+                "baseStagedc": 0.007445,
+                "baseStagedcsr": 0.007159
+            },
             "BST": {
-                "baseBespoke": 0.000173,
-                "baseBespokestaged": 0.00013,
-                "baseBespokestagedc": 0.000131,
-                "baseBespokestagedcsr": 0.000134,
-                "baseBespokesingle": 0.00015,
-                "baseBespokesinglestaged": 0.000141,
-                "baseBespokesinglestagedc": 0.000157,
-                "baseBespokesinglestagedcsr": 0.000142,
-                "baseType": 0.000484,
-                "baseStaged": 0.000483,
-                "baseStagedc": 0.000207,
+                "baseBespoke": 0.005712,
+                "baseBespokestaged": 0.005545,
+                "baseBespokestagedc": 0.002119,
+                "baseBespokestagedcsr": 0.002058,
+                "baseBespokesingle": 0.000578,
+                "baseBespokesinglestaged": 0.00037,
+                "baseBespokesinglestagedc": 0.000257,
+                "baseBespokesinglestagedcsr": 0.000335,
+                "baseType": 0.00761,
+                "baseStaged": 0.006977,
+                "baseStagedc": 0.003032,
+                "baseStagedcsr": 0.002935
+            }
+        },
+        "prop_InsertModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.000118,
+                "baseBespokestaged": 0.000121,
+                "baseBespokestagedc": 0.000117,
+                "baseBespokestagedcsr": 0.000116,
+                "baseType": 0.000749,
+                "baseStaged": 0.000563,
+                "baseStagedc": 0.000277,
+                "baseStagedcsr": 0.000269
+            },
+            "BST": {
+                "baseBespoke": 0.000126,
+                "baseBespokestaged": 0.000119,
+                "baseBespokestagedc": 0.000134,
+                "baseBespokestagedcsr": 0.000136,
+                "baseBespokesingle": 0.000129,
+                "baseBespokesinglestaged": 0.000143,
+                "baseBespokesinglestagedc": 0.000115,
+                "baseBespokesinglestagedcsr": 0.000118,
+                "baseType": 0.000454,
+                "baseStaged": 0.000379,
+                "baseStagedc": 0.000222,
                 "baseStagedcsr": 0.000216
+            }
+        },
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 0.001318,
+                "baseBespokestaged": 0.001112,
+                "baseBespokestagedc": 0.000554,
+                "baseBespokestagedcsr": 0.000532,
+                "baseType": 0.006158,
+                "baseStaged": 0.005678,
+                "baseStagedc": 0.001079,
+                "baseStagedcsr": 0.001071
+            },
+            "BST": {
+                "baseBespoke": 0.001818,
+                "baseBespokestaged": 0.001726,
+                "baseBespokestagedc": 0.000556,
+                "baseBespokestagedcsr": 0.000552,
+                "baseBespokesingle": 0.00032,
+                "baseBespokesinglestaged": 0.000232,
+                "baseBespokesinglestagedc": 0.000179,
+                "baseBespokesinglestagedcsr": 0.000213,
+                "baseType": 0.007277,
+                "baseStaged": 0.006569,
+                "baseStagedc": 0.002278,
+                "baseStagedcsr": 0.002223
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "BST": {
+                "baseBespoke": 0.017421,
+                "baseBespokestaged": 0.015855,
+                "baseBespokestagedc": 0.010131,
+                "baseBespokestagedcsr": 0.009851,
+                "baseBespokesingle": 0.005423,
+                "baseBespokesinglestaged": 0.00301,
+                "baseBespokesinglestagedc": 0.001974,
+                "baseBespokesinglestagedcsr": 0.002846,
+                "baseType": 0.010569,
+                "baseStaged": 0.009535,
+                "baseStagedc": 0.006595,
+                "baseStagedcsr": 0.006374
+            },
+            "RBT": {
+                "baseBespoke": 0.000998,
+                "baseBespokestaged": 0.000851,
+                "baseBespokestagedc": 0.000473,
+                "baseBespokestagedcsr": 0.000479,
+                "baseType": 0.02037,
+                "baseStaged": 0.017322,
+                "baseStagedc": 0.010433,
+                "baseStagedcsr": 0.010194
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.000145,
+                "baseBespokestaged": 0.000138,
+                "baseBespokestagedc": 0.000153,
+                "baseBespokestagedcsr": 0.000125,
+                "baseBespokesingle": 0.000147,
+                "baseBespokesinglestaged": 0.000146,
+                "baseBespokesinglestagedc": 0.000132,
+                "baseBespokesinglestagedcsr": 0.000133,
+                "baseType": 0.000518,
+                "baseStaged": 0.000445,
+                "baseStagedc": 0.000241,
+                "baseStagedcsr": 0.000239
+            }
+        }
+    },
+    "insert_1": {
+        "prop_InsertPost.txt": {
+            "BST": {
+                "baseBespoke": 0.001789,
+                "baseBespokestaged": 0.001745,
+                "baseBespokestagedc": 0.000557,
+                "baseBespokestagedcsr": 0.00055,
+                "baseBespokesingle": 0.000332,
+                "baseBespokesinglestaged": 0.000223,
+                "baseBespokesinglestagedc": 0.00017,
+                "baseBespokesinglestagedcsr": 0.000208,
+                "baseType": 0.010548,
+                "baseStaged": 0.009029,
+                "baseStagedc": 0.003866,
+                "baseStagedcsr": 0.003692
+            },
+            "RBT": {
+                "baseBespoke": 0.001375,
+                "baseBespokestaged": 0.001162,
+                "baseBespokestagedc": 0.000566,
+                "baseBespokestagedcsr": 0.000545,
+                "baseType": 0.006326,
+                "baseStaged": 0.005666,
+                "baseStagedc": 0.001119,
+                "baseStagedcsr": 0.001115
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 0.005703,
+                "baseBespokestaged": 0.005471,
+                "baseBespokestagedc": 0.002185,
+                "baseBespokestagedcsr": 0.001977,
+                "baseBespokesingle": 0.001626,
+                "baseBespokesinglestaged": 0.000738,
+                "baseBespokesinglestagedc": 0.000496,
+                "baseBespokesinglestagedcsr": 0.000745,
+                "baseType": 0.001655,
+                "baseStaged": 0.000713,
+                "baseStagedc": 0.000427,
+                "baseStagedcsr": 0.000415
+            },
+            "RBT": {
+                "baseBespoke": 0.005664,
+                "baseBespokestaged": 0.005402,
+                "baseBespokestagedc": 0.001783,
+                "baseBespokestagedcsr": 0.001732,
+                "baseType": 0.015046,
+                "baseStaged": 0.01287,
+                "baseStagedc": 0.007597,
+                "baseStagedcsr": 0.007557
+            }
+        }
+    },
+    "delete_5": {
+        "prop_DeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 0.005903,
+                "baseBespokestaged": 0.005568,
+                "baseBespokestagedc": 0.002109,
+                "baseBespokestagedcsr": 0.002079,
+                "baseBespokesingle": 0.001803,
+                "baseBespokesinglestaged": 0.000806,
+                "baseBespokesinglestagedc": 0.000562,
+                "baseBespokesinglestagedcsr": 0.000813,
+                "baseType": 0.001695,
+                "baseStaged": 0.000776,
+                "baseStagedc": 0.000492,
+                "baseStagedcsr": 0.000475
+            },
+            "RBT": {
+                "baseBespoke": 0.001905,
+                "baseBespokestaged": 0.001843,
+                "baseBespokestagedc": 0.000971,
+                "baseBespokestagedcsr": 0.000955,
+                "baseType": 0.016226,
+                "baseStaged": 0.014038
+            }
+        },
+        "prop_DeleteDelete.txt": {
+            "BST": {
+                "baseBespoke": 0.010481,
+                "baseBespokestaged": 0.009363,
+                "baseBespokestagedc": 0.006641,
+                "baseBespokestagedcsr": 0.006563,
+                "baseBespokesingle": 1.281307,
+                "baseBespokesinglestaged": 0.770584,
+                "baseBespokesinglestagedc": 0.475155,
+                "baseBespokesinglestagedcsr": 0.770808,
+                "baseType": 3.109626,
+                "baseStaged": 2.452506,
+                "baseStagedc": 1.040044,
+                "baseStagedcsr": 0.990755
+            },
+            "RBT": {
+                "baseBespoke": 0.609764,
+                "baseBespokestaged": 0.525787,
+                "baseBespokestagedc": 0.253327,
+                "baseBespokestagedcsr": 0.240354,
+                "baseType": 0.950404,
+                "baseStaged": 0.761755
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 0.001768,
+                "baseBespokestaged": 0.000725,
+                "baseBespokestagedc": 0.000388,
+                "baseBespokestagedcsr": 0.000398,
+                "baseBespokesingle": 0.006181,
+                "baseBespokesinglestaged": 0.002993,
+                "baseBespokesinglestagedc": 0.00202,
+                "baseBespokesinglestagedcsr": 0.003026,
+                "baseType": 0.063517,
+                "baseStaged": 0.049967,
+                "baseStagedc": 0.02216,
+                "baseStagedcsr": 0.021412
+            }
+        },
+        "prop_DeleteModel.txt": {
+            "RBT": {
+                "baseBespoke": 0.000638,
+                "baseBespokestaged": 0.000539,
+                "baseBespokestagedc": 0.000335,
+                "baseBespokestagedcsr": 0.000325,
+                "baseType": 0.022409,
+                "baseStaged": 0.018425
+            },
+            "BST": {
+                "baseBespoke": 0.000614,
+                "baseBespokestaged": 0.000537,
+                "baseBespokestagedc": 0.000307,
+                "baseBespokestagedcsr": 0.000293,
+                "baseBespokesingle": 0.001621,
+                "baseBespokesinglestaged": 0.00055,
+                "baseBespokesinglestagedc": 0.000344,
+                "baseBespokesinglestagedcsr": 0.000549,
+                "baseType": 0.061432,
+                "baseStaged": 0.048977,
+                "baseStagedc": 0.021403,
+                "baseStagedcsr": 0.020474
+            }
+        },
+        "prop_DeletePost.txt": {
+            "BST": {
+                "baseBespoke": 0.019956,
+                "baseBespokestaged": 0.017522,
+                "baseBespokestagedc": 0.010206,
+                "baseBespokestagedcsr": 0.009736,
+                "baseBespokesingle": 0.041565,
+                "baseBespokesinglestaged": 0.026324,
+                "baseBespokesinglestagedc": 0.017345,
+                "baseBespokesinglestagedcsr": 0.026283,
+                "baseType": 1.090757,
+                "baseStaged": 0.837107,
+                "baseStagedc": 0.291207,
+                "baseStagedcsr": 0.272429
+            },
+            "RBT": {
+                "baseBespoke": 0.020614,
+                "baseBespokestaged": 0.018229,
+                "baseBespokestagedc": 0.01028,
+                "baseBespokestagedcsr": 0.009998,
+                "baseType": 2.1833,
+                "baseStaged": 1.670919
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.025734,
+                "baseBespokestaged": 0.022411,
+                "baseBespokestagedc": 0.011633,
+                "baseBespokestagedcsr": 0.01101,
+                "baseBespokesingle": 0.00933,
+                "baseBespokesinglestaged": 0.006976,
+                "baseBespokesinglestagedc": 0.003312,
+                "baseBespokesinglestagedcsr": 0.006884,
+                "baseType": 0.090761,
+                "baseStaged": 0.070968,
+                "baseStagedc": 0.028727,
+                "baseStagedcsr": 0.027638
+            }
+        },
+        "prop_DeletePost.json": {
+            "RBT": {
+                "baseStagedc": 0.609431
+            }
+        }
+    },
+    "union_7": {
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.000165,
+                "baseBespokestaged": 0.000156,
+                "baseBespokestagedc": 0.000142,
+                "baseBespokestagedcsr": 0.000149,
+                "baseBespokesingle": 0.000248,
+                "baseBespokesinglestaged": 0.000171,
+                "baseBespokesinglestagedc": 0.000161,
+                "baseBespokesinglestagedcsr": 0.000179,
+                "baseType": 0.003234,
+                "baseStaged": 0.002707,
+                "baseStagedc": 0.000956,
+                "baseStagedcsr": 0.000926
+            }
+        },
+        "prop_UnionPost.txt": {
+            "BST": {
+                "baseBespoke": 0.006898,
+                "baseBespokestaged": 0.006405,
+                "baseBespokestagedc": 0.002139,
+                "baseBespokestagedcsr": 0.002044,
+                "baseBespokesingle": 0.005083,
+                "baseBespokesinglestaged": 0.001814,
+                "baseBespokesinglestagedc": 0.000602,
+                "baseBespokesinglestagedcsr": 0.001816,
+                "baseType": 0.011423,
+                "baseStaged": 0.009618,
+                "baseStagedc": 0.002883,
+                "baseStagedcsr": 0.0027
+            }
+        },
+        "prop_UnionValid.txt": {
+            "BST": {
+                "baseBespoke": 0.000158,
+                "baseBespokestaged": 0.000145,
+                "baseBespokestagedc": 0.000114,
+                "baseBespokestagedcsr": 0.000113,
+                "baseBespokesingle": 0.000198,
+                "baseBespokesinglestaged": 0.000146,
+                "baseBespokesinglestagedc": 0.000116,
+                "baseBespokesinglestagedcsr": 0.000149,
+                "baseType": 0.00949,
+                "baseStaged": 0.008039,
+                "baseStagedc": 0.00142,
+                "baseStagedcsr": 0.001252
+            }
+        },
+        "prop_UnionUnionAssoc.txt": {
+            "BST": {
+                "baseBespoke": 0.000154,
+                "baseBespokestaged": 0.000133,
+                "baseBespokestagedc": 0.000111,
+                "baseBespokestagedcsr": 0.000121,
+                "baseBespokesingle": 0.000216,
+                "baseBespokesinglestaged": 0.000164,
+                "baseBespokesinglestagedc": 0.000163,
+                "baseBespokesinglestagedcsr": 0.000153,
+                "baseType": 0.006694,
+                "baseStaged": 0.005991,
+                "baseStagedc": 0.00073,
+                "baseStagedcsr": 0.000669
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.001704,
+                "baseBespokestaged": 0.001592,
+                "baseBespokestagedc": 0.000404,
+                "baseBespokestagedcsr": 0.000395,
+                "baseBespokesingle": 0.00909,
+                "baseBespokesinglestaged": 0.006712,
+                "baseBespokesinglestagedc": 0.003238,
+                "baseBespokesinglestagedcsr": 0.006769,
+                "baseType": 0.232745,
+                "baseStaged": 0.184031,
+                "baseStagedc": 0.071949,
+                "baseStagedcsr": 0.06716
+            }
+        }
+    },
+    "insert_3": {
+        "prop_InsertPost.txt": {
+            "RBT": {
+                "baseBespoke": 0.008803,
+                "baseBespokestaged": 0.008137,
+                "baseBespokestagedc": 0.006089,
+                "baseBespokestagedcsr": 0.005973,
+                "baseType": 0.345082,
+                "baseStaged": 0.269798,
+                "baseStagedc": 0.1111,
+                "baseStagedcsr": 0.105791
+            },
+            "BST": {
+                "baseBespoke": 0.008966,
+                "baseBespokestaged": 0.008216,
+                "baseBespokestagedc": 0.006179,
+                "baseBespokestagedcsr": 0.006177,
+                "baseBespokesingle": 0.009744,
+                "baseBespokesinglestaged": 0.007476,
+                "baseBespokesinglestagedc": 0.006315,
+                "baseBespokesinglestagedcsr": 0.007551,
+                "baseType": 0.070432,
+                "baseStaged": 0.055757,
+                "baseStagedc": 0.024291,
+                "baseStagedcsr": 0.023244
+            }
+        },
+        "prop_InsertInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.001021,
+                "baseBespokestaged": 0.000885,
+                "baseBespokestagedc": 0.000539,
+                "baseBespokestagedcsr": 0.000528,
+                "baseType": 0.001036,
+                "baseStaged": 0.000841,
+                "baseStagedc": 0.000528,
+                "baseStagedcsr": 0.000533
+            },
+            "BST": {
+                "baseBespoke": 0.001664,
+                "baseBespokestaged": 0.001608,
+                "baseBespokestagedc": 0.000519,
+                "baseBespokestagedcsr": 0.000505,
+                "baseBespokesingle": 0.001629,
+                "baseBespokesinglestaged": 0.000561,
+                "baseBespokesinglestagedc": 0.000418,
+                "baseBespokesinglestagedcsr": 0.000567,
+                "baseType": 0.008322,
+                "baseStaged": 0.007672,
+                "baseStagedc": 0.003542,
+                "baseStagedcsr": 0.003517
+            }
+        },
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.025854,
+                "baseBespokestaged": 0.023032,
+                "baseBespokestagedc": 0.014204,
+                "baseBespokestagedcsr": 0.013832,
+                "baseType": 0.302581,
+                "baseStaged": 0.244268,
+                "baseStagedc": 0.118031,
+                "baseStagedcsr": 0.11283
+            },
+            "BST": {
+                "baseBespoke": 0.02625,
+                "baseBespokestaged": 0.023227,
+                "baseBespokestagedc": 0.014012,
+                "baseBespokestagedcsr": 0.013689,
+                "baseBespokesingle": 0.016392,
+                "baseBespokesinglestaged": 0.012035,
+                "baseBespokesinglestagedc": 0.00939,
+                "baseBespokesinglestagedcsr": 0.01206,
+                "baseType": 0.324218,
+                "baseStaged": 0.260224,
+                "baseStagedc": 0.12137,
+                "baseStagedcsr": 0.116591
+            }
+        },
+        "prop_UnionDeleteInsert.txt": {
+            "BST": {
+                "baseBespoke": 0.001661,
+                "baseBespokestaged": 0.000718,
+                "baseBespokestagedc": 0.00043,
+                "baseBespokestagedcsr": 0.000386,
+                "baseBespokesingle": 0.00617,
+                "baseBespokesinglestaged": 0.002987,
+                "baseBespokesinglestagedc": 0.002013,
+                "baseBespokesinglestagedcsr": 0.002984,
+                "baseType": 0.020924,
+                "baseStaged": 0.017307,
+                "baseStagedc": 0.009565,
+                "baseStagedcsr": 0.009135
+            }
+        }
+    },
+    "subst_var_none": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.002054,
+                "baseBespokestaged": 0.000268,
+                "baseBespokestagedc": 0.000233,
+                "baseBespokestagedcsr": 0.000226,
+                "baseType": 0.042354,
+                "baseStaged": 0.026793,
+                "baseStagedc": 0.0198,
+                "baseStagedcsr": 0.018764
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000581,
+                "baseBespokestaged": 0.000228,
+                "baseBespokestagedc": 0.000193,
+                "baseBespokestagedcsr": 0.000184,
+                "baseType": 0.048651,
+                "baseStaged": 0.030904,
+                "baseStagedc": 0.022559,
+                "baseStagedcsr": 0.021547
+            }
+        }
+    },
+    "delete_4": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.009954,
+                "baseBespokestaged": 0.009016,
+                "baseBespokestagedc": 0.006308,
+                "baseBespokestagedcsr": 0.006204,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": 36.895911,
+                "baseStagedcsr": 34.768174
+            },
+            "BST": {
+                "baseBespoke": 0.010029,
+                "baseBespokestaged": 0.009031,
+                "baseBespokestagedc": 0.006402,
+                "baseBespokestagedcsr": 0.006264,
+                "baseBespokesingle": 0.290018,
+                "baseBespokesinglestaged": 0.171858,
+                "baseBespokesinglestagedc": 0.102921,
+                "baseBespokesinglestagedcsr": 0.171606,
+                "baseType": 2.863964,
+                "baseStaged": 2.276585,
+                "baseStagedc": 0.776526,
+                "baseStagedcsr": 0.73652
+            }
+        },
+        "prop_DeletePost.txt": {
+            "BST": {
+                "baseBespoke": 0.000572,
+                "baseBespokestaged": 0.00049,
+                "baseBespokestagedc": 0.000266,
+                "baseBespokestagedcsr": 0.000269,
+                "baseBespokesingle": 0.005396,
+                "baseBespokesinglestaged": 0.002217,
+                "baseBespokesinglestagedc": 0.001822,
+                "baseBespokesinglestagedcsr": 0.002224,
+                "baseType": 0.00944,
+                "baseStaged": 0.008252,
+                "baseStagedc": 0.002975,
+                "baseStagedcsr": 0.002861
+            },
+            "RBT": {
+                "baseBespoke": 0.000581,
+                "baseBespokestaged": 0.000497,
+                "baseBespokestagedc": 0.000275,
+                "baseBespokestagedcsr": 0.000266,
+                "baseType": 0.011756,
+                "baseStaged": 0.009953,
+                "baseStagedc": 0.003264,
+                "baseStagedcsr": 0.003186
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.001663,
+                "baseBespokestaged": 0.000796,
+                "baseBespokestagedc": 0.000349,
+                "baseBespokestagedcsr": 0.000329,
+                "baseBespokesingle": 0.001633,
+                "baseBespokesinglestaged": 0.000508,
+                "baseBespokesinglestagedc": 0.00027,
+                "baseBespokesinglestagedcsr": 0.000534,
+                "baseType": 0.095104,
+                "baseStaged": 0.074714,
+                "baseStagedc": 0.023246,
+                "baseStagedcsr": 0.021941
+            }
+        }
+    },
+    "no_balance_insert_2": {
+        "prop_InsertDelete.txt": {
+            "RBT": {
+                "baseBespoke": 0.006934,
+                "baseBespokestaged": 0.006577,
+                "baseBespokestagedc": 0.005467,
+                "baseBespokestagedcsr": 0.005273,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.000155,
+                "baseBespokestaged": 0.000166,
+                "baseBespokestagedc": 0.000139,
+                "baseBespokestagedcsr": 0.000135,
+                "baseType": 0.00528,
+                "baseStaged": 0.002117,
+                "baseStagedc": 0.000657,
+                "baseStagedcsr": 0.000637
+            }
+        },
+        "prop_DeleteInsert.txt": {
+            "RBT": {
+                "baseBespoke": 0.53717,
+                "baseBespokestaged": 0.477135,
+                "baseBespokestagedc": 0.246472,
+                "baseBespokestagedcsr": 0.237113,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
             }
         }
     },
     "union_8": {
         "prop_UnionUnionAssoc.txt": {
             "BST": {
-                "baseBespoke": 0.002157,
-                "baseBespokestaged": 0.000945,
-                "baseBespokestagedc": 0.000441,
-                "baseBespokestagedcsr": 0.000431,
-                "baseBespokesingle": 0.000391,
-                "baseBespokesinglestaged": 0.000241,
-                "baseBespokesinglestagedc": 0.000536,
-                "baseBespokesinglestagedcsr": 0.000231,
-                "baseType": 0.028484,
-                "baseStaged": 0.022645,
-                "baseStagedc": 0.006123,
-                "baseStagedcsr": 0.0052
-            }
-        },
-        "prop_InsertUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.005133,
-                "baseBespokestaged": 0.003233,
-                "baseBespokestagedc": 0.00248,
-                "baseBespokestagedcsr": 0.002177,
-                "baseBespokesingle": 0.000792,
-                "baseBespokesinglestaged": 0.000408,
-                "baseBespokesinglestagedc": 0.000416,
-                "baseBespokesinglestagedcsr": 0.000421,
-                "baseType": 0.091303,
-                "baseStaged": 0.074392,
-                "baseStagedc": 0.032248,
-                "baseStagedcsr": 0.032338
+                "baseBespoke": 0.001687,
+                "baseBespokestaged": 0.000753,
+                "baseBespokestagedc": 0.000348,
+                "baseBespokestagedcsr": 0.000325,
+                "baseBespokesingle": 0.000302,
+                "baseBespokesinglestaged": 0.000197,
+                "baseBespokesinglestagedc": 0.000142,
+                "baseBespokesinglestagedcsr": 0.000188,
+                "baseType": 0.021089,
+                "baseStaged": 0.016869,
+                "baseStagedc": 0.004483,
+                "baseStagedcsr": 0.004159
             }
         },
         "prop_UnionDeleteInsert.txt": {
             "BST": {
-                "baseBespoke": 0.342748,
-                "baseBespokestaged": 0.28909,
-                "baseBespokestagedc": 0.129618,
-                "baseBespokestagedcsr": 0.125526,
-                "baseBespokesingle": 0.260517,
-                "baseBespokesinglestaged": 0.152191,
-                "baseBespokesinglestagedc": 0.091384,
-                "baseBespokesinglestagedcsr": 0.148832,
-                "baseType": 17.221402,
-                "baseStaged": 13.615446,
-                "baseStagedc": 5.196802,
-                "baseStagedcsr": 5.066073
+                "baseBespoke": 0.25576,
+                "baseBespokestaged": 0.217055,
+                "baseBespokestagedc": 0.097712,
+                "baseBespokestagedcsr": 0.091221,
+                "baseBespokesingle": 0.190348,
+                "baseBespokesinglestaged": 0.112397,
+                "baseBespokesinglestagedc": 0.065847,
+                "baseBespokesinglestagedcsr": 0.112433,
+                "baseType": 12.790701,
+                "baseStaged": 9.979934,
+                "baseStagedc": 3.849603,
+                "baseStagedcsr": 3.662149
+            }
+        },
+        "prop_InsertUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.002774,
+                "baseBespokestaged": 0.002399,
+                "baseBespokestagedc": 0.001732,
+                "baseBespokestagedcsr": 0.001689,
+                "baseBespokesingle": 0.000577,
+                "baseBespokesinglestaged": 0.000358,
+                "baseBespokesinglestagedc": 0.00025,
+                "baseBespokesinglestagedcsr": 0.000323,
+                "baseType": 0.068602,
+                "baseStaged": 0.05435,
+                "baseStagedc": 0.0239,
+                "baseStagedcsr": 0.022903
+            }
+        },
+        "prop_DeleteUnion.txt": {
+            "BST": {
+                "baseBespoke": 0.20993,
+                "baseBespokestaged": 0.176821,
+                "baseBespokestagedc": 0.074642,
+                "baseBespokestagedcsr": 0.06894,
+                "baseBespokesingle": 0.042258,
+                "baseBespokesinglestaged": 0.025284,
+                "baseBespokesinglestagedc": 0.015209,
+                "baseBespokesinglestagedcsr": 0.025131,
+                "baseType": 3.577856,
+                "baseStaged": 2.759469,
+                "baseStagedc": 1.007545,
+                "baseStagedcsr": 0.950745
+            }
+        },
+        "prop_UnionModel.txt": {
+            "BST": {
+                "baseBespoke": 0.001864,
+                "baseBespokestaged": 0.001791,
+                "baseBespokestagedc": 0.000585,
+                "baseBespokestagedcsr": 0.000548,
+                "baseBespokesingle": 0.000661,
+                "baseBespokesinglestaged": 0.000378,
+                "baseBespokesinglestagedc": 0.000241,
+                "baseBespokesinglestagedcsr": 0.000369,
+                "baseType": 0.332997,
+                "baseStaged": 0.268348,
+                "baseStagedc": 0.128656,
+                "baseStagedcsr": 0.123694
             }
         },
         "prop_UnionPost.txt": {
             "BST": {
-                "baseBespoke": 0.019047,
-                "baseBespokestaged": 0.017333,
-                "baseBespokestagedc": 0.010253,
-                "baseBespokestagedcsr": 0.009919,
-                "baseBespokesingle": 0.120348,
-                "baseBespokesinglestaged": 0.064641,
-                "baseBespokesinglestagedc": 0.03101,
-                "baseBespokesinglestagedcsr": 0.061785,
-                "baseType": 5.329702,
-                "baseStaged": 3.967224,
-                "baseStagedc": 1.050864,
-                "baseStagedcsr": 0.930791
-            }
-        },
-        "prop_UnionModel.txt": {
-            "BST": {
-                "baseBespoke": 0.003267,
-                "baseBespokestaged": 0.002379,
-                "baseBespokestagedc": 0.000734,
-                "baseBespokestagedcsr": 0.000721,
-                "baseBespokesingle": 0.001215,
-                "baseBespokesinglestaged": 0.000666,
-                "baseBespokesinglestagedc": 0.000304,
-                "baseBespokesinglestagedcsr": 0.000796,
-                "baseType": 0.451771,
-                "baseStaged": 0.360228,
-                "baseStagedc": 0.176248,
-                "baseStagedcsr": 0.170305
-            }
-        },
-        "prop_DeleteUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.276487,
-                "baseBespokestaged": 0.236771,
-                "baseBespokestagedc": 0.134324,
-                "baseBespokestagedcsr": 0.092701,
-                "baseBespokesingle": 0.058112,
-                "baseBespokesinglestaged": 0.036214,
-                "baseBespokesinglestagedc": 0.021632,
-                "baseBespokesinglestagedcsr": 0.033953,
-                "baseType": 4.828516,
-                "baseStaged": 3.738822,
-                "baseStagedc": 1.389639,
-                "baseStagedcsr": 1.267954
+                "baseBespoke": 0.013664,
+                "baseBespokestaged": 0.012173,
+                "baseBespokestagedc": 0.006919,
+                "baseBespokestagedcsr": 0.006233,
+                "baseBespokesingle": 0.083046,
+                "baseBespokesinglestaged": 0.045532,
+                "baseBespokesinglestagedc": 0.022955,
+                "baseBespokesinglestagedcsr": 0.045444,
+                "baseType": 3.909661,
+                "baseStaged": 2.924674,
+                "baseStagedc": 0.77008,
+                "baseStagedcsr": 0.705053
             }
         }
     },
-    "union_7": {
-        "prop_DeleteUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.002257,
-                "baseBespokestaged": 0.002729,
-                "baseBespokestagedc": 0.000484,
-                "baseBespokestagedcsr": 0.000488,
-                "baseBespokesingle": 0.018694,
-                "baseBespokesinglestaged": 0.009926,
-                "baseBespokesinglestagedc": 0.007021,
-                "baseBespokesinglestagedcsr": 0.009755,
-                "baseType": 0.314945,
-                "baseStaged": 0.245382,
-                "baseStagedc": 0.100665,
-                "baseStagedcsr": 0.090535
+    "shift_var_all": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.010589,
+                "baseBespokestaged": 0.006465,
+                "baseBespokestagedc": 0.004784,
+                "baseBespokestagedcsr": 0.004824,
+                "baseType": 0.01672,
+                "baseStaged": 0.011317,
+                "baseStagedc": 0.009078,
+                "baseStagedcsr": 0.008906
             }
         },
-        "prop_UnionModel.txt": {
-            "BST": {
-                "baseBespoke": 0.000209,
-                "baseBespokestaged": 0.000631,
-                "baseBespokestagedc": 0.000146,
-                "baseBespokestagedcsr": 0.000158,
-                "baseBespokesingle": 0.000226,
-                "baseBespokesinglestaged": 0.00017,
-                "baseBespokesinglestagedc": 0.000207,
-                "baseBespokesinglestagedcsr": 0.000203,
-                "baseType": 0.00015,
-                "baseStaged": 0.000137,
-                "baseStagedc": 0.000124,
-                "baseStagedcsr": 0.000111
-            }
-        },
-        "prop_UnionUnionAssoc.txt": {
-            "BST": {
-                "baseBespoke": 0.000159,
-                "baseBespokestaged": 0.000271,
-                "baseBespokestagedc": 0.000123,
-                "baseBespokestagedcsr": 0.000146,
-                "baseBespokesingle": 0.000252,
-                "baseBespokesinglestaged": 0.0007,
-                "baseBespokesinglestagedc": 0.000153,
-                "baseBespokesinglestagedcsr": 0.000184,
-                "baseType": 0.01038,
-                "baseStaged": 0.011175,
-                "baseStagedc": 0.001075,
-                "baseStagedcsr": 0.000732
-            }
-        },
-        "prop_UnionValid.txt": {
-            "BST": {
-                "baseBespoke": 0.000202,
-                "baseBespokestaged": 0.000168,
-                "baseBespokestagedc": 0.00013,
-                "baseBespokestagedcsr": 0.000141,
-                "baseBespokesingle": 0.000229,
-                "baseBespokesinglestaged": 0.000168,
-                "baseBespokesinglestagedc": 0.000145,
-                "baseBespokesinglestagedcsr": 0.000177,
-                "baseType": 0.013219,
-                "baseStaged": 0.011719,
-                "baseStagedc": 0.002526,
-                "baseStagedcsr": 0.0021
-            }
-        },
-        "prop_UnionPost.txt": {
-            "BST": {
-                "baseBespoke": 0.010415,
-                "baseBespokestaged": 0.00973,
-                "baseBespokestagedc": 0.00367,
-                "baseBespokestagedcsr": 0.002584,
-                "baseBespokesingle": 0.007707,
-                "baseBespokesinglestaged": 0.002815,
-                "baseBespokesinglestagedc": 0.000634,
-                "baseBespokesinglestagedcsr": 0.003031,
-                "baseType": 0.015707,
-                "baseStaged": 0.012905,
-                "baseStagedc": 0.004159,
-                "baseStagedcsr": 0.003893
-            }
-        },
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000302,
-                "baseBespokestaged": 0.000219,
-                "baseBespokestagedc": 0.000184,
-                "baseBespokestagedcsr": 0.000172,
-                "baseBespokesingle": 0.000209,
-                "baseBespokesinglestaged": 0.000183,
-                "baseBespokesinglestagedc": 0.000157,
-                "baseBespokesinglestagedcsr": 0.00018,
-                "baseType": 0.00018,
-                "baseStaged": 0.000168,
-                "baseStagedc": 0.000154,
-                "baseStagedcsr": 0.000165
-            }
-        },
-        "prop_InsertUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.00019,
-                "baseBespokestaged": 0.000178,
-                "baseBespokestagedc": 0.000165,
-                "baseBespokestagedcsr": 0.000153,
-                "baseBespokesingle": 0.000299,
-                "baseBespokesinglestaged": 0.00023,
-                "baseBespokesinglestagedc": 0.000177,
-                "baseBespokesinglestagedcsr": 0.000193,
-                "baseType": 0.005286,
-                "baseStaged": 0.003813,
-                "baseStagedc": 0.001172,
-                "baseStagedcsr": 0.001331
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.042183,
+                "baseBespokestaged": 0.017347,
+                "baseBespokestagedc": 0.016953,
+                "baseBespokestagedcsr": 0.016248,
+                "baseType": 0.049328,
+                "baseStaged": 0.029803,
+                "baseStagedc": 0.021638,
+                "baseStagedcsr": 0.020783
             }
         }
     },
-    "insert_3": {
-        "prop_InsertUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.002639,
-                "baseBespokestaged": 0.002933,
-                "baseBespokestagedc": 0.000572,
-                "baseBespokestagedcsr": 0.000715,
-                "baseBespokesingle": 0.00075,
-                "baseBespokesinglestaged": 0.000435,
-                "baseBespokesinglestagedc": 0.000709,
-                "baseBespokesinglestagedcsr": 0.000411,
-                "baseType": 0.064726,
-                "baseStaged": 0.053043,
-                "baseStagedc": 0.023962,
-                "baseStagedcsr": 0.023954
+    "substTop_no_shift": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000472,
+                "baseBespokestaged": 0.000251,
+                "baseBespokestagedc": 0.000236,
+                "baseBespokestagedcsr": 0.000234,
+                "baseType": 0.071408,
+                "baseStaged": 0.043879,
+                "baseStagedc": 0.031719,
+                "baseStagedcsr": 0.029741
             }
         },
-        "prop_InsertInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.002145,
-                "baseBespokestaged": 0.002076,
-                "baseBespokestagedc": 0.00079,
-                "baseBespokestagedcsr": 0.000647,
-                "baseBespokesingle": 0.002382,
-                "baseBespokesinglestaged": 0.000659,
-                "baseBespokesinglestagedc": 0.000579,
-                "baseBespokesinglestagedcsr": 0.00109,
-                "baseType": 0.012108,
-                "baseStaged": 0.011861,
-                "baseStagedc": 0.005197,
-                "baseStagedcsr": 0.005251
-            }
-        },
-        "prop_InsertPost.txt": {
-            "BST": {
-                "baseBespoke": 0.012803,
-                "baseBespokestaged": 0.012964,
-                "baseBespokestagedc": 0.008914,
-                "baseBespokestagedcsr": 0.008981,
-                "baseBespokesingle": 0.014227,
-                "baseBespokesinglestaged": 0.010524,
-                "baseBespokesinglestagedc": 0.009981,
-                "baseBespokesinglestagedcsr": 0.011025,
-                "baseType": 0.095577,
-                "baseStaged": 0.075993,
-                "baseStagedc": 0.033549,
-                "baseStagedcsr": 0.03102
-            }
-        },
-        "prop_InsertModel.txt": {
-            "BST": {
-                "baseBespoke": 0.001387,
-                "baseBespokestaged": 0.001143,
-                "baseBespokestagedc": 0.000445,
-                "baseBespokestagedcsr": 0.000778,
-                "baseBespokesingle": 0.002552,
-                "baseBespokesinglestaged": 0.000728,
-                "baseBespokesinglestagedc": 0.00051,
-                "baseBespokesinglestagedcsr": 0.001026,
-                "baseType": 0.000734,
-                "baseStaged": 0.000458,
-                "baseStagedc": 0.000255,
-                "baseStagedcsr": 0.00202
-            }
-        },
-        "prop_InsertDelete.txt": {
-            "BST": {
-                "baseBespoke": 0.034915,
-                "baseBespokestaged": 0.031274,
-                "baseBespokestagedc": 0.021531,
-                "baseBespokestagedcsr": 0.019012,
-                "baseBespokesingle": 0.022921,
-                "baseBespokesinglestaged": 0.016538,
-                "baseBespokesinglestagedc": 0.01349,
-                "baseBespokesinglestagedcsr": 0.016724,
-                "baseType": 0.436364,
-                "baseStaged": 0.345643,
-                "baseStagedc": 0.162891,
-                "baseStagedcsr": 0.155949
-            }
-        },
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.002112,
-                "baseBespokestaged": 0.001238,
-                "baseBespokestagedc": 0.000444,
-                "baseBespokestagedcsr": 0.000472,
-                "baseBespokesingle": 0.011308,
-                "baseBespokesinglestaged": 0.003705,
-                "baseBespokesinglestagedc": 0.003127,
-                "baseBespokesinglestagedcsr": 0.004854,
-                "baseType": 0.030721,
-                "baseStaged": 0.024121,
-                "baseStagedc": 0.014109,
-                "baseStagedcsr": 0.012876
-            }
-        }
-    },
-    "delete_5": {
-        "prop_DeleteUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.035616,
-                "baseBespokestaged": 0.03018,
-                "baseBespokestagedc": 0.016048,
-                "baseBespokestagedcsr": 0.015338,
-                "baseBespokesingle": 0.013714,
-                "baseBespokesinglestaged": 0.010316,
-                "baseBespokesinglestagedc": 0.005058,
-                "baseBespokesinglestagedcsr": 0.010908,
-                "baseType": 0.12172,
-                "baseStaged": 0.097332,
-                "baseStagedc": 0.038788,
-                "baseStagedcsr": 0.037913
-            }
-        },
-        "prop_DeleteDelete.txt": {
-            "BST": {
-                "baseBespoke": 0.030314,
-                "baseBespokestaged": 0.01371,
-                "baseBespokestagedc": 0.009688,
-                "baseBespokestagedcsr": 0.009628,
-                "baseBespokesingle": 1.714204,
-                "baseBespokesinglestaged": 1.027277,
-                "baseBespokesinglestagedc": 0.641195,
-                "baseBespokesinglestagedcsr": 1.028312,
-                "baseType": 4.159068,
-                "baseStaged": 3.296184,
-                "baseStagedc": 1.39234,
-                "baseStagedcsr": 1.312521
-            }
-        },
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.00268,
-                "baseBespokestaged": 0.001247,
-                "baseBespokestagedc": 0.000813,
-                "baseBespokestagedcsr": 0.000441,
-                "baseBespokesingle": 0.00857,
-                "baseBespokesinglestaged": 0.004357,
-                "baseBespokesinglestagedc": 0.002822,
-                "baseBespokesinglestagedcsr": 0.005558,
-                "baseType": 0.083564,
-                "baseStaged": 0.065632,
-                "baseStagedc": 0.032803,
-                "baseStagedcsr": 0.029605
-            }
-        },
-        "prop_DeletePost.txt": {
-            "BST": {
-                "baseBespoke": 0.026809,
-                "baseBespokestaged": 0.024191,
-                "baseBespokestagedc": 0.014406,
-                "baseBespokestagedcsr": 0.014884,
-                "baseBespokesingle": 0.05685,
-                "baseBespokesinglestaged": 0.03723,
-                "baseBespokesinglestagedc": 0.023782,
-                "baseBespokesinglestagedcsr": 0.037638,
-                "baseType": 1.457684,
-                "baseStaged": 1.22544,
-                "baseStagedc": 0.443507,
-                "baseStagedcsr": 0.359543
-            }
-        },
-        "prop_DeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.008716,
-                "baseBespokestaged": 0.00776,
-                "baseBespokestagedc": 0.003501,
-                "baseBespokestagedcsr": 0.003221,
-                "baseBespokesingle": 0.002528,
-                "baseBespokesinglestaged": 0.001017,
-                "baseBespokesinglestagedc": 0.001679,
-                "baseBespokesinglestagedcsr": 0.001704,
-                "baseType": 0.002312,
-                "baseStaged": 0.000972,
-                "baseStagedc": 0.000886,
-                "baseStagedcsr": 0.000576
-            }
-        },
-        "prop_DeleteModel.txt": {
-            "BST": {
-                "baseBespoke": 0.000767,
-                "baseBespokestaged": 0.000663,
-                "baseBespokestagedc": 0.000404,
-                "baseBespokestagedcsr": 0.000378,
-                "baseBespokesingle": 0.002809,
-                "baseBespokesinglestaged": 0.000674,
-                "baseBespokesinglestagedc": 0.000388,
-                "baseBespokesinglestagedcsr": 0.000706,
-                "baseType": 0.083075,
-                "baseStaged": 0.064911,
-                "baseStagedc": 0.028788,
-                "baseStagedcsr": 0.028631
-            }
-        }
-    },
-    "union_6": {
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000151,
-                "baseBespokestaged": 0.000167,
-                "baseBespokestagedc": 0.000147,
-                "baseBespokestagedcsr": 0.000165,
-                "baseBespokesingle": 0.000229,
-                "baseBespokesinglestaged": 0.000169,
-                "baseBespokesinglestagedc": 0.000182,
-                "baseBespokesinglestagedcsr": 0.000169,
-                "baseType": 0.003637,
-                "baseStaged": 0.002773,
-                "baseStagedc": 0.001106,
-                "baseStagedcsr": 0.00072
-            }
-        },
-        "prop_InsertUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.000223,
-                "baseBespokestaged": 0.000177,
-                "baseBespokestagedc": 0.000158,
-                "baseBespokestagedcsr": 0.000168,
-                "baseBespokesingle": 0.00036,
-                "baseBespokesinglestaged": 0.000242,
-                "baseBespokesinglestagedc": 0.000212,
-                "baseBespokesinglestagedcsr": 0.000235,
-                "baseType": 0.000729,
-                "baseStaged": 0.000513,
-                "baseStagedc": 0.000298,
-                "baseStagedcsr": 0.000273
-            }
-        },
-        "prop_UnionModel.txt": {
-            "BST": {
-                "baseBespoke": 0.000192,
-                "baseBespokestaged": 0.000178,
-                "baseBespokestagedc": 0.000139,
-                "baseBespokestagedcsr": 0.000131,
-                "baseBespokesingle": 0.00025,
-                "baseBespokesinglestaged": 0.000163,
-                "baseBespokesinglestagedc": 0.000146,
-                "baseBespokesinglestagedcsr": 0.000168,
-                "baseType": 0.000248,
-                "baseStaged": 0.00014,
-                "baseStagedc": 0.00012,
-                "baseStagedcsr": 0.000116
-            }
-        },
-        "prop_UnionUnionIdem.txt": {
-            "BST": {
-                "baseBespoke": 0.00014,
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000243,
                 "baseBespokestaged": 0.000154,
-                "baseBespokestagedc": 0.000111,
-                "baseBespokestagedcsr": 0.000111,
-                "baseBespokesingle": 0.000183,
-                "baseBespokesinglestaged": 0.000133,
-                "baseBespokesinglestagedc": 0.000137,
-                "baseBespokesinglestagedcsr": 0.000126,
-                "baseType": 0.000936,
-                "baseStaged": 0.000313,
-                "baseStagedc": 0.00014,
-                "baseStagedcsr": 0.000426
-            }
-        },
-        "prop_UnionValid.txt": {
-            "BST": {
-                "baseBespoke": 0.00017,
-                "baseBespokestaged": 0.000185,
-                "baseBespokestagedc": 0.000462,
-                "baseBespokestagedcsr": 0.000153,
-                "baseBespokesingle": 0.000229,
-                "baseBespokesinglestaged": 0.00015,
-                "baseBespokesinglestagedc": 0.000369,
-                "baseBespokesinglestagedcsr": 0.000156,
-                "baseType": 0.000705,
-                "baseStaged": 0.000183,
-                "baseStagedc": 0.000189,
-                "baseStagedcsr": 0.000124
-            }
-        },
-        "prop_UnionPost.txt": {
-            "BST": {
-                "baseBespoke": 0.00772,
-                "baseBespokestaged": 0.004357,
-                "baseBespokestagedc": 0.001109,
-                "baseBespokestagedcsr": 0.001054,
-                "baseBespokesingle": 0.008259,
-                "baseBespokesinglestaged": 0.004266,
-                "baseBespokesinglestagedc": 0.000975,
-                "baseBespokesinglestagedcsr": 0.002289,
-                "baseType": 0.016944,
-                "baseStaged": 0.021995,
-                "baseStagedc": 0.004472,
-                "baseStagedcsr": 0.004115
-            }
-        },
-        "prop_DeleteUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.002835,
-                "baseBespokestaged": 0.002813,
-                "baseBespokestagedc": 0.000489,
-                "baseBespokestagedcsr": 0.000478,
-                "baseBespokesingle": 0.012621,
-                "baseBespokesinglestaged": 0.009971,
-                "baseBespokesinglestagedc": 0.005045,
-                "baseBespokesinglestagedcsr": 0.009901,
-                "baseType": 0.309988,
-                "baseStaged": 0.248528,
-                "baseStagedc": 0.096094,
-                "baseStagedcsr": 0.091694
-            }
-        },
-        "prop_UnionUnionAssoc.txt": {
-            "BST": {
-                "baseBespoke": 0.000153,
-                "baseBespokestaged": 0.000186,
-                "baseBespokestagedc": 0.00012,
-                "baseBespokestagedcsr": 0.000123,
-                "baseBespokesingle": 0.00123,
-                "baseBespokesinglestaged": 0.000184,
-                "baseBespokesinglestagedc": 0.000163,
-                "baseBespokesinglestagedcsr": 0.000172,
-                "baseType": 0.009707,
-                "baseStaged": 0.008581,
-                "baseStagedc": 0.001009,
-                "baseStagedcsr": 0.000759
+                "baseBespokestagedc": 0.000148,
+                "baseBespokestagedcsr": 0.000149,
+                "baseType": 0.006517,
+                "baseStaged": 0.003997,
+                "baseStagedc": 0.002594,
+                "baseStagedcsr": 0.002458
             }
         }
     },
-    "insert_2": {
-        "prop_InsertInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000139,
-                "baseBespokestaged": 0.000135,
-                "baseBespokestagedc": 0.000135,
-                "baseBespokestagedcsr": 0.000138,
-                "baseBespokesingle": 0.000242,
-                "baseBespokesinglestaged": 0.000181,
-                "baseBespokesinglestagedc": 0.000147,
-                "baseBespokesinglestagedcsr": 0.00016,
-                "baseType": 0.00014,
-                "baseStaged": 0.000151,
-                "baseStagedc": 0.000156,
-                "baseStagedcsr": 0.000119
+    "shift_var_none": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000252,
+                "baseBespokestaged": 0.000164,
+                "baseBespokestagedc": 0.00016,
+                "baseBespokestagedcsr": 0.000163,
+                "baseType": 0.006456,
+                "baseStaged": 0.003993,
+                "baseStagedc": 0.002593,
+                "baseStagedcsr": 0.002499
             }
         },
-        "prop_InsertDelete.txt": {
-            "BST": {
-                "baseBespoke": 0.0242,
-                "baseBespokestaged": 0.02133,
-                "baseBespokestagedc": 0.014455,
-                "baseBespokestagedcsr": 0.013937,
-                "baseBespokesingle": 0.008171,
-                "baseBespokesinglestaged": 0.004222,
-                "baseBespokesinglestagedc": 0.002826,
-                "baseBespokesinglestagedcsr": 0.004479,
-                "baseType": 0.01694,
-                "baseStaged": 0.013412,
-                "baseStagedc": 0.013545,
-                "baseStagedcsr": 0.009933
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000461,
+                "baseBespokestaged": 0.000247,
+                "baseBespokestagedc": 0.000228,
+                "baseBespokestagedcsr": 0.000239,
+                "baseType": 0.072244,
+                "baseStaged": 0.04369,
+                "baseStagedc": 0.031934,
+                "baseStagedcsr": 0.029513
+            }
+        }
+    },
+    "subst_abs_no_shift": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": "timeout",
+                "baseBespokestaged": "timeout",
+                "baseBespokestagedc": "timeout",
+                "baseBespokestagedcsr": "timeout",
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
             }
         },
-        "prop_UnionDeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.000192,
-                "baseBespokestaged": 0.00022,
-                "baseBespokestagedc": 0.001056,
-                "baseBespokestagedcsr": 0.000174,
-                "baseBespokesingle": 0.000611,
-                "baseBespokesinglestaged": 0.000361,
-                "baseBespokesinglestagedc": 0.000301,
-                "baseBespokesinglestagedcsr": 0.00036,
-                "baseType": 0.000176,
-                "baseStaged": 0.000149,
-                "baseStagedc": 0.000148,
-                "baseStagedcsr": 0.000155
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 44.034484,
+                "baseBespokestaged": 13.751678,
+                "baseBespokestagedc": 13.411997,
+                "baseBespokestagedcsr": 12.879507,
+                "baseType": 0.313028,
+                "baseStaged": 0.183302,
+                "baseStagedc": 0.127724,
+                "baseStagedcsr": 0.118186
             }
-        },
-        "prop_InsertPost.txt": {
-            "BST": {
-                "baseBespoke": 0.002982,
-                "baseBespokestaged": 0.002666,
-                "baseBespokestagedc": 0.001574,
-                "baseBespokestagedcsr": 0.00067,
-                "baseBespokesingle": 0.00041,
-                "baseBespokesinglestaged": 0.000302,
-                "baseBespokesinglestagedc": 0.000201,
-                "baseBespokesinglestagedcsr": 0.001366,
-                "baseType": 0.012603,
-                "baseStaged": 0.010106,
-                "baseStagedc": 0.003188,
-                "baseStagedcsr": 0.003264
+        }
+    },
+    "miscolor_insert": {
+        "prop_InsertValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.000131,
+                "baseBespokestaged": 0.000125,
+                "baseBespokestagedc": 0.000138,
+                "baseBespokestagedcsr": 0.000142,
+                "baseType": 0.000181,
+                "baseStaged": 0.00016,
+                "baseStagedc": 0.000146,
+                "baseStagedcsr": 0.000156
             }
         },
         "prop_DeleteInsert.txt": {
-            "BST": {
-                "baseBespoke": 0.008706,
-                "baseBespokestaged": 0.00955,
-                "baseBespokestagedc": 0.003147,
-                "baseBespokestagedcsr": 0.003223,
-                "baseBespokesingle": 0.001202,
-                "baseBespokesinglestaged": 0.000406,
-                "baseBespokesinglestagedc": 0.000335,
-                "baseBespokesinglestagedcsr": 0.000426,
-                "baseType": 0.010834,
-                "baseStaged": 0.010907,
-                "baseStagedc": 0.004607,
-                "baseStagedcsr": 0.004512
+            "RBT": {
+                "baseBespoke": 0.005744,
+                "baseBespokestaged": 0.005593,
+                "baseBespokestagedc": 0.001951,
+                "baseBespokestagedcsr": 0.001904,
+                "baseType": 0.016451,
+                "baseStaged": 0.014522,
+                "baseStagedc": 0.008771,
+                "baseStagedcsr": 0.008535
+            }
+        }
+    },
+    "miscolor_join_1": {
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.043174,
+                "baseBespokestaged": 0.037787,
+                "baseBespokestagedc": 0.017783,
+                "baseBespokestagedcsr": 0.017058,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "shift_var_leq": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": "timeout",
+                "baseBespokestaged": "timeout",
+                "baseBespokestagedc": "timeout",
+                "baseBespokestagedcsr": "timeout",
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
             }
         },
-        "prop_InsertModel.txt": {
-            "BST": {
-                "baseBespoke": 0.000141,
-                "baseBespokestaged": 0.000148,
-                "baseBespokestagedc": 0.000139,
-                "baseBespokestagedcsr": 0.000144,
-                "baseBespokesingle": 0.000266,
-                "baseBespokesinglestaged": 0.00014,
-                "baseBespokesinglestagedc": 0.000132,
-                "baseBespokesinglestagedcsr": 0.000156,
-                "baseType": 0.00066,
-                "baseStaged": 0.00076,
-                "baseStagedc": 0.000288,
-                "baseStagedcsr": 0.000257
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 43.641259,
+                "baseBespokestaged": 13.877648,
+                "baseBespokestagedc": 13.658736,
+                "baseBespokestagedcsr": 13.085611,
+                "baseType": 0.317542,
+                "baseStaged": 0.182561,
+                "baseStagedc": 0.128868,
+                "baseStagedcsr": 0.117115
+            }
+        }
+    },
+    "substTop_no_shift_back": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000471,
+                "baseBespokestaged": 0.000263,
+                "baseBespokestagedc": 0.000231,
+                "baseBespokestagedcsr": 0.00024,
+                "baseType": 0.075021,
+                "baseStaged": 0.044161,
+                "baseStagedc": 0.031738,
+                "baseStagedcsr": 0.029819
             }
         },
-        "prop_InsertUnion.txt": {
-            "BST": {
-                "baseBespoke": 0.000178,
-                "baseBespokestaged": 0.000176,
-                "baseBespokestagedc": 0.000191,
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000247,
+                "baseBespokestaged": 0.000164,
+                "baseBespokestagedc": 0.000146,
                 "baseBespokestagedcsr": 0.000147,
-                "baseBespokesingle": 0.000166,
-                "baseBespokesinglestaged": 0.000154,
-                "baseBespokesinglestagedc": 0.000162,
-                "baseBespokesinglestagedcsr": 0.00018,
-                "baseType": 0.000742,
-                "baseStaged": 0.000554,
-                "baseStagedc": 0.000264,
-                "baseStagedcsr": 0.000262
+                "baseType": 0.006486,
+                "baseStaged": 0.004014,
+                "baseStagedc": 0.002592,
+                "baseStagedcsr": 0.002484
+            }
+        }
+    },
+    "miscolor_balRight": {
+        "prop_DeleteDelete.txt": {
+            "RBT": {
+                "baseBespoke": 25.884411,
+                "baseBespokestaged": 22.42316,
+                "baseBespokestagedc": 10.832757,
+                "baseBespokestagedcsr": 10.161504,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        },
+        "prop_DeleteValid.txt": {
+            "RBT": {
+                "baseBespoke": 0.016562,
+                "baseBespokestaged": 0.01483,
+                "baseBespokestagedc": 0.008495,
+                "baseBespokestagedcsr": 0.008071,
+                "baseType": "timeout",
+                "baseStaged": "timeout",
+                "baseStagedc": "timeout",
+                "baseStagedcsr": "timeout"
+            }
+        }
+    },
+    "shift_abs_no_incr": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.010648,
+                "baseBespokestaged": 0.00642,
+                "baseBespokestagedc": 0.004765,
+                "baseBespokestagedcsr": 0.004689,
+                "baseType": 0.016295,
+                "baseStaged": 0.011374,
+                "baseStagedc": 0.009066,
+                "baseStagedcsr": 0.008696
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.042201,
+                "baseBespokestaged": 0.016874,
+                "baseBespokestagedc": 0.016866,
+                "baseBespokestagedcsr": 0.016243,
+                "baseType": 0.047009,
+                "baseStaged": 0.029641,
+                "baseStagedc": 0.021797,
+                "baseStagedcsr": 0.020732
+            }
+        }
+    },
+    "subst_var_all": {
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.000244,
+                "baseBespokestaged": 0.000155,
+                "baseBespokestagedc": 0.000156,
+                "baseBespokestagedcsr": 0.000151,
+                "baseType": 0.016692,
+                "baseStaged": 0.011325,
+                "baseStagedc": 0.009201,
+                "baseStagedcsr": 0.008791
+            }
+        },
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.00045,
+                "baseBespokestaged": 0.000257,
+                "baseBespokestagedc": 0.000236,
+                "baseBespokestagedcsr": 0.000234,
+                "baseType": 0.347883,
+                "baseStaged": 0.197237,
+                "baseStagedc": 0.136279,
+                "baseStagedcsr": 0.128485
+            }
+        }
+    },
+    "subst_abs_no_incr": {
+        "prop_MultiPreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.042008,
+                "baseBespokestaged": 0.016992,
+                "baseBespokestagedc": 0.01683,
+                "baseBespokestagedcsr": 0.01638,
+                "baseType": 0.337359,
+                "baseStaged": 0.196296,
+                "baseStagedc": 0.139151,
+                "baseStagedcsr": 0.128451
+            }
+        },
+        "prop_SinglePreserve.txt": {
+            "STLC": {
+                "baseBespoke": 0.01055,
+                "baseBespokestaged": 0.006467,
+                "baseBespokestagedc": 0.004921,
+                "baseBespokestagedcsr": 0.004738,
+                "baseType": 0.016271,
+                "baseStaged": 0.011295,
+                "baseStagedc": 0.00925,
+                "baseStagedcsr": 0.008825
             }
         }
     }

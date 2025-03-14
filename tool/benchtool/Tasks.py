@@ -138,4 +138,6 @@ stlc = {
     'substTop_no_shift_back': ["SinglePreserve", "MultiPreserve"],
 } 
 
-tasks = {'BST': bst, 'RBT': {**bst, **redblack}, 'STLC': stlc}
+tasks = {'BST': bst, 'RBT': {
+    # **bst, 
+    **redblack}, 'STLC': stlc}

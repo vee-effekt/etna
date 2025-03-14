@@ -9,21 +9,21 @@ REPLACE = False
 
 WORKLOADS = ['BST']
 STRATEGIES : list[PBTGenerator] = [
-    PBTGenerator('base', 'bespoke'),
-    PBTGenerator('base', 'bespokeStaged'),
-    PBTGenerator('base', 'bespokeStagedC'),
-    PBTGenerator('base', 'bespokeStagedCSR'),
-    PBTGenerator('base', 'bespokeSingle'),
-    PBTGenerator('base', 'bespokeSingleStaged'),
-    PBTGenerator('base', 'bespokeSingleStagedC'),
-    PBTGenerator('base', 'bespokeSingleStagedCSR'),
+    # PBTGenerator('base', 'bespoke'),
+    # PBTGenerator('base', 'bespokeStaged'),
+    # PBTGenerator('base', 'bespokeStagedC'),
+    # PBTGenerator('base', 'bespokeStagedCSR'),
+    # PBTGenerator('base', 'bespokeSingle'),
+    # PBTGenerator('base', 'bespokeSingleStaged'),
+    # PBTGenerator('base', 'bespokeSingleStagedC'),
+    # PBTGenerator('base', 'bespokeSingleStagedCSR'),
     PBTGenerator('base', 'type'),
     PBTGenerator('base', 'staged'),
     PBTGenerator('base', 'stagedC'),
     PBTGenerator('base', 'stagedCSR'),
 ]
 
-TRIALS = 1
+TRIALS = 3
 TIMEOUT = 65
 
 def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
