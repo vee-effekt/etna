@@ -1,22 +1,24 @@
 import argparse
 import os
+import multiprocessing
+import time
 from benchtool.OCaml import OCaml
-from benchtool.Types import BuildConfig, ReplaceLevel, TrialConfig, PBTGenerator
+from benchtool.Types import BuildConfig, ReplaceLevel, TrialConfig, PBTGenerator, LogLevel
 from benchtool.Tasks import tasks
 
 DEFAULT_DIR = 'oc3'
 REPLACE = False
 
-WORKLOADS = ['BST']
+WORKLOADS = ['BST', 'RBT', 'STLC']
 STRATEGIES : list[PBTGenerator] = [
-    # PBTGenerator('base', 'bespoke'),
-    # PBTGenerator('base', 'bespokeStaged'),
-    # PBTGenerator('base', 'bespokeStagedC'),
-    # PBTGenerator('base', 'bespokeStagedCSR'),
-    # PBTGenerator('base', 'bespokeSingle'),
-    # PBTGenerator('base', 'bespokeSingleStaged'),
-    # PBTGenerator('base', 'bespokeSingleStagedC'),
-    # PBTGenerator('base', 'bespokeSingleStagedCSR'),
+    PBTGenerator('base', 'bespoke'),
+    PBTGenerator('base', 'bespokeStaged'),
+    PBTGenerator('base', 'bespokeStagedC'),
+    PBTGenerator('base', 'bespokeStagedCSR'),
+    PBTGenerator('base', 'bespokeSingle'),
+    PBTGenerator('base', 'bespokeSingleStaged'),
+    PBTGenerator('base', 'bespokeSingleStagedC'),
+    PBTGenerator('base', 'bespokeSingleStagedCSR'),
     PBTGenerator('base', 'type'),
     PBTGenerator('base', 'staged'),
     PBTGenerator('base', 'stagedC'),
@@ -46,15 +48,14 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                         no_base=True,
                     ))
 
-            for property in tool.all_properties(workload):
-                for strategy in strategies:
+            for strategy in strategies:
+                processes = []
+                for property in tool.all_properties(workload):
                     if workload.name in ['BST',
                                          'RBT',
                                          'STLC']:
                         if property.split('_')[1] not in tasks[workload.name][variant.name]:
                             continue
-
-
 
                     cfg = TrialConfig(workload=workload,
                                         strategy=strategy.strategy,
@@ -65,8 +66,24 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                                         timeout=TIMEOUT,
                                         short_circuit=False)
 
-                    run_trial(cfg)
+                    p = multiprocessing.Process(
+                        target=run_process_trial,
+                        args=(run_trial, cfg, strategy.framework + strategy.strategy)
+                    )
+                    processes.append(p)
+                    p.start()
+                
+                for p in processes:
+                    p.join()
+                tool._log(f"All trials for all properties for workload={workload.name}, variant={variant.name}, strategy={strategy.name} completed",LogLevel.INFO)
 
+
+def run_process_trial(trial_func, config, label):
+    try:
+        result = trial_func(config)
+        return result
+    except Exception as e:
+        raise
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
