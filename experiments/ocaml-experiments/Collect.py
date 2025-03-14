@@ -55,10 +55,12 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                                          'RBT',
                                          'STLC']:
                         props_to_run = dict(tasks[workload.name][variant.name])
-                        if property.split('_')[1] not in props_to_run.keys():
+                        property_name = property.split('_')[1]
+                        if property_name not in props_to_run.keys():
                             continue
-                        excluded_strats = props_to_run[property.split('_')[1]]
+                        excluded_strats = props_to_run[property_name]
                         if strategy.strategy in excluded_strats: 
+                            tool._log(f"Strategy {strategy.framework + strategy.strategy.capitalize()} excluded from run for {workload.name},{variant.name},{property}",LogLevel.INFO)
                             continue
 
                     cfg = TrialConfig(workload=workload,
