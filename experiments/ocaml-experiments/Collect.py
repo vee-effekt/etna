@@ -75,7 +75,7 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                 
                 for p in processes:
                     p.join()
-                tool._log(f"All trials for all properties for workload={workload.name}, variant={variant.name}, strategy={strategy.name} completed",LogLevel.INFO)
+                tool._log(f"All trials for all properties for workload={workload.name}, variant={variant.name}, strategy={strategy.framework + strategy.strategy} completed",LogLevel.INFO)
 
 
 def run_process_trial(trial_func, config, label):
