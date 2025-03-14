@@ -37,18 +37,21 @@ class OCaml(BenchTool):
     def _build(self, cfg: BuildConfig):
         with self._change_dir(cfg.path):
             self._shell_command(['dune', 'build'])
+
     def _run_trial(self, workload_path: str, params: TrialArgs):
         def reformat(filename):
             if filename.endswith('.json'):
                 new_filename = os.path.splitext(filename)[0] + '.txt'
                 os.rename(filename, new_filename)
+
         with self._change_dir(workload_path):
             for _ in range(params.trials):
                 # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
                 # seed = random.randint(0, 1_000_000)
                 seed = 33
-                self._shell_command(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file, str(seed)])
-        reformat(params.file)
+                cmd = ['./_build/default/bin/main.exe',  params.framework, params.property, params.strategy, params.file, str(seed)]
+                self._shell_command(cmd)
+            reformat(params.file)
 
 
     def _preprocess(self, workload: Entry) -> None:

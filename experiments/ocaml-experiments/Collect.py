@@ -54,7 +54,11 @@ def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
                     if workload.name in ['BST',
                                          'RBT',
                                          'STLC']:
-                        if property.split('_')[1] not in tasks[workload.name][variant.name]:
+                        props_to_run = dict(tasks[workload.name][variant.name])
+                        if property.split('_')[1] not in props_to_run.keys():
+                            continue
+                        excluded_strats = props_to_run[property.split('_')[1]]
+                        if strategy.strategy in excluded_strats: 
                             continue
 
                     cfg = TrialConfig(workload=workload,
