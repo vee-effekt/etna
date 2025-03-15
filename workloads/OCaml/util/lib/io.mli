@@ -1,10 +1,10 @@
 val bmain :
-  string ->
+  seed:string ->
   out_channel ->
-  string ->
-  (string * 'a Runner.property) list ->
-  string ->
-  (string * 'a Runner.basegen) list ->
+  test:string ->
+  properties:(string * 'a Runner.property) list ->
+  strategy:string ->
+  strategies:(string * 'a Runner.basegen) list ->
   unit
 
 val main :

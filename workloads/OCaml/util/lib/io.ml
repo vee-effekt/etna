@@ -4,17 +4,17 @@ open Parse
 (* global timeout in seconds for test threads *)
 let timeout = ref 60
 
-let brun (p : 'a property) (g : 'a basegen) (s : string) : unit = p.b g p.name s ()
+let brun (p : 'a property) (g : 'a basegen) ~seed : unit = p.b ~generator:g ~name:p.name ~seed:seed ()
 
-let bmain seed oc t ts s ss =
-  let t' = lookup ts t in
-  let s' = lookup ss s in
-  match (t', s') with
-  | None, _ -> Printf.printf "Test %s not found\n" t
-  | _, None -> Printf.printf "Strategy %s not found\n" s
-  | Some t', Some s' ->
+let bmain ~seed oc ~test ~properties ~strategy ~strategies =
+  let prop = lookup properties test in
+  let gen = lookup strategies strategy in
+  match (prop, gen) with
+  | None, _ -> Printf.printf "Test %s not found\n" test
+  | _, None -> Printf.printf "Strategy %s not found\n" strategy
+  | Some prop, Some gen ->
       let start_time = Unix.gettimeofday () in
-      brun t' s' seed;
+      brun prop gen ~seed;
       let end_time = Unix.gettimeofday () in
       Printf.fprintf oc "[exit ok, %f duration %s]\n" (end_time -. start_time) seed;
       (* Printf.fprintf oc "[%f end %s]\n" end_time seed; *)
@@ -51,8 +51,8 @@ let bmain seed oc t ts s ss =
             | _ -> Printf.fprintf oc "[exit unexpected]\n"));
             flush oc
   
-let base_fork seed t ts s ss = _simple_fork (fun oc ->
-  bmain seed oc t ts s ss)
+let base_fork ~seed ~test ~properties ~strategy ~strategies = _simple_fork (fun oc ->
+  bmain ~seed oc ~test ~properties ~strategy ~strategies)
 
 (* Call format:
    dune exec <workload> -- <framework> <testname> <strategy> <filename>
@@ -83,7 +83,7 @@ let main (props : (string * 'a property) list)
     match framework with
     | "base" ->
         print_endline "Valid framework Base_quickcheck\n";
-        base_fork seed testname props strategy bstrats filename
+        base_fork ~seed ~test:testname ~properties:props ~strategy ~strategies:bstrats filename
     | _ -> print_endline ("Framework " ^ framework ^ " was not found\n")
 
 let etna = main

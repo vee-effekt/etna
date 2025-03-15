@@ -15,7 +15,7 @@ let ( ->> ) pre post = Pre (pre, Post post)
 
 type 'a property = {
   name : string;
-  b : 'a basegen -> string -> string -> btest;
+  b : generator:'a basegen -> name:string -> seed:string -> btest;
 }
 
 let rec bmake (t : test) : unit Base.Or_error.t =
@@ -40,11 +40,12 @@ let rec bmake (t : test) : unit Base.Or_error.t =
   | Error (_,err) -> print_endline "bug found!";
                      print_endline (Base.Error.to_string_hum err)
 
-let bbuild (type b) (g : b basegen) (f : b -> unit Base.Or_error.t) ?(seed : string option = None) : string -> btest =
-  fun _ () ->
+let bbuild (type b) (g : b basegen) (f : b -> unit Base.Or_error.t) ?(seed : string option = None) : name:string -> btest =
+  fun ~name:_ () ->
     let seed_config =
       match seed with
-      | Some s when not (String.equal s "") -> Base_quickcheck.Test.Config.Seed.Deterministic s
+      | Some s when not (String.equal s "") ->
+        Base_quickcheck.Test.Config.Seed.Deterministic s
       | _ -> Base_quickcheck.Test.Config.Seed.Nondeterministic
     in
     let module G = (val g : Base_quickcheck.Test.S with type t = b) in
