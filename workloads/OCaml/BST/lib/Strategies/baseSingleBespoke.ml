@@ -8,20 +8,22 @@ module BQ = Fast_gen.Bq_generator;;
 
 type t = Type.tree [@@deriving sexp, quickcheck]
 
-let rec gen ~(lo: int) ~(hi: int) ~size =
-  if lo >= hi || size <= 1 
+open BQ.Let_syntax
+
+let rec gen ~(lo: int) ~(hi: int)  =
+  let%bind sz = size in
+  if lo >= hi || sz <= 1 
     then return E
   else
     weighted_union [
       (1., return E);
-      (float_of_int size, (
-        let open BQ.Let_syntax in
+      (float_of_int sz , (
         let%bind k = int_inclusive ~lo ~hi in
         let%bind v = (Nat.quickcheck_generator_parameterized bst_bespoke_limits) in
-        let%bind left = gen ~lo:lo ~hi:(k - 1) ~size:(size / 2) in
-        let%bind right = gen ~lo:(k + 1) ~hi:hi ~size:(size / 2) in
+        let%bind left = with_size (gen ~lo:lo ~hi:(k - 1)) ~size_c:(sz / 2) in
+        let%bind right = with_size (gen ~lo:(k + 1) ~hi:hi) ~size_c:(sz / 2) in
         return (T (left, k, v, right))  
       ))
     ]
 
-  let quickcheck_generator = gen ~lo:0 ~hi:(bst_bespoke_limits) ~size:10
+  let quickcheck_generator = gen ~lo:0 ~hi:(bst_bespoke_limits)
