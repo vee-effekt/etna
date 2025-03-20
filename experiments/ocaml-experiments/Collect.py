@@ -25,11 +25,11 @@ STRATEGIES : list[PBTGenerator] = [
     PBTGenerator('base', 'stagedCSR'),
 ]
 
-TRIALS = 3
+TRIALS = 1
 TIMEOUT = 65
 
-def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES):
-    tool = OCaml(directory, replace_level=ReplaceLevel.REPLACE if REPLACE else ReplaceLevel.SKIP)
+def collect(directory: str, workloads=WORKLOADS, strategies=STRATEGIES, seed=53503520):
+    tool = OCaml(directory, seed, replace_level=ReplaceLevel.REPLACE if REPLACE else ReplaceLevel.SKIP)
 
     for workload in tool.all_workloads():
         if workload.name not in workloads:
@@ -96,8 +96,12 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--data', help='path to folder for JSON data')
     p.add_argument('--workload', help='single workload to run')
+    p.add_argument('--seed', type=int, help='random seed for trials', default=53503520)
     args = p.parse_args()
+    
     dir = args.data if args.data else DEFAULT_DIR
     workloads = [args.workload] if args.workload else WORKLOADS
+    seed = args.seed  # Store the seed
+
     results_path = f'{os.getcwd()}/{dir}'
-    collect(results_path, workloads = workloads)
+    collect(results_path, workloads=workloads, seed=seed)

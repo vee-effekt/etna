@@ -15,7 +15,7 @@ SPEC_PATH = 'lib/spec.ml'
 
 class OCaml(BenchTool):
 
-    def __init__(self, results: str, log_level: LogLevel = LogLevel.INFO, replace_level: ReplaceLevel = ReplaceLevel.REPLACE):
+    def __init__(self, results: str, seed: int, log_level: LogLevel = LogLevel.DEBUG, replace_level: ReplaceLevel = ReplaceLevel.REPLACE):
         super().__init__(
             Config(start='(*',
                    end='*)',
@@ -25,7 +25,8 @@ class OCaml(BenchTool):
                    strategies=STRATEGIES_DIR,
                    impl_path=IMPL_PATH,
                    spec_path=SPEC_PATH), results, log_level, replace_level)
-
+        self.seed = seed  # Store the passed-in seed
+        
     def all_properties(self, workload: Entry) -> list[Entry]:
         spec = os.path.join(workload.path, self._config.spec_path)
         with open(spec) as f:
@@ -45,14 +46,12 @@ class OCaml(BenchTool):
                 os.rename(filename, new_filename)
 
         with self._change_dir(workload_path):
+            self._log(f"Running trial for workload={params.workload} using seed={self.seed}", LogLevel.DEBUG)  # Log before executing
+
             for _ in range(params.trials):
-                # print(f"Executing command {' '.join(['dune', 'exec',  params.workload, '--', params.framework, params.property, params.strategy, params.file])}")
-                # seed = random.randint(0, 1_000_000)
-                seed = 42
-                cmd = ['./_build/default/bin/main.exe',  params.framework, params.property, params.strategy, params.file, str(seed)]
+                cmd = ['./_build/default/bin/main.exe', params.framework, params.property, params.strategy, params.file, str(self.seed)]
                 self._shell_command(cmd)
             reformat(params.file)
-
 
     def _preprocess(self, workload: Entry) -> None:
         pass
