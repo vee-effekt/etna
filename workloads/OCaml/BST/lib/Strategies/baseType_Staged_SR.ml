@@ -44,6 +44,6 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.Sr_random)
               ~f:(fun x -> G.if_z x _gen__002_ _gen__003_))
 
   let quickcheck_generator = 
-    G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/BST/_build/default/lib/.BST.objs/byte"] staged_code
+    G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/BST/_build/default/lib/.BST.objs/byte"] staged_code
     
   let sexp_of_t = sexp_of_t

@@ -93,6 +93,6 @@ let genExpr =
   let%bind t = genTyp in
   genExactExpr n .<[]>. t
 
-let quickcheck_generator = G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/STLC/_build/default/lib/.STLC.objs/byte"] genExpr
+let quickcheck_generator = G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/STLC/_build/default/lib/.STLC.objs/byte"] genExpr
 
 let sexp_of_t = sexp_of_t

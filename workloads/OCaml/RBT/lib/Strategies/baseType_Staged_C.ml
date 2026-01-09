@@ -60,6 +60,6 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_random)
   
   let quickcheck_generator = quickcheck_generator
   
-  let quickcheck_generator = G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/RBT/_build/default/lib/.RBT.objs/byte"] staged_code
+  let quickcheck_generator = G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/RBT/_build/default/lib/.RBT.objs/byte"] staged_code
   
   let sexp_of_t = sexp_of_t

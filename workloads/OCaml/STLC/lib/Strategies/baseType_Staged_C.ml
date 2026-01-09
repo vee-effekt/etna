@@ -87,5 +87,5 @@ let staged_code =
                [_pair__042_; _pair__043_; _pair__044_; _pair__045_] in
            G.bind G.size
              ~f:(fun x -> G.if_z x _gen__040_ _gen__041_))
-let quickcheck_generator = G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/STLC/_build/default/lib/.STLC.objs/byte"] staged_code
+let quickcheck_generator = G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/STLC/_build/default/lib/.STLC.objs/byte"] staged_code
 let sexp_of_t = sexp_of_t

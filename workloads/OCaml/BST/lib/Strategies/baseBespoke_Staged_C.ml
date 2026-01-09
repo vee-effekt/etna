@@ -11,4 +11,4 @@ let staged_code =
   ~f:(fun l -> return .< repeat_insert .~l >.)
 
 let quickcheck_generator = 
-  G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/BST/_build/default/lib/.BST.objs/byte"] staged_code
+  G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/BST/_build/default/lib/.BST.objs/byte"] staged_code

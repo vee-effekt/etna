@@ -58,6 +58,6 @@ module G = Fast_gen.Staged_generator.MakeStaged(Fast_gen.C_sr_dropin_random)
              G.weighted_union [_pair__015_; _pair__016_] in
            G.bind G.size
              ~f:(fun x -> G.if_z x _gen__013_ _gen__014_))
-  let quickcheck_generator = G.jit ~extra_cmi_paths:["/home/ubuntu/etna2/workloads/OCaml/RBT/_build/default/lib/.RBT.objs/byte"] staged_code
+  let quickcheck_generator = G.jit ~extra_cmi_paths:["/ff_artifact/artifact/etna/workloads/OCaml/RBT/_build/default/lib/.RBT.objs/byte"] staged_code
   
   let sexp_of_t = sexp_of_t
